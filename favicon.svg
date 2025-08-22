@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <!-- Fondo oscuro sutil -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#0f1520"/>
+    </linearGradient>
+    <!-- Degradado de marca -->
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b7cfa"/>
+      <stop offset="0.55" stop-color="#a073ff"/>
+      <stop offset="1" stop-color="#3fd0ff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Lienzo con esquinas redondeadas -->
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+
+  <!-- Borde luminoso fino -->
+  <rect x="8" y="8" width="240" height="240" rx="48"
+        fill="none" stroke="url(#g)" stroke-width="2" opacity=".55"/>
+
+  <!-- Monograma MTH ajustado al ancho seguro -->
+  <g font-family="Inter, Segoe UI, Roboto, Arial, sans-serif"
+     font-weight="900" text-anchor="middle">
+    <!-- Sombra suave para legibilidad -->
+    <text x="128" y="168"
+          font-size="112"
+          textLength="184" lengthAdjust="spacingAndGlyphs"
+          style="paint-order:stroke; stroke:#ffffff0d; stroke-width:3"
+          fill="url(#g)">MTH</text>
+  </g>
+</svg>
