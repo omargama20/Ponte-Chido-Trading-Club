@@ -3,16 +3,32 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ponte Chido Trading Club | Comunidad, IB, Copytrade, Señales y Curso Algorítmico – Omar Gama</title>
-  <meta name="description" content="Únete a Ponte Chido Trading Club: comunidad, acceso a ser IB de un broker prime, copytrade, canal de señales y curso de trading algorítmico (coming soon). Estilo visual tipo TradingView." />
+  <title>My Trader Hub | Comunidad, IB, Copytrade, Señales y Curso Algorítmico – Omar Gama</title>
+  <meta name="description" content="Únete a My Trader Hub: comunidad, acceso a ser IB de un broker prime, copytrade, canal de señales y curso de trading algorítmico (coming soon). Estilo visual premium tipo TradingView, glass y bordes degradados." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    :root{ --bg:#0d1117; --panel:#111823; --panel-2:#0f1520; --stroke:#1b2433; --txt:#e5e7eb; --muted:#9aa4b2; --accent:#3861fb; --accent-2:#17a2ff; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px; }
+    :root{
+      --bg:#0d1117; --panel:#111823; --panel-2:#0f1520; --stroke:#1b2433;
+      --txt:#e5e7eb; --muted:#9aa4b2; --accent:#3861fb; --accent-2:#17a2ff;
+      --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px;
+      /* paleta elegante / contacto */
+      --brand-1:#5b7cfa; --brand-2:#a073ff; --brand-3:#3fd0ff;
+      --glass: rgba(255,255,255,.04);
+      --glass-stroke: rgba(255,255,255,.08);
+    }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{ margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial; background: radial-gradient(1200px 800px at 20% -10%, rgba(56,97,251,.06), transparent 60%), radial-gradient(1000px 600px at 120% -10%, rgba(23,162,255,.06), transparent 60%), var(--bg); color:var(--txt); }
+    body{
+      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial;
+      background:
+        radial-gradient(1200px 800px at 20% -10%, rgba(56,97,251,.06), transparent 60%),
+        radial-gradient(1000px 600px at 120% -10%, rgba(23,162,255,.06), transparent 60%),
+        var(--bg);
+      color:var(--txt);
+    }
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
     .wrap{max-width:1180px; margin:0 auto; padding:0 20px}
@@ -36,15 +52,26 @@
     .btn.sm{padding:6px 10px; font-size:12px; border-radius:10px}
     .pill{font-size:12px; color:#cbd5e1; border:1px solid var(--stroke); padding:4px 8px; border-radius:999px}
 
+    /* spacing header→hero */
+    .header + .hero{ margin-top:22px; }
+
     /* Hero */
-    .hero{padding:48px 0 30px; border-bottom:1px solid var(--stroke); position:relative; overflow:hidden; background:var(--bg);}
-    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:24px}
-    .headline{font-size:100px; line-height:1.05; letter-spacing:-.8px; margin:0 0 12px}
-    .headline strong{background:linear-gradient(90deg,#4f7dff 0%,#9b44ff 50%,#17a2ff 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 24px rgba(56,97,251,.15))}
-    .sub{color:var(--muted); font-size:16px}
+    .hero{padding:72px 0 52px; border-bottom:1px solid var(--stroke); position:relative; overflow:visible; background:var(--bg);}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px}
+    .headline{ font-size:100px; line-height:1.06; letter-spacing:-.8px; margin:0 0 22px; }
+    .headline strong{
+      background:linear-gradient(90deg,#4f7dff 0%,#9b44ff 50%,#17a2ff 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+      white-space:nowrap; display:block; line-height:1; 
+      margin-top:-0.18em;            /* <-- más aire entre líneas */
+      padding-bottom:.34em;           /* no recorte inferior */
+      filter:drop-shadow(0 6px 24px rgba(56,97,251,.15));
+    }
+    @media (min-width:980px){ .headline strong{font-size:.86em; letter-spacing:-.6px} }
+    .sub{color:var(--muted); font-size:16px; margin-top:6px}
     .cta{display:flex; gap:12px; margin:20px 0 10px; flex-wrap:wrap}
 
-    /* Mini cards for hero value props */
+    /* Mini cards (hero value props) */
     .value-cards{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px}
     .vcard{display:flex; gap:12px; padding:14px; border:1px solid var(--stroke); border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10)); align-items:flex-start}
     .vicon{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 6px 18px rgba(56,97,251,.25)}
@@ -88,22 +115,30 @@
     .footer{padding:32px 0 80px; border-top:1px solid var(--stroke); color:var(--muted)}
     .risk{font-size:12px; line-height:1.6}
 
-    /* ====== Requested tweaks ====== */
-    /* Copytrade badge + aurora bg */
+    /* ====== Títulos de secciones ====== */
+    #copytrade > .wrap > h3{
+      font-size:28px; letter-spacing:-.2px; margin:10px 0 18px;
+      background:linear-gradient(90deg, #9bb5ff 0%, #b388ff 45%, #6ad2ff 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    #senales > .panel:first-child h3{font-size:32px; letter-spacing:-.2px}
+    #curso h3{font-size:34px; letter-spacing:-.2px}
+
+    /* ====== Aurora para Copytrade ====== */
     #copytrade{position:relative; overflow:hidden}
     #copytrade .badge{font-size:14px; padding:8px 12px; border-radius:12px; font-weight:800; background:linear-gradient(90deg, rgba(56,97,251,.28), rgba(155,68,255,.28)); border-color:rgba(56,97,251,.55)}
-    #copytrade::before{content:""; position:absolute; inset:-20%; pointer-events:none; z-index:0; filter:blur(30px) saturate(120%); background:
-      radial-gradient(600px 320px at 20% 30%, rgba(56,97,251,.15), transparent 60%),
-      radial-gradient(700px 380px at 80% 70%, rgba(155,68,255,.12), transparent 60%),
-      radial-gradient(520px 300px at 50% 120%, rgba(23,162,255,.10), transparent 60%);
-      animation:aurora 14s ease-in-out infinite alternate}
+    #copytrade::before{
+      content:""; position:absolute; inset:-20%; pointer-events:none; z-index:0; filter:blur(30px) saturate(120%);
+      background:
+        radial-gradient(600px 320px at 20% 30%, rgba(56,97,251,.15), transparent 60%),
+        radial-gradient(700px 380px at 80% 70%, rgba(155,68,255,.12), transparent 60%),
+        radial-gradient(520px 300px at 50% 120%, rgba(23,162,255,.10), transparent 60%);
+      animation:aurora 14s ease-in-out infinite alternate
+    }
     #copytrade > .wrap{position:relative; z-index:1}
     @keyframes aurora{from{transform:translateY(0)} to{transform:translateY(-20px)}}
 
-    /* Título Copytrade (mediano con degradado) */
-    #copytrade > .wrap > h3{font-size:28px; letter-spacing:-.2px; margin:10px 0 18px; background:linear-gradient(90deg, #9bb5ff 0%, #b388ff 45%, #6ad2ff 100%); -webkit-background-clip:text; background-clip:text; color:transparent;}
-
-    /* Gradient OUTLINE ONLY (sin rellenar) con borde un poco más grueso */
+    /* ====== Gradient OUTLINE ONLY – 2px (legacy) ====== */
     .panel.gradient-outline,
     .steps-grid .step{
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10));
@@ -111,11 +146,75 @@
     }
     .panel.gradient-outline::before,
     .steps-grid .step::before{
-      content: ""; position: absolute; inset: -2px; /* grosor base */ border-radius: inherit; padding: 2px; /* Borde más grueso */
+      content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px;
       background: linear-gradient(120deg, #3861fb, #9b44ff 60%, #17a2ff);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: 0;
     }
+
+    /* === Elevation pack — Glass + borde degradado fino, consistente con Contacto === */
+    .card-glass{position: relative; background: var(--glass); border-radius: 20px; border:1px solid transparent; box-shadow: 0 10px 30px rgba(0,0,0,.25);}
+    .card-glass::before{
+      content:""; position:absolute; inset:-2px; border-radius:22px; padding:2px;
+      background: linear-gradient(120deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3));
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;
+    }
+    .card-glass.thin{ background:var(--glass); backdrop-filter: blur(8px); border:1px solid transparent; }
+    .card-glass.thin::before{ inset:-1.5px; padding:1.5px; opacity:.9; }
+    .card-glass.micro{ border-radius:16px; }
+    .card-glass.micro::before{ border-radius:18px; inset:-1.2px; padding:1.2px; }
+    .elev{ box-shadow:0 10px 30px rgba(0,0,0,.22); transition:transform .18s ease, box-shadow .18s ease; }
+    .elev:hover{ transform:translateY(-1px); box-shadow:0 14px 40px rgba(0,0,0,.28); }
+    .h-section{ font-size:28px; letter-spacing:-.2px; margin:8px 0 16px; background:linear-gradient(90deg,#cfe1ff,#fff 60%); -webkit-background-clip:text; color:transparent; }
+    .vcard{ border:1px solid var(--glass-stroke) !important; background:rgba(255,255,255,.03) !important; }
+    .vcard.card-glass.micro .vicon{ position:relative; overflow:hidden }
+    .vcard.card-glass.micro .vicon::after{ content:""; position:absolute; inset:-8px; border-radius:inherit; z-index:-1; background:radial-gradient(80px 80px at 30% 30%, rgba(91,124,250,.35), transparent 60%); }
+    .panel.market-glass{ background:rgba(255,255,255,.03); border:1px solid var(--glass-stroke); }
+    .btn--grad{ background: linear-gradient(90deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3)); border:none; color:#0b1220; font-weight:800;}
+    .btn--grad:hover{ filter:brightness(1.05) saturate(1.06); transform:translateY(-1px); }
+    .section-tight{ padding:30px 0; }
+    .steps-grid .step{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
+    .panel.fine{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
+
+    /* ===== Theme Elegante para CONTACTO ===== */
+    .section-aurora{
+      position: relative; isolation:isolate; overflow: clip;
+      background:
+        radial-gradient(700px 380px at 10% 20%, rgba(91,124,250,.14), transparent 60%),
+        radial-gradient(680px 360px at 80% 80%, rgba(160,115,255,.12), transparent 60%),
+        radial-gradient(520px 300px at 60% -10%, rgba(63,208,255,.10), transparent 60%),
+        var(--bg);
+    }
+    .contact-v2{ padding: 48px 0 36px; }
+    .contact-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap:22px; align-items:stretch; }
+    @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
+    .contact-info{ padding:22px; border-radius:20px; border:1px solid var(--glass-stroke); backdrop-filter: blur(8px); }
+    .contact-kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px}
+    .contact-kpi{ background:rgba(255,255,255,.03); border:1px solid var(--glass-stroke); border-radius:14px; padding:12px; text-align:center; }
+    .contact-kpi strong{ display:block; font-size:18px }
+    .contact-kpi span{ color:var(--muted); font-size:12px }
+    .form-elegant{ padding:22px; }
+    .form-elegant .field label{ font-size:12px; color:var(--muted) }
+    .form-elegant input, .form-elegant textarea, .form-elegant select{
+      background:rgba(10,16,24,.9); border:1px solid var(--glass-stroke);
+      color:var(--txt); padding:12px 12px; border-radius:12px; font-size:14px;
+      outline:none; transition:border-color .2s, box-shadow .2s;
+    }
+    .form-elegant input:focus, .form-elegant textarea:focus, .form-elegant select:focus{
+      border-color:rgba(91,124,250,.6);
+      box-shadow:0 0 0 3px rgba(91,124,250,.18);
+    }
+    .badge-soft{
+      display:inline-block; font-weight:700; font-size:12px; padding:6px 10px; border-radius:999px;
+      background: linear-gradient(90deg, rgba(91,124,250,.18), rgba(160,115,255,.18));
+      border:1px solid rgba(91,124,250,.35); color:#cfe1ff;
+    }
+    .h-elegant{ margin:10px 0 6px; font-size:28px; letter-spacing:-.2px; background:linear-gradient(90deg, #cfe1ff, #ffffff 60%); -webkit-background-clip:text; color:transparent; }
+    .subtle{ color:var(--muted); margin:0 0 12px; }
+    .contact-list{ display:grid; gap:10px; margin-top:14px }
+    .contact-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-stroke); background: rgba(255,255,255,.02); }
+    .contact-ico{ width:32px; height:32px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--brand-1), var(--brand-3)); color:#07111f; font-weight:800; }
   </style>
 </head>
 <body>
@@ -124,9 +223,29 @@
   <section class="market-strip">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Quotes by TradingView</span></a></div>
+      <div class="tradingview-widget-copyright">
+        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+          <span class="blue-text">Quotes by TradingView</span></a>
+      </div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
-      {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500 Index"},{"proName":"FX_IDC:EURUSD","title":"EUR to USD"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},{"proName":"OANDA:XAUUSD","title":"XAUUSD"},{"proName":"OANDA:GBPUSD","title":"GBPUSD"},{"proName":"OANDA:USDJPY","title":"USDJPY"},{"proName":"OANDA:AUDUSD","title":"AUDUSD"},{"proName":"OANDA:CHFJPY","title":"CHFJPY"}],"colorTheme":"dark","locale":"en","largeChartUrl":"","isTransparent":false,"showSymbolLogo":true}
+      {
+        "symbols": [
+          {"proName":"FOREXCOM:SPXUSD","title":"S&P 500 Index"},
+          {"proName":"FX_IDC:EURUSD","title":"EUR to USD"},
+          {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
+          {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
+          {"proName":"OANDA:XAUUSD","title":"XAUUSD"},
+          {"proName":"OANDA:GBPUSD","title":"GBPUSD"},
+          {"proName":"OANDA:USDJPY","title":"USDJPY"},
+          {"proName":"OANDA:AUDUSD","title":"AUDUSD"},
+          {"proName":"OANDA:CHFJPY","title":"CHFJPY"}
+        ],
+        "colorTheme":"dark",
+        "locale":"en",
+        "largeChartUrl":"",
+        "isTransparent":false,
+        "showSymbolLogo":true
+      }
       </script>
     </div>
   </section>
@@ -137,7 +256,7 @@
       <a class="brand" href="#top" aria-label="Inicio">
         <div class="logo" aria-hidden="true"></div>
         <div>
-          <h1>Ponte Chido Trading Club</h1>
+          <h1>My Trader Hub</h1>
           <span>by Omar Gama</span>
         </div>
       </a>
@@ -156,28 +275,88 @@
     <div class="wrap hero-grid">
       <div>
         <div class="badge">Comunidad • Formación • Herramientas</div>
-        <h2 class="headline">Bienvenido a <strong>Ponte Chido Trading Club</strong></h2>
+        <h2 class="headline">Bienvenido a <strong>My Trader Hub</strong></h2>
         <p class="sub">Accede a beneficios reales: <strong>Programa IB</strong> con broker prime, <strong>Copytrade</strong>, <strong>Canal de señales</strong> y <strong>Curso de Trading Algorítmico</strong> <span class="pill">Coming soon</span>. Todo con un ecosistema y soporte guiado por Omar Gama.</p>
         <div class="cta">
-          <a class="btn primary" href="#lead">Unirme a la comunidad</a>
+          <a class="btn btn--grad" href="#lead">Unirme a la comunidad</a>
           <a class="btn" href="#copytrade">Ver beneficios</a>
         </div>
+
+        <!-- Tarjetas hero (glass) -->
         <div class="value-cards">
-          <article class="vcard"><div class="vicon" aria-hidden="true">💼</div><div><h4>Programa IB</h4><p>Acceso a broker prime y materiales para crecer como socio.</p><div class="mini"><a class="btn sm" href="#ib">Ser IB</a></div></div></article>
-          <article class="vcard"><div class="vicon" aria-hidden="true">🔁</div><div><h4>Copytrade</h4><p>Conecta tu cuenta y replica estrategias seleccionadas.</p><div class="mini"><a class="btn sm" href="#copytrade">Conectar</a></div></div></article>
-          <article class="vcard"><div class="vicon" aria-hidden="true">📈</div><div><h4>Canal de señales</h4><p>Entradas, SL y gestión con contexto SMC.</p><div class="mini"><a class="btn sm" href="#senales">Unirme</a></div></div></article>
-          <article class="vcard"><div class="vicon" aria-hidden="true">🤖</div><div><h4>Curso algorítmico</h4><p>Lista prioritaria – del backtest al bot. <em>Coming soon</em>.</p><div class="mini"><a class="btn sm" href="#curso">Lista de espera</a></div></div></article>
+          <article class="vcard card-glass micro elev">
+            <div class="vicon" aria-hidden="true">💼</div>
+            <div><h4>Programa IB</h4><p>Acceso a broker prime y materiales para crecer como socio.</p><div class="mini"><a class="btn sm" href="#ib">Ser IB</a></div></div>
+          </article>
+          <article class="vcard card-glass micro elev">
+            <div class="vicon" aria-hidden="true">🔁</div>
+            <div><h4>Copytrade</h4><p>Conecta tu cuenta y replica estrategias seleccionadas.</p><div class="mini"><a class="btn sm" href="#copytrade">Conectar</a></div></div>
+          </article>
+          <article class="vcard card-glass micro elev">
+            <div class="vicon" aria-hidden="true">📈</div>
+            <div><h4>Canal de señales</h4><p>Entradas, SL y gestión con contexto SMC.</p><div class="mini"><a class="btn sm" href="#senales">Unirme</a></div></div>
+          </article>
+          <article class="vcard card-glass micro elev">
+            <div class="vicon" aria-hidden="true">🤖</div>
+            <div><h4>Curso algorítmico</h4><p>Lista prioritaria – del backtest al bot. <em>Coming soon</em>.</p><div class="mini"><a class="btn sm" href="#curso">Lista de espera</a></div></div>
+          </article>
         </div>
       </div>
 
-      <aside class="panel" aria-label="Mercado en vivo">
+      <!-- Mercado en vivo (glass) -->
+      <aside class="panel market-glass card-glass thin elev" aria-label="Mercado en vivo">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px"><strong>Mercado en vivo</strong><span class="pill">Market Overview</span></div>
         <div class="tv-market" style="height:420px">
           <div class="tradingview-widget-container" style="height:100%">
             <div class="tradingview-widget-container__widget" style="height:100%"></div>
             <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-            {"title":"Currencies","tabs":[{"title":"Major","title_raw":"Major","symbols":[{"s":"FX_IDC:EURUSD","d":"EUR to USD"},{"s":"FX_IDC:USDJPY","d":"USD to JPY"},{"s":"FX_IDC:GBPUSD","d":"GBP to USD"},{"s":"FX_IDC:AUDUSD","d":"AUD to USD"},{"s":"FX_IDC:USDCAD","d":"USD to CAD"},{"s":"FX_IDC:USDCHF","d":"USD to CHF"}],"quick_link":{"title":"More majors","href":"/markets/currencies/rates-major/"}},{"title":"Minor","title_raw":"Minor","symbols":[{"s":"FX_IDC:EURGBP","d":"EUR to GBP"},{"s":"FX_IDC:EURJPY","d":"EUR to JPY"},{"s":"FX_IDC:GBPJPY","d":"GBP to JPY"},{"s":"FX_IDC:CADJPY","d":"CAD to JPY"},{"s":"FX_IDC:GBPCAD","d":"GBP to CAD"},{"s":"FX_IDC:EURCAD","d":"EUR to CAD"}],"quick_link":{"title":"More minors","href":"/markets/currencies/rates-minor/"}},{"title":"Exotic","title_raw":"Exotic","symbols":[{"s":"FX_IDC:USDSEK","d":"USD to SEK"},{"s":"FX_IDC:USDMXN","d":"USD to MXN"},{"s":"FX_IDC:USDZAR","d":"USD to ZAR"},{"s":"FX_IDC:EURTRY","d":"EUR to TRY"},{"s":"FX_IDC:EURNOK","d":"EUR to NOK"},{"s":"FX_IDC:GBPPLN","d":"GBP to PLN"}],"quick_link":{"title":"More exotics","href":"/markets/currencies/rates-exotic/"}}],"title_link":"/markets/currencies/rates-major/","width":"100%","height":"100%","showChart":true,"showFloatingTooltip":false,"locale":"en","plotLineColorGrowing":"#2962FF","plotLineColorFalling":"#2962FF","belowLineFillColorGrowing":"rgba(41, 98, 255, 0.12)","belowLineFillColorFalling":"rgba(41, 98, 255, 0.12)","belowLineFillColorGrowingBottom":"rgba(41, 98, 255, 0)","belowLineFillColorFallingBottom":"rgba(41, 98, 255, 0)","gridLineColor":"rgba(240, 243, 250, 0)","scaleFontColor":"rgba(120, 123, 134, 1)","showSymbolLogo":true,"symbolActiveColor":"rgba(41, 98, 255, 0.12)","colorTheme":"dark"}
+            {
+              "title": "Currencies",
+              "tabs": [
+                {"title":"Major","title_raw":"Major","symbols":[
+                  {"s":"FX_IDC:EURUSD","d":"EUR to USD"},
+                  {"s":"FX_IDC:USDJPY","d":"USD to JPY"},
+                  {"s":"FX_IDC:GBPUSD","d":"GBP to USD"},
+                  {"s":"FX_IDC:AUDUSD","d":"AUD to USD"},
+                  {"s":"FX_IDC:USDCAD","d":"USD to CAD"},
+                  {"s":"FX_IDC:USDCHF","d":"USD to CHF"}],
+                 "quick_link":{"title":"More majors","href":"/markets/currencies/rates-major/"}},
+                {"title":"Minor","title_raw":"Minor","symbols":[
+                  {"s":"FX_IDC:EURGBP","d":"EUR to GBP"},
+                  {"s":"FX_IDC:EURJPY","d":"EUR to JPY"},
+                  {"s":"FX_IDC:GBPJPY","d":"GBP to JPY"},
+                  {"s":"FX_IDC:CADJPY","d":"CAD to JPY"},
+                  {"s":"FX_IDC:GBPCAD","d":"GBP to CAD"},
+                  {"s":"FX_IDC:EURCAD","d":"EUR to CAD"}],
+                 "quick_link":{"title":"More minors","href":"/markets/currencies/rates-minor/"}},
+                {"title":"Exotic","title_raw":"Exotic","symbols":[
+                  {"s":"FX_IDC:USDSEK","d":"USD to SEK"},
+                  {"s":"FX_IDC:USDMXN","d":"USD to MXN"},
+                  {"s":"FX_IDC:USDZAR","d":"USD to ZAR"},
+                  {"s":"FX_IDC:EURTRY","d":"EUR to TRY"},
+                  {"s":"FX_IDC:EURNOK","d":"EUR to NOK"},
+                  {"s":"FX_IDC:GBPPLN","d":"GBP to PLN"}],
+                 "quick_link":{"title":"More exotics","href":"/markets/currencies/rates-exotic/"}}
+              ],
+              "title_link": "/markets/currencies/rates-major/",
+              "width": "100%",
+              "height": "100%",
+              "showChart": true,
+              "showFloatingTooltip": false,
+              "locale": "en",
+              "plotLineColorGrowing": "#2962FF",
+              "plotLineColorFalling": "#2962FF",
+              "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
+              "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
+              "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
+              "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
+              "gridLineColor": "rgba(240, 243, 250, 0)",
+              "scaleFontColor": "rgba(120, 123, 134, 1)",
+              "showSymbolLogo": true,
+              "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
+              "colorTheme": "dark"
+            }
             </script>
           </div>
         </div>
@@ -186,49 +365,72 @@
   </section>
 
   <!-- ======= COPYTRADE (PASOS + MYFXBOOK) ======= -->
-  <section class="steps" id="copytrade">
+  <section class="steps section-tight" id="copytrade">
     <div class="wrap">
       <div class="badge">Copytrade</div>
-      <h3 style="margin:10px 0 18px">Conecta en 3 pasos sencillos</h3>
+      <h3 class="h-section">Conecta en 3 pasos sencillos</h3>
+
       <div class="steps-grid">
-        <div class="step"><div class="pill">Paso 1</div><h4>Abre o usa tu cuenta en STARTRADER</h4><p>Crea o ingresa y completa verificación (KYC).</p></div>
-        <div class="step"><div class="pill">Paso 2</div><h4>Elige estrategia</h4><p>Alineada a tu perfil de riesgo y objetivos.</p></div>
-        <div class="step"><div class="pill">Paso 3</div><h4>Conecta y monitorea</h4><p>Sincroniza tu cuenta, define límites y revisa tu panel.</p></div>
+        <div class="step card-glass micro elev">
+          <div class="pill">Paso 1</div><h4>Abre o usa tu cuenta en STARTRADER</h4><p>Crea o ingresa y completa verificación (KYC).</p>
+        </div>
+        <div class="step card-glass micro elev">
+          <div class="pill">Paso 2</div><h4>Elige estrategia</h4><p>Alineada a tu perfil de riesgo y objetivos.</p>
+        </div>
+        <div class="step card-glass micro elev">
+          <div class="pill">Paso 3</div><h4>Conecta y monitorea</h4><p>Sincroniza tu cuenta, define límites y revisa tu panel.</p>
+        </div>
       </div>
 
-      <div class="panel gradient-outline" style="margin-top:18px">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px"><h3 style="margin:0">Rendimiento auditado (Myfxbook)</h3><span class="pill">Alpha ROMA – Real</span></div>
+      <!-- Myfxbook (glass) -->
+      <div class="panel card-glass thin elev" style="margin-top:18px">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
+          <h3 style="margin:0">Rendimiento auditado (Myfxbook)</h3>
+          <span class="pill">Alpha ROMA – Real</span>
+        </div>
         <div style="display:flex; justify-content:center; align-items:center">
           <a href="https://www.myfxbook.com/members/T4AOficial/alpha-roma-real/11526200" target="_blank" rel="noopener">
-            <img alt="widget Myfxbook - Alpha ROMA Real" src="https://widget.myfxbook.com/widget/widget.png?accountOid=11526200&type=6" loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid var(--stroke)"/>
+            <img alt="widget Myfxbook - Alpha ROMA Real"
+                 src="https://widget.myfxbook.com/widget/widget.png?accountOid=11526200&type=6"
+                 loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid var(--glass-stroke)"/>
           </a>
         </div>
         <p class="notice">Haz clic para ver el detalle en tiempo real dentro de Myfxbook.</p>
-        <div class="cta"><a class="btn primary" href="#lead">Conectarme al Copytrade</a></div>
+        <div class="cta"><a class="btn btn--grad" href="#lead">Conectarme al Copytrade</a></div>
       </div>
     </div>
   </section>
 
   <!-- ======= SEÑALES + CURSO ======= -->
   <section class="wrap split" id="senales">
-    <div class="panel gradient-outline">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px"><h3 style="margin:0">Canal de Señales</h3><span class="pill">Swing • Intradía</span></div>
-      <ul style="margin:6px 0 14px; padding-left:18px; color:var(--muted)"><li>Sesgos macro con <strong>SMC</strong> y niveles clave.</li><li>Alertas con precio de entrada, SL y gestión.</li><li>Resumen semanal con lecciones y contexto.</li></ul>
-      <div class="cta"><a class="btn primary" href="#lead">Unirme al canal</a><a class="btn" href="#lead">Quiero más info</a></div>
+    <!-- Señales -->
+    <div class="panel fine card-glass thin elev">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
+        <h3 class="h-section" style="margin:0">Canal de Señales</h3><span class="pill">Swing • Intradía</span>
+      </div>
+      <ul style="margin:6px 0 14px; padding-left:18px; color:var(--muted)">
+        <li>Sesgos macro con <strong>SMC</strong> y niveles clave.</li>
+        <li>Alertas con precio de entrada, SL y gestión.</li>
+        <li>Resumen semanal con lecciones y contexto.</li>
+      </ul>
+      <div class="cta"><a class="btn btn--grad" href="#lead">Unirme al canal</a><a class="btn" href="#lead">Quiero más info</a></div>
     </div>
 
-    <div class="panel gradient-outline" id="curso">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px"><h3 style="margin:0">Curso de Trading Algorítmico</h3><span class="pill">Coming soon</span></div>
+    <!-- Curso -->
+    <div class="panel fine card-glass thin elev" id="curso">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
+        <h3 class="h-section" style="margin:0">Curso de Trading Algorítmico</h3><span class="pill">Coming soon</span>
+      </div>
       <p class="sub" style="margin:0 0 12px">De la idea al bot: SMC + Backtesting + Gestión del riesgo + Deploy en VPS. Cupo limitado.</p>
       <form id="waitlist" class="form" action="https://formsubmit.co/YOUR@EMAIL" method="POST">
         <input type="hidden" name="_subject" value="Lista de espera curso algorítmico" />
-        <input type="hidden" name="origen" value="Landing PCTC" />
+        <input type="hidden" name="origen" value="Landing MTH" />
         <input type="hidden" name="_captcha" value="false" />
         <input type="hidden" name="_template" value="table" />
         <div class="field"><label>Nombre</label><input name="nombre" required placeholder="Tu nombre" /></div>
         <div class="field"><label>Email</label><input type="email" name="email" required placeholder="tucorreo@dominio.com" /></div>
         <div class="field full"><label>WhatsApp (opcional)</label><input name="whatsapp" placeholder="+52 55 1234 5678" /></div>
-        <div class="field full"><button class="btn primary" type="submit">Anotarme en la lista</button></div>
+        <div class="field full"><button class="btn btn--grad" type="submit">Anotarme en la lista</button></div>
         <div class="notice">Usamos tu información solo para avisarte del lanzamiento.</div>
       </form>
     </div>
@@ -237,51 +439,128 @@
   <!-- ======= VIDEO FULL-BLEED (después de Curso) ======= -->
   <section id="beneficios" class="full-bleed-video" aria-label="Video introductorio del club">
     <div class="video-standin" role="img" aria-label="Espacio reservado para video de mercado"></div>
-    <div class="video-overlay"><div class="wrap"><div class="overlay-cta"><strong>Mercado en movimiento</strong><a class="btn primary" href="#copytrade">Ver Copytrade</a></div></div></div>
+    <div class="video-overlay"><div class="wrap"><div class="overlay-cta"><strong>Mercado en movimiento</strong><a class="btn btn--grad" href="#copytrade">Ver Copytrade</a></div></div></div>
     <noscript><div class="wrap" style="padding:10px 0">Video en preparación.</div></noscript>
   </section>
 
-  <!-- ======= CONTACTO / LEADS ======= -->
-  <section id="lead" style="padding:34px 0 10px">
+  <!-- ======= CONTACTO ELEGANTE ======= -->
+  <section id="lead" class="section-aurora contact-v2">
     <div class="wrap">
-      <div class="panel">
-        <h3 style="margin:0 0 6px">¿Te ayudo a elegir la mejor opción para ti?</h3>
-        <p class="sub" style="margin:0 0 12px">Déjame tus datos y te escribo por WhatsApp. Asesoría 1 a 1.</p>
-        <form id="leadform" class="form" action="https://formsubmit.co/YOUR@EMAIL" method="POST">
-          <input type="hidden" name="_subject" value="Nuevo lead Ponte Chido Trading Club" />
-          <input type="hidden" name="origen" value="Landing PCTC" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <div class="field"><label>Nombre</label><input name="nombre" required placeholder="Nombre y Apellido" /></div>
-          <div class="field"><label>Email</label><input type="email" name="email" required placeholder="tucorreo@dominio.com" /></div>
-          <div class="field"><label>WhatsApp</label><input name="whatsapp" required placeholder="+52 55 1234 5678" /></div>
-          <div class="field"><label>Interés</label>
-            <select name="interes" required>
-              <option value="Comunidad">Comunidad</option>
-              <option value="Programa IB">Programa IB</option>
-              <option value="Copytrade">Copytrade</option>
-              <option value="Señales">Señales</option>
-              <option value="Curso Algorítmico">Curso Algorítmico</option>
-            </select>
+      <div class="contact-grid">
+
+        <!-- Panel de información -->
+        <aside class="card-glass contact-info elev">
+          <span class="badge-soft">Atención 1 a 1</span>
+          <h3 class="h-elegant">Hablemos de tu setup</h3>
+          <p class="subtle">Te ayudo a elegir entre Comunidad, Programa IB, Copytrade, Señales o el Curso Algorítmico (coming soon).</p>
+
+          <div class="contact-kpis">
+            <div class="contact-kpi"><strong>120+</strong><span>Miembros</span></div>
+            <div class="contact-kpi"><strong>4+/mes</strong><span>Sesiones</span></div>
+            <div class="contact-kpi"><strong>LATAM</strong><span>Soporte</span></div>
           </div>
-          <div class="field full"><label>Mensaje</label><textarea name="mensaje" rows="3" placeholder="Cuéntame tu experiencia y objetivo"></textarea></div>
-          <div class="field full"><button class="btn primary" type="submit">Quiero unirme</button></div>
-          <div class="notice">Al enviar aceptas nuestro aviso de riesgos. Puedes darte de baja cuando quieras.</div>
-        </form>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <div class="contact-ico">WA</div>
+              <div><strong>WhatsApp</strong><br/><span class="subtle">Respuesta en horario de mercado</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-ico">TG</div>
+              <div><strong>Telegram</strong><br/><span class="subtle">Canal de avisos y soporte</span></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-ico">✉</div>
+              <div><strong>Email</strong><br/><span class="subtle">Respuesta dentro de 24 h</span></div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Formulario -->
+        <div class="card-glass form-elegant elev">
+          <span class="badge-soft">Contacto</span>
+          <h3 class="h-elegant">Déjame tus datos</h3>
+          <p class="subtle">Te escribo por WhatsApp y vemos la mejor opción para tu perfil.</p>
+
+          <form id="leadform" class="form" action="https://formsubmit.co/YOUR@EMAIL" method="POST">
+            <input type="hidden" name="_subject" value="Nuevo lead My Trader Hub" />
+            <input type="hidden" name="origen" value="Landing MTH" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="field"><label>Nombre</label>
+              <input name="nombre" required placeholder="Nombre y Apellido" autocomplete="name" />
+            </div>
+
+            <div class="field"><label>Email</label>
+              <input type="email" name="email" required placeholder="tucorreo@dominio.com" autocomplete="email" />
+            </div>
+
+            <div class="field"><label>WhatsApp</label>
+              <input name="whatsapp" required placeholder="+52 55 1234 5678" inputmode="tel" />
+            </div>
+
+            <div class="field"><label>Interés</label>
+              <select name="interes" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option>Comunidad</option>
+                <option>Programa IB</option>
+                <option>Copytrade</option>
+                <option>Señales</option>
+                <option>Curso Algorítmico</option>
+              </select>
+            </div>
+
+            <div class="field full"><label>Mensaje</label>
+              <textarea name="mensaje" rows="3" placeholder="Cuéntame tu experiencia y objetivo"></textarea>
+            </div>
+
+            <div class="field full">
+              <button class="btn btn--grad" type="submit">Quiero unirme</button>
+            </div>
+
+            <div class="notice">Al enviar aceptas nuestro aviso de riesgos. Puedes darte de baja cuando quieras.</div>
+          </form>
+        </div>
+
       </div>
     </div>
   </section>
 
   <!-- ======= FOOTER ======= -->
-  <footer class="footer"><div class="wrap"><div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap"><div style="max-width:620px"><strong>Aviso de riesgos</strong><p class="risk">Operar con CFD/FX implica un alto nivel de riesgo y puede no ser adecuado para todos los inversionistas. Existe la posibilidad de perder parte o la totalidad del capital. El rendimiento pasado no garantiza resultados futuros. Esta página tiene fines informativos y no constituye asesoría financiera. “STARTRADER” es marca de su titular. Este sitio no es el sitio oficial del broker.</p></div><div><p style="margin:0 0 8px">© <span id="year"></span> Ponte Chido Trading Club</p><div style="display:flex; gap:10px"><a class="btn" href="#top">Inicio</a><a class="btn ghost" href="#lead">Contacto</a></div></div></div></div></footer>
+  <footer class="footer">
+    <div class="wrap">
+      <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap">
+        <div style="max-width:620px">
+          <strong>Aviso de riesgos</strong>
+          <p class="risk">Operar con CFD/FX implica un alto nivel de riesgo y puede no ser adecuado para todos los inversionistas. Existe la posibilidad de perder parte o la totalidad del capital. El rendimiento pasado no garantiza resultados futuros. Esta página tiene fines informativos y no constituye asesoría financiera. “STARTRADER” es marca de su titular. Este sitio no es el sitio oficial del broker.</p>
+        </div>
+        <div>
+          <p style="margin:0 0 8px">© <span id="year"></span> My Trader Hub</p>
+          <div style="display:flex; gap:10px">
+            <a class="btn" href="#top">Inicio</a>
+            <a class="btn ghost" href="#lead">Contacto</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- Sticky CTA (móvil) -->
-  <div class="sticky-bar" aria-label="Barra de acción rápida"><a class="btn primary" href="#lead">Unirme</a><a class="btn" href="#copytrade">Copytrade</a><a class="btn" href="#curso">Curso</a></div>
+  <div class="sticky-bar" aria-label="Barra de acción rápida">
+    <a class="btn btn--grad" href="#lead">Unirme</a>
+    <a class="btn" href="#copytrade">Copytrade</a>
+    <a class="btn" href="#curso">Curso</a>
+  </div>
 
   <script>
+    // Año dinámico + máscara simple de WhatsApp
     document.getElementById('year').textContent = new Date().getFullYear();
     const wmask = (val)=> val.replace(/[^+\d\s-]/g,'').replace(/\s{2,}/g,' ').trim();
-    ['leadform','waitlist'].forEach(id=>{ const form = document.getElementById(id); if(!form) return; form.addEventListener('input', e=>{ if(e.target.name==='whatsapp'){ e.target.value = wmask(e.target.value);} }); });
+    ['leadform','waitlist'].forEach(id=>{
+      const form = document.getElementById(id); if(!form) return;
+      form.addEventListener('input', e=>{ if(e.target.name==='whatsapp'){ e.target.value = wmask(e.target.value);} });
+    });
   </script>
 </body>
 </html>
