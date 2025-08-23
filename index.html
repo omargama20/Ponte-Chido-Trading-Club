@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -43,9 +44,6 @@
   <link rel="dns-prefetch" href="//s3.tradingview.com">
   <link rel="preconnect" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="//formsubmit.co">
-
-  <!-- Preload del video (para el bloque Myfxbook) -->
-  <link rel="preload" as="video" href="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20%281%29.mp4" type="video/mp4">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- deja aquí tu CSS/estilos tal como los tenías -->
@@ -104,7 +102,7 @@
       background:linear-gradient(90deg,#4f7dff 0%,#9b44ff 50%,#17a2ff 100%);
       -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
       white-space:nowrap; display:block; line-height:1; 
-      margin-top:-0.18em;            /* más aire entre líneas */
+      margin-top:-0.18em;            /* <-- más aire entre líneas */
       padding-bottom:.34em;           /* no recorte inferior */
       filter:drop-shadow(0 6px 24px rgba(56,97,251,.15));
     }
@@ -141,20 +139,6 @@
     /* Split */
     .split{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px}
 
-    /* ======= VIDEO de fondo SOLO para Myfxbook ======= */
-    .myfx-bg{position:relative; border-radius:22px; overflow:hidden; margin-top:18px}
-    .myfx-bg video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.18; filter:contrast(110%) saturate(112%); z-index:0}
-    .myfx-bg::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(13,17,23,.15) 0%, rgba(13,17,23,.5) 60%, rgba(13,17,23,.7) 100%); z-index:1}
-    .myfx-bg .panel{position:relative; z-index:2; background:rgba(17,24,35,.92)}
-
-    /* Full-bleed video (placeholder) */
-    .full-bleed-video{position:relative; background:var(--bg)}
-    .full-bleed-video .video-standin{display:block; width:100%; height:420px; object-fit:cover; background:#0f1520; background-image: radial-gradient(600px 220px at 20% 10%, rgba(56,97,251,.14), transparent 60%), radial-gradient(600px 220px at 80% 90%, rgba(23,162,255,.10), transparent 60%)}
-    .video-overlay{position:absolute; inset:0; pointer-events:none; background:linear-gradient(180deg, rgba(13,17,23,0) 0%, rgba(13,17,23,.25) 60%, rgba(13,17,23,.55) 100%)}
-    .overlay-cta{position:relative; pointer-events:auto; margin-top:14px; display:flex; gap:12px; align-items:center}
-    .overlay-cta strong{font-size:14px; color:#cbd5e1}
-    @media (max-width:560px){ .full-bleed-video .video-standin{height:260px} }
-
     /* Sticky CTA (mobile) */
     .sticky-bar{position:fixed; bottom:12px; left:12px; right:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:8px; border-radius:14px; background:rgba(10,16,24,.8); border:1px solid var(--stroke); backdrop-filter: blur(8px); z-index:60}
 
@@ -172,10 +156,20 @@
     #curso h3{font-size:34px; letter-spacing:-.2px}
 
     /* ====== Aurora para Copytrade ====== */
-    #copytrade{position:relative; overflow:visible}
+    #copytrade{position:relative; overflow:hidden}
     #copytrade .badge{font-size:14px; padding:8px 12px; border-radius:12px; font-weight:800; background:linear-gradient(90deg, rgba(56,97,251,.28), rgba(155,68,255,.28)); border-color:rgba(56,97,251,.55)}
+    #copytrade::before{
+      content:""; position:absolute; inset:-20%; pointer-events:none; z-index:0; filter:blur(30px) saturate(120%);
+      background:
+        radial-gradient(600px 320px at 20% 30%, rgba(56,97,251,.15), transparent 60%),
+        radial-gradient(700px 380px at 80% 70%, rgba(155,68,255,.12), transparent 60%),
+        radial-gradient(520px 300px at 50% 120%, rgba(23,162,255,.10), transparent 60%);
+      animation:aurora 14s ease-in-out infinite alternate
+    }
+    #copytrade > .wrap{position:relative; z-index:1}
+    @keyframes aurora{from{transform:translateY(0)} to{transform:translateY(-20px)}}
 
-    /* ===== Gradiente OUTLINE (marco degradado) ===== */
+    /* ====== Gradient OUTLINE ONLY – 2px (legacy) ====== */
     .panel.gradient-outline,
     .steps-grid .step{
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10));
@@ -189,7 +183,7 @@
       -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: 0;
     }
 
-    /* === Elevation pack — Glass + borde degradado ===== */
+    /* === Elevation pack — Glass + borde degradado fino, consistente con Contacto === */
     .card-glass{position: relative; background: var(--glass); border-radius: 20px; border:1px solid transparent; box-shadow: 0 10px 30px rgba(0,0,0,.25);}
     .card-glass::before{
       content:""; position:absolute; inset:-2px; border-radius:22px; padding:2px;
@@ -205,6 +199,8 @@
     .elev:hover{ transform:translateY(-1px); box-shadow:0 14px 40px rgba(0,0,0,.28); }
     .h-section{ font-size:28px; letter-spacing:-.2px; margin:8px 0 16px; background:linear-gradient(90deg,#cfe1ff,#fff 60%); -webkit-background-clip:text; color:transparent; }
     .vcard{ border:1px solid var(--glass-stroke) !important; background:rgba(255,255,255,.03) !important; }
+    .vcard.card-glass.micro .vicon{ position:relative; overflow:hidden }
+    .vcard.card-glass.micro .vicon::after{ content:""; position:absolute; inset:-8px; border-radius:inherit; z-index:-1; background:radial-gradient(80px 80px at 30% 30%, rgba(91,124,250,.35), transparent 60%); }
     .panel.market-glass{ background:rgba(255,255,255,.03); border:1px solid var(--glass-stroke); }
     .btn--grad{ background: linear-gradient(90deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3)); border:none; color:#0b1220; font-weight:800;}
     .btn--grad:hover{ filter:brightness(1.05) saturate(1.06); transform:translateY(-1px); }
@@ -212,7 +208,7 @@
     .steps-grid .step{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
     .panel.fine{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
 
-    /* ====== CONTACTO (manteniendo tu estilo) ===== */
+    /* ===== Theme Elegante para CONTACTO ===== */
     .section-aurora{
       position: relative; isolation:isolate; overflow: clip;
       background:
@@ -251,20 +247,47 @@
     .contact-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-stroke); background: rgba(255,255,255,.02); }
     .contact-ico{ width:32px; height:32px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--brand-1), var(--brand-3)); color:#07111f; font-weight:800; }
 
-    /* ====== Reveal (aparición) ====== */
-    .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
-    .reveal.in{opacity:1; transform:none}
-    .reveal.stagger > *{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
-    .reveal.stagger.in > *{opacity:1; transform:none}
-      /* ====== Calendario Económico (estilo uniforme) ====== */
-    .eco-calendar{ position:relative; z-index:2; }
-    .eco-card{ margin-top:14px; padding:16px; border-radius:20px; }
-    .eco-embed{ border-radius:14px; overflow:hidden; border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03); }
-    .eco-embed iframe{ display:block; width:100%; height:520px; border:0; }
-    .eco-powered{ font-family:inherit; font-size:12px; color:var(--muted); margin-top:8px }
-    .eco-powered a{ color:#6da8ff; font-weight:700; text-decoration:none }
-    @media (max-width:680px){ .eco-embed iframe{ height:460px } }
-  </style>
+    /* ====== NUEVO: Mercado en movimiento (Investing + video fondo) ====== */
+    .market-mov{position:relative; padding:18px 0 26px;}
+    .market-mov .bg{position:absolute; inset:0; z-index:0; overflow:hidden;}
+    .market-mov .bg video{
+      position:absolute; inset:0; width:100%; height:100%;
+      object-fit:cover; opacity:.12; filter:saturate(1.15) contrast(1.05);
+    }
+    .market-mov .bg::after{
+      content:""; position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(13,17,23,.35) 0%, rgba(13,17,23,.65) 55%, rgba(13,17,23,.85) 100%);
+    }
+    .market-mov .inner{position:relative; z-index:1;}
+    .investing-card{
+      max-width:980px; margin:0 auto;
+      border-radius:20px; border:1px solid var(--glass-stroke);
+      background:rgba(255,255,255,.03);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      padding:14px 14px 10px;
+    }
+    .investing-header{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+    .investing-title{font-weight:700; font-size:14px; color:#cfe1ff}
+    .investing-frame{display:flex; justify-content:center;}
+    .investing-frame iframe{
+      width:650px; height:467px; border:0; border-radius:12px; background:#0a1018;
+      box-shadow:0 6px 18px rgba(0,0,0,.18);
+    }
+    .investing-credit{ text-align:center; font-size:12px; color:var(--muted); margin-top:6px; }
+  
+    /* === Reveal-on-scroll animations (cards/steps/panels) === */
+    @media (prefers-reduced-motion:no-preference){
+      [data-reveal]{
+        opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
+        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease;
+      }
+      [data-reveal].in{opacity:1; transform:none; filter:none}
+      .stagger-1{transition-delay:.06s}
+      .stagger-2{transition-delay:.12s}
+      .stagger-3{transition-delay:.18s}
+      .stagger-4{transition-delay:.24s}
+    }
+</style>
 </head>
 <body>
 
@@ -332,20 +355,20 @@
         </div>
 
         <!-- Tarjetas hero (glass) -->
-        <div class="value-cards reveal stagger">
-          <article class="vcard card-glass micro elev">
+        <div class="value-cards">
+          <article class="vcard card-glass micro elev stagger-1" data-reveal>
             <div class="vicon" aria-hidden="true">💼</div>
             <div><h4>Programa IB</h4><p>Acceso a broker prime y materiales para crecer como socio.</p><div class="mini"><a class="btn sm" href="#ib">Ser IB</a></div></div>
           </article>
-          <article class="vcard card-glass micro elev">
+          <article class="vcard card-glass micro elev stagger-2" data-reveal>
             <div class="vicon" aria-hidden="true">🔁</div>
             <div><h4>Copytrade</h4><p>Conecta tu cuenta y replica estrategias seleccionadas.</p><div class="mini"><a class="btn sm" href="#copytrade">Conectar</a></div></div>
           </article>
-          <article class="vcard card-glass micro elev">
+          <article class="vcard card-glass micro elev stagger-3" data-reveal>
             <div class="vicon" aria-hidden="true">📈</div>
             <div><h4>Canal de señales</h4><p>Entradas, SL y gestión con contexto SMC.</p><div class="mini"><a class="btn sm" href="#senales">Unirme</a></div></div>
           </article>
-          <article class="vcard card-glass micro elev">
+          <article class="vcard card-glass micro elev" data-reveal>
             <div class="vicon" aria-hidden="true">🤖</div>
             <div><h4>Curso algorítmico</h4><p>Lista prioritaria – del backtest al bot. <em>Coming soon</em>.</p><div class="mini"><a class="btn sm" href="#curso">Lista de espera</a></div></div>
           </article>
@@ -413,72 +436,83 @@
     </div>
   </section>
 
-  <!-- ======= COPYTRADE (PASOS + MYFXBOOK con VIDEO detrás) ======= -->
+  <!-- ======= COPYTRADE (PASOS + MYFXBOOK) ======= -->
   <section class="steps section-tight" id="copytrade">
     <div class="wrap">
       <div class="badge">Copytrade</div>
       <h3 class="h-section">Conecta en 3 pasos sencillos</h3>
 
-      <div class="steps-grid reveal stagger">
-        <div class="step card-glass micro elev">
+      <div class="steps-grid">
+        <div class="step card-glass micro elev stagger-1" data-reveal>
           <div class="pill">Paso 1</div><h4>Abre o usa tu cuenta en STARTRADER</h4><p>Crea o ingresa y completa verificación (KYC).</p>
         </div>
-        <div class="step card-glass micro elev">
+        <div class="step card-glass micro elev stagger-2" data-reveal>
           <div class="pill">Paso 2</div><h4>Elige estrategia</h4><p>Alineada a tu perfil de riesgo y objetivos.</p>
         </div>
-        <div class="step card-glass micro elev">
+        <div class="step card-glass micro elev" data-reveal>
           <div class="pill">Paso 3</div><h4>Conecta y monitorea</h4><p>Sincroniza tu cuenta, define límites y revisa tu panel.</p>
         </div>
       </div>
 
-      <!-- Bloque Myfxbook con vídeo de fondo -->
-      <div class="myfx-bg reveal">
-        <video autoplay muted loop playsinline preload="none">
-          <source src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20%281%29.mp4" type="video/mp4">
-        </video>
-
-        <div class="panel card-glass thin elev">
-          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
-            <h3 style="margin:0">Rendimiento auditado (Myfxbook)</h3>
-            <span class="pill">Alpha ROMA – Real</span>
-          </div>
-          <div style="display:flex; justify-content:center; align-items:center">
-            <a href="https://www.myfxbook.com/members/T4AOficial/alpha-roma-real/11526200" target="_blank" rel="noopener">
-              <img alt="widget Myfxbook - Alpha ROMA Real"
-                   src="https://widget.myfxbook.com/widget/widget.png?accountOid=11526200&type=6"
-                   loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid var(--glass-stroke)"/>
-            </a>
-          </div>
-          <p class="notice">Haz clic para ver el detalle en tiempo real dentro de Myfxbook.</p>
-          <div class="cta"><a class="btn btn--grad" href="#lead">Conectarme al Copytrade</a></div>
+      <!-- Myfxbook (glass) -->
+      <div class="panel card-glass thin elev" style="margin-top:18px" data-reveal>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
+          <h3 style="margin:0">Rendimiento auditado (Myfxbook)</h3>
+          <span class="pill">Alpha ROMA – Real</span>
         </div>
+        <div style="display:flex; justify-content:center; align-items:center">
+          <a href="https://www.myfxbook.com/members/T4AOficial/alpha-roma-real/11526200" target="_blank" rel="noopener">
+            <img
+              id="mfxAlpha"
+              alt="widget Alpha ROMA Real"
+              src="https://widgets.myfxbook.com/custom-widget?id=11526200&width=800&height=330&bart=0&linet=0&symbol=GOLDMI&magic=-1&title=Alpha-RomaReal&titles=14&bgColor=000000&gridColor=bdbdbd&lineColor=ae00ff&barColor=d16dff&bar1Color=d16dff&fontColor=ffffff&chartbgc=000000&equityColor=eff45a"
+              loading="lazy" decoding="async"
+              style="width:100%; max-width:980px; border-radius:12px; border:1px solid var(--glass-stroke)"/>
+          </a>
+        </div>
+        <p class="notice">Haz clic para ver el detalle en tiempo real dentro de Myfxbook.</p>
+        <div class="cta"><a class="btn btn--grad" href="#lead">Conectarme al Copytrade</a></div>
       </div>
     </div>
   </section>
 
-  <!-- ======= MERCADO EN MOVIMIENTO (Calendario + video de fondo) ======= -->
-  <section id="eco" class="eco-calendar myfx-bg reveal" aria-label="Mercado en movimiento">
-    <video autoplay muted loop playsinline preload="none">
-      <source src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20%281%29.mp4" type="video/mp4">
-    </video>
+  <!-- ======= NUEVO: MERCADO EN MOVIMIENTO (Investing + video de fondo) ======= -->
+  <section class="market-mov" aria-label="Mercado en movimiento">
+    <!-- Fondo en video (GitHub RAW) -->
+    <div class="bg" aria-hidden="true">
+      <video autoplay muted loop playsinline
+        src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20(1).mp4">
+      </video>
+    </div>
 
-    <div class="panel card-glass thin elev eco-card">
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
-        <strong>Mercado en movimiento</strong>
-        <a class="btn btn--grad" href="#copytrade">Ver Copytrade</a>
-      </div>
+    <div class="wrap inner">
+      <div class="investing-card card-glass thin elev" data-reveal>
+        <div class="investing-header">
+          <span class="investing-title">Mercado en movimiento</span>
+          <a class="btn btn--grad" href="#copytrade">Ver Copytrade</a>
+        </div>
 
-      <div class="eco-embed">
-        <iframe src="https://sslecal2.investing.com?ecoDayBackground=%238149fa&defaultFont=%23383535&innerBorderColor=%238149fa&borderColor=%238149fa&ecoDayFontColor=%23f2efef&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49" width="650" height="467" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe>
+        <div class="investing-frame">
+          <iframe
+            src="https://sslecal2.investing.com?ecoDayBackground=%238149fa&defaultFont=%23383535&innerBorderColor=%238149fa&borderColor=%238149fa&ecoDayFontColor=%23f2efef&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
+            width="650" height="467" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
+          </iframe>
+        </div>
+
+        <div class="investing-credit">
+          Calendario económico en vivo cortesía de
+          <a href="https://mx.investing.com/" rel="nofollow noopener" target="_blank" class="underline_link">
+            Investing.com México
+          </a>
+        </div>
       </div>
-      <div class="eco-powered">Calendario económico en vivo cortesía de <a href="https://mx.investing.com/" rel="nofollow" target="_blank">Investing.com México</a></div>
     </div>
   </section>
 
   <!-- ======= SEÑALES + CURSO ======= -->
   <section class="wrap split" id="senales">
     <!-- Señales -->
-    <div class="panel fine card-glass thin elev reveal">
+    <div class="panel fine card-glass thin elev" data-reveal>
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
         <h3 class="h-section" style="margin:0">Canal de Señales</h3><span class="pill">Swing • Intradía</span>
       </div>
@@ -491,7 +525,7 @@
     </div>
 
     <!-- Curso -->
-    <div class="panel fine card-glass thin elev reveal" id="curso">
+    <div class="panel fine card-glass thin elev" id="curso">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
         <h3 class="h-section" style="margin:0">Curso de Trading Algorítmico</h3><span class="pill">Coming soon</span>
       </div>
@@ -509,13 +543,14 @@
       </form>
     </div>
   </section>
+
   <!-- ======= CONTACTO ELEGANTE ======= -->
   <section id="lead" class="section-aurora contact-v2">
     <div class="wrap">
-      <div class="contact-grid reveal stagger">
+      <div class="contact-grid">
 
         <!-- Panel de información -->
-        <aside class="card-glass contact-info elev">
+        <aside class="card-glass contact-info elev" data-reveal>
           <span class="badge-soft">Atención 1 a 1</span>
           <h3 class="h-elegant">Hablemos de tu setup</h3>
           <p class="subtle">Te ayudo a elegir entre Comunidad, Programa IB, Copytrade, Señales o el Curso Algorítmico (coming soon).</p>
@@ -543,7 +578,7 @@
         </aside>
 
         <!-- Formulario -->
-        <div class="card-glass form-elegant elev">
+        <div class="card-glass form-elegant elev" data-reveal>
           <span class="badge-soft">Contacto</span>
           <h3 class="h-elegant">Déjame tus datos</h3>
           <p class="subtle">Te escribo por WhatsApp y vemos la mejor opción para tu perfil.</p>
@@ -597,7 +632,7 @@
   <footer class="footer">
     <div class="wrap">
       <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap">
-        <div style="max-width:820px">
+        <div style="max-width:620px">
           <strong>Aviso de Riesgo</strong>
           <p class="risk">
             El trading de instrumentos financieros como Forex, CFDs, índices, materias primas y criptomonedas implica un alto nivel de riesgo y puede no ser adecuado para todos los inversionistas. La volatilidad de los mercados financieros puede generar tanto ganancias como pérdidas significativas en poco tiempo.
@@ -637,24 +672,29 @@
       const form = document.getElementById(id); if(!form) return;
       form.addEventListener('input', e=>{ if(e.target.name==='whatsapp'){ e.target.value = wmask(e.target.value);} });
     });
-
-    // IntersectionObserver para la aparición de cuadros
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){
-          const el = entry.target;
-          el.classList.add('in');
-          if(el.classList.contains('stagger')){
-            [...el.children].forEach((ch, i)=>{
-              ch.style.transitionDelay = (i * 80)+'ms';
-            });
-          }
-          io.unobserve(el);
-        }
-      });
-    }, {threshold:.15});
-
-    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+  </script>
+  <script>
+    // Reveal-on-scroll with IntersectionObserver
+    (function(){
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver((entries)=>{
+          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+        },{threshold:0.18, rootMargin:'0px 0px -10% 0px'});
+        document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+      }else{
+        document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('in'));
+      }
+    })();
+  </script>
+  <script>
+    // Fallback por si el custom widget no carga (se cambia por el PNG estándar)
+    (function(){
+      var img = document.getElementById('mfxAlpha');
+      if (!img) return;
+      img.addEventListener('error', function(){
+        img.src = 'https://widget.myfxbook.com/widget/widget.png?accountOid=11526200&type=6';
+      }, { once: true });
+    })();
   </script>
 </body>
 </html>
