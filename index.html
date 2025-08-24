@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -17,7 +16,7 @@
   <meta name="theme-color" content="#0d1117"/>
   <meta name="color-scheme" content="dark">
 
-  <!-- Open Graph / Twitter (sin imagen por ahora) -->
+  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="My Trader Hub">
   <meta property="og:title" content="My Trader Hub — Comunidad, IB, Copytrade, Señales y Curso Algorítmico">
@@ -46,14 +45,12 @@
   <link rel="dns-prefetch" href="//formsubmit.co">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- deja aquí tu CSS/estilos tal como los tenías -->
 
   <style>
     :root{
       --bg:#0d1117; --panel:#111823; --panel-2:#0f1520; --stroke:#1b2433;
       --txt:#e5e7eb; --muted:#9aa4b2; --accent:#3861fb; --accent-2:#17a2ff;
       --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px;
-      /* paleta elegante / contacto */
       --brand-1:#5b7cfa; --brand-2:#a073ff; --brand-3:#3fd0ff;
       --glass: rgba(255,255,255,.04);
       --glass-stroke: rgba(255,255,255,.08);
@@ -72,11 +69,9 @@
     img{max-width:100%; display:block}
     .wrap{max-width:1180px; margin:0 auto; padding:0 20px}
 
-    /* Market strip (TOP sticky) */
     .market-strip{background:#0f1520; border-bottom:1px solid var(--stroke); position:sticky; top:0; z-index:70; box-shadow:0 6px 18px rgba(0,0,0,.25)}
     .market-strip .tradingview-widget-container{max-width:1180px; margin:0 auto; padding:6px 20px}
 
-    /* Header */
     .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(13,17,23,.6); border-bottom:1px solid var(--stroke)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; align-items:center; gap:12px}
@@ -91,10 +86,8 @@
     .btn.sm{padding:6px 10px; font-size:12px; border-radius:10px}
     .pill{font-size:12px; color:#cbd5e1; border:1px solid var(--stroke); padding:4px 8px; border-radius:999px}
 
-    /* spacing header→hero */
     .header + .hero{ margin-top:22px; }
 
-    /* Hero */
     .hero{padding:72px 0 52px; border-bottom:1px solid var(--stroke); position:relative; overflow:visible; background:var(--bg);}
     .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px}
     .headline{ font-size:100px; line-height:1.06; letter-spacing:-.8px; margin:0 0 22px; }
@@ -102,15 +95,14 @@
       background:linear-gradient(90deg,#4f7dff 0%,#9b44ff 50%,#17a2ff 100%);
       -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
       white-space:nowrap; display:block; line-height:1; 
-      margin-top:-0.18em;            /* <-- más aire entre líneas */
-      padding-bottom:.34em;           /* no recorte inferior */
+      margin-top:-0.18em;
+      padding-bottom:.34em;
       filter:drop-shadow(0 6px 24px rgba(56,97,251,.15));
     }
     @media (min-width:980px){ .headline strong{font-size:.86em; letter-spacing:-.6px} }
     .sub{color:var(--muted); font-size:16px; margin-top:6px}
     .cta{display:flex; gap:12px; margin:20px 0 10px; flex-wrap:wrap}
 
-    /* Mini cards (hero value props) */
     .value-cards{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px}
     .vcard{display:flex; gap:12px; padding:14px; border:1px solid var(--stroke); border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10)); align-items:flex-start}
     .vicon{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 6px 18px rgba(56,97,251,.25)}
@@ -119,7 +111,6 @@
     .vcard .mini{display:flex; gap:8px}
     @media (max-width:680px){ .value-cards{grid-template-columns:1fr} }
 
-    /* Panels & steps base */
     .panel{background:linear-gradient(180deg, rgba(17,24,35,.95), rgba(17,24,35,.9)); border:1px solid var(--stroke); border-radius:var(--radius); padding:16px}
     .badge{display:inline-block; font-weight:700; font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--stroke); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.1)); color:var(--muted)}
     .steps{padding:36px 0}
@@ -128,7 +119,6 @@
     .step h4{margin:8px 0 6px}
     .step p{margin:0; color:var(--muted)}
 
-    /* Forms */
     .form{display:grid; grid-template-columns:1fr 1fr; gap:12px}
     .form .full{grid-column:1 / -1}
     .field{display:grid; gap:6px}
@@ -136,17 +126,13 @@
     input, select, textarea{background:#0a1018; border:1px solid var(--stroke); color:var(--txt); padding:12px 12px; border-radius:12px; font-family:inherit; font-size:14px}
     .notice{font-size:12px; color:var(--muted)}
 
-    /* Split */
     .split{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px}
 
-    /* Sticky CTA (mobile) */
     .sticky-bar{position:fixed; bottom:12px; left:12px; right:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:8px; border-radius:14px; background:rgba(10,16,24,.8); border:1px solid var(--stroke); backdrop-filter: blur(8px); z-index:60}
 
-    /* Footer */
     .footer{padding:32px 0 80px; border-top:1px solid var(--stroke); color:var(--muted)}
     .risk{font-size:12px; line-height:1.6}
 
-    /* ====== Títulos de secciones ====== */
     #copytrade > .wrap > h3{
       font-size:28px; letter-spacing:-.2px; margin:10px 0 18px;
       background:linear-gradient(90deg, #9bb5ff 0%, #b388ff 45%, #6ad2ff 100%);
@@ -155,7 +141,6 @@
     #senales > .panel:first-child h3{font-size:32px; letter-spacing:-.2px}
     #curso h3{font-size:34px; letter-spacing:-.2px}
 
-    /* ====== Aurora para Copytrade ====== */
     #copytrade{position:relative; overflow:hidden}
     #copytrade .badge{font-size:14px; padding:8px 12px; border-radius:12px; font-weight:800; background:linear-gradient(90deg, rgba(56,97,251,.28), rgba(155,68,255,.28)); border-color:rgba(56,97,251,.55)}
     #copytrade::before{
@@ -169,7 +154,6 @@
     #copytrade > .wrap{position:relative; z-index:1}
     @keyframes aurora{from{transform:translateY(0)} to{transform:translateY(-20px)}}
 
-    /* ====== Gradient OUTLINE ONLY – 2px (legacy) ====== */
     .panel.gradient-outline,
     .steps-grid .step{
       background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10));
@@ -183,7 +167,6 @@
       -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: 0;
     }
 
-    /* === Elevation pack — Glass + borde degradado fino, consistente con Contacto === */
     .card-glass{position: relative; background: var(--glass); border-radius: 20px; border:1px solid transparent; box-shadow: 0 10px 30px rgba(0,0,0,.25);}
     .card-glass::before{
       content:""; position:absolute; inset:-2px; border-radius:22px; padding:2px;
@@ -208,7 +191,6 @@
     .steps-grid .step{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
     .panel.fine{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
 
-    /* ===== Theme Elegante para CONTACTO ===== */
     .section-aurora{
       position: relative; isolation:isolate; overflow: clip;
       background:
@@ -247,7 +229,7 @@
     .contact-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-stroke); background: rgba(255,255,255,.02); }
     .contact-ico{ width:32px; height:32px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--brand-1), var(--brand-3)); color:#07111f; font-weight:800; }
 
-    /* ====== NUEVO: Mercado en movimiento (Investing + video fondo) ====== */
+    /* ===== Mercado en movimiento (Investing + video) ===== */
     .market-mov{position:relative; padding:18px 0 26px;}
     .market-mov .bg{position:absolute; inset:0; z-index:0; overflow:hidden;}
     .market-mov .bg video{
@@ -259,23 +241,37 @@
       background:linear-gradient(180deg, rgba(13,17,23,.35) 0%, rgba(13,17,23,.65) 55%, rgba(13,17,23,.85) 100%);
     }
     .market-mov .inner{position:relative; z-index:1;}
+
+    /* ⬇️ Ajuste de tamaño del cuadro + iframe a lo pedido */
     .investing-card{
-      max-width:980px; margin:0 auto;
+      width:100%;                 /* ocupa todo el ancho disponible del .wrap */
+      margin:0 auto;
       border-radius:20px; border:1px solid var(--glass-stroke);
       background:rgba(255,255,255,.03);
       box-shadow:0 10px 30px rgba(0,0,0,.25);
-      padding:14px 14px 10px;
+      padding:12px;
     }
-    .investing-header{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
-    .investing-title{font-weight:700; font-size:14px; color:#cfe1ff}
-    .investing-frame{display:flex; justify-content:center;}
+    .investing-header{
+      display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px;
+    }
+    .investing-frame{
+      border-radius:16px;
+      overflow:hidden;
+    }
     .investing-frame iframe{
-      width:650px; height:467px; border:0; border-radius:12px; background:#0a1018;
+      display:block;
+      width:100%;                 /* 100% del panel */
+      height:520px;               /* un poco más alto para llenar visualmente */
+      border:0;
+      background:#0a1018;
       box-shadow:0 6px 18px rgba(0,0,0,.18);
     }
+    @media (max-width:740px){
+      .investing-frame iframe{ height:440px; }
+    }
     .investing-credit{ text-align:center; font-size:12px; color:var(--muted); margin-top:6px; }
-  
-    /* === Reveal-on-scroll animations (cards/steps/panels) === */
+
+    /* === Animaciones reveal-on-scroll === */
     @media (prefers-reduced-motion:no-preference){
       [data-reveal]{
         opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
@@ -287,11 +283,11 @@
       .stagger-3{transition-delay:.18s}
       .stagger-4{transition-delay:.24s}
     }
-</style>
+  </style>
 </head>
 <body>
 
-  <!-- ========== MARKET STRIP (ARRIBA DE TODO, STICKY) ========== -->
+  <!-- ========== MARKET STRIP ========== -->
   <section class="market-strip">
     <div class="tradingview-widget-container">
       <div class="tradingview-widget-container__widget"></div>
@@ -354,7 +350,6 @@
           <a class="btn" href="#copytrade">Ver beneficios</a>
         </div>
 
-        <!-- Tarjetas hero (glass) -->
         <div class="value-cards">
           <article class="vcard card-glass micro elev stagger-1" data-reveal>
             <div class="vicon" aria-hidden="true">💼</div>
@@ -375,7 +370,7 @@
         </div>
       </div>
 
-      <!-- Mercado en vivo (glass) -->
+      <!-- Mercado en vivo -->
       <aside class="panel market-glass card-glass thin elev" aria-label="Mercado en vivo">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px"><strong>Mercado en vivo</strong><span class="pill">Market Overview</span></div>
         <div class="tv-market" style="height:420px">
@@ -454,7 +449,7 @@
         </div>
       </div>
 
-      <!-- Myfxbook (glass) -->
+      <!-- Myfxbook -->
       <div class="panel card-glass thin elev" style="margin-top:18px" data-reveal>
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
           <h3 style="margin:0">Rendimiento auditado (Myfxbook)</h3>
@@ -462,12 +457,9 @@
         </div>
         <div style="display:flex; justify-content:center; align-items:center">
           <a href="https://www.myfxbook.com/members/T4AOficial/alpha-roma-real/11526200" target="_blank" rel="noopener">
-            <img
-              id="mfxAlpha"
-              alt="widget Alpha ROMA Real"
-              src="https://widgets.myfxbook.com/custom-widget?id=11526200&width=800&height=330&bart=0&linet=0&symbol=GOLDMI&magic=-1&title=Alpha-RomaReal&titles=14&bgColor=000000&gridColor=bdbdbd&lineColor=ae00ff&barColor=d16dff&bar1Color=d16dff&fontColor=ffffff&chartbgc=000000&equityColor=eff45a"
-              loading="lazy" decoding="async"
-              style="width:100%; max-width:980px; border-radius:12px; border:1px solid var(--glass-stroke)"/>
+            <img alt="widget Myfxbook - Alpha ROMA Real"
+                 src="https://widgets.myfxbook.com/custom-widget?id=11526200&width=800&height=330&bart=0&linet=0&symbol=GOLDMI&magic=-1&title=Alpha-RomaReal&titles=14&bgColor=000000&gridColor=bdbdbd&lineColor=ae00ff&barColor=d16dff&bar1Color=d16dff&fontColor=ffffff&chartbgc=000000&equityColor=eff45a"
+                 loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid var(--glass-stroke)"/>
           </a>
         </div>
         <p class="notice">Haz clic para ver el detalle en tiempo real dentro de Myfxbook.</p>
@@ -476,9 +468,8 @@
     </div>
   </section>
 
-  <!-- ======= NUEVO: MERCADO EN MOVIMIENTO (Investing + video de fondo) ======= -->
+  <!-- ======= MERCADO EN MOVIMIENTO (Investing + video de fondo) ======= -->
   <section class="market-mov" aria-label="Mercado en movimiento">
-    <!-- Fondo en video (GitHub RAW) -->
     <div class="bg" aria-hidden="true">
       <video autoplay muted loop playsinline
         src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20(1).mp4">
@@ -488,14 +479,13 @@
     <div class="wrap inner">
       <div class="investing-card card-glass thin elev" data-reveal>
         <div class="investing-header">
-          <span class="investing-title">Mercado en movimiento</span>
           <a class="btn btn--grad" href="#copytrade">Ver Copytrade</a>
         </div>
 
         <div class="investing-frame">
           <iframe
             src="https://sslecal2.investing.com?ecoDayBackground=%238149fa&defaultFont=%23383535&innerBorderColor=%238149fa&borderColor=%238149fa&ecoDayFontColor=%23f2efef&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
-            width="650" height="467" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
+            width="650" height="520" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
           </iframe>
         </div>
 
@@ -511,7 +501,6 @@
 
   <!-- ======= SEÑALES + CURSO ======= -->
   <section class="wrap split" id="senales">
-    <!-- Señales -->
     <div class="panel fine card-glass thin elev" data-reveal>
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
         <h3 class="h-section" style="margin:0">Canal de Señales</h3><span class="pill">Swing • Intradía</span>
@@ -524,7 +513,6 @@
       <div class="cta"><a class="btn btn--grad" href="#lead">Unirme al canal</a><a class="btn" href="#lead">Quiero más info</a></div>
     </div>
 
-    <!-- Curso -->
     <div class="panel fine card-glass thin elev" id="curso">
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
         <h3 class="h-section" style="margin:0">Curso de Trading Algorítmico</h3><span class="pill">Coming soon</span>
@@ -544,12 +532,11 @@
     </div>
   </section>
 
-  <!-- ======= CONTACTO ELEGANTE ======= -->
+  <!-- ======= CONTACTO ======= -->
   <section id="lead" class="section-aurora contact-v2">
     <div class="wrap">
       <div class="contact-grid">
 
-        <!-- Panel de información -->
         <aside class="card-glass contact-info elev" data-reveal>
           <span class="badge-soft">Atención 1 a 1</span>
           <h3 class="h-elegant">Hablemos de tu setup</h3>
@@ -577,7 +564,6 @@
           </div>
         </aside>
 
-        <!-- Formulario -->
         <div class="card-glass form-elegant elev" data-reveal>
           <span class="badge-soft">Contacto</span>
           <h3 class="h-elegant">Déjame tus datos</h3>
@@ -674,7 +660,7 @@
     });
   </script>
   <script>
-    // Reveal-on-scroll with IntersectionObserver
+    // Reveal-on-scroll con IntersectionObserver
     (function(){
       if('IntersectionObserver' in window){
         const io = new IntersectionObserver((entries)=>{
@@ -684,16 +670,6 @@
       }else{
         document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('in'));
       }
-    })();
-  </script>
-  <script>
-    // Fallback por si el custom widget no carga (se cambia por el PNG estándar)
-    (function(){
-      var img = document.getElementById('mfxAlpha');
-      if (!img) return;
-      img.addEventListener('error', function(){
-        img.src = 'https://widget.myfxbook.com/widget/widget.png?accountOid=11526200&type=6';
-      }, { once: true });
     })();
   </script>
 </body>
