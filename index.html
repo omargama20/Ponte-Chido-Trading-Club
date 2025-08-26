@@ -71,9 +71,9 @@
 
     /* ====== BANNER SUPERIOR (reemplaza Market Strip) ====== */
     .promo-bar{
-      position:sticky; top:0; z-index:80;           /* se queda pegado al top y se va al pasar */
+      position:sticky; top:0; z-index:80;
       background:#0f1520; border-bottom:1px solid var(--stroke);
-      padding:8px 0;                                 /* sin huecos encima del menú */
+      padding:8px 0;
       box-shadow:0 6px 18px rgba(0,0,0,.25);
     }
     .promo-banner{
@@ -104,6 +104,8 @@
 
     .hero{padding:72px 0 52px; border-bottom:1px solid var(--stroke); position:relative; overflow:visible; background:var(--bg);}
     .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px}
+    /* evita que el panel de la derecha se estire y deje hueco abajo */
+    .hero-grid > aside{ align-self:start; }
     .headline{ font-size:100px; line-height:1.06; letter-spacing:-.8px; margin:0 0 22px; }
     .headline strong{
       background:linear-gradient(90deg,#4f7dff 0%,#9b44ff 50%,#17a2ff 100%);
@@ -268,45 +270,12 @@
     }
     .investing-credit{ text-align:center; font-size:12px; color:var(--muted); margin-top:6px; }
 
-    /* ===== Modal (popup) ===== */
-    .modal{ position:fixed; inset:0; padding:20px; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:999; }
-    .modal[hidden]{ display:none; }
-
-    .modal__card{
-      width:min(760px, 96vw);
-      border-radius:18px; border:1px solid var(--glass-stroke);
-      background:linear-gradient(180deg, rgba(17,24,35,.96), rgba(17,24,35,.92));
-      box-shadow:0 20px 60px rgba(0,0,0,.45);
-      padding:0; overflow:hidden;
-    }
-    .modal__media{ position:relative; background:#0a1018; overflow:hidden; border-bottom:1px solid var(--glass-stroke); }
-    .modal__media a{ display:block; }
-    .modal__media img{ width:100%; height:auto; display:block; }
-
-    .modal__inner{ padding:18px; }
-    .modal__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; }
-    .modal__kicker{ font-size:12px; color:var(--muted); font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .modal__title{
-      margin:6px 0 8px; font-size:26px; line-height:1.2; letter-spacing:-.2px; font-weight:800;
-      background:linear-gradient(90deg,#cfe1ff,#ffffff 60%); -webkit-background-clip:text; color:transparent;
-    }
-    .modal__close{ border:none; background:rgba(255,255,255,.06); color:#cfe1ff; font-size:18px; line-height:1; cursor:pointer; width:32px; height:32px; border-radius:8px; }
-    .modal__body ul{ margin:8px 0 0 18px; color:var(--muted); }
-    .modal__body li{ margin:.34em 0; }
-
-    .bonus-badge{
-      display:inline-block; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.3px;
-      background:linear-gradient(90deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3));
-      color:#07111f; box-shadow:0 8px 24px rgba(0,0,0,.25);
-    }
-
-    .modal__actions{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
-    .modal__small{ font-size:11px; color:var(--muted); margin-top:8px; }
-
     /* === Animaciones reveal-on-scroll === */
     @media (prefers-reduced-motion:no-preference){
-      [data-reveal]{ opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
-        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease; }
+      [data-reveal]{
+        opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
+        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease;
+      }
       [data-reveal].in{opacity:1; transform:none; filter:none}
       .stagger-1{transition-delay:.06s}
       .stagger-2{transition-delay:.12s}
@@ -355,8 +324,6 @@
       .headline{ font-size:44px; }
       .cta .btn{ min-width:100%; }
       .investing-frame iframe{ height:360px; }
-      .modal__title{ font-size:22px; }
-      .modal__inner{ padding:14px; }
     }
 
     /* ====== Navegación móvil scrollable ====== */
@@ -374,6 +341,43 @@
     @media (max-width: 768px){
       body{ padding-bottom:88px; }
     }
+
+    /* ========== FIXES ========== */
+
+    /* TradingView ocupa todo el alto del contenedor */
+    .tv-market{ height:420px; }
+    .tv-market .tradingview-widget-container,
+    .tv-market .tradingview-widget-container__widget{ height:100% !important; }
+
+    /* Popup (fondo blanco + imagen con marco superior) */
+    .modal{ position:fixed; inset:0; padding:20px; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:999; }
+    .modal[hidden]{ display:none; }
+    .modal__card{
+      width:min(760px, 96vw);
+      border-radius:18px; border:1px solid var(--glass-stroke);
+      background:#ffffff; color:#111; box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden;
+    }
+    .modal__media{ background:#ffffff; border-bottom:1px solid var(--glass-stroke); padding-top:12px; }
+    .modal__media a{ display:block; }
+    .modal__media img{ width:100%; height:auto; display:block; }
+    .modal__inner{ padding:18px; }
+    .modal__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; }
+    .modal__kicker{ font-size:12px; color:#666; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .modal__title{ margin:6px 0 8px; font-size:26px; line-height:1.2; letter-spacing:-.2px; font-weight:800; color:#111; }
+    .modal__close{ border:none; background:#eee; color:#111; font-size:18px; line-height:1; cursor:pointer; width:32px; height:32px; border-radius:8px; }
+    .modal__body ul{ margin:8px 0 0 18px; color:#222; }
+    .modal__body li{ margin:.34em 0; }
+    .bonus-badge{
+      display:inline-block; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.3px;
+      background:linear-gradient(90deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3)); color:#07111f;
+    }
+    .modal__actions{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+    .modal__small{ font-size:11px; color:#666; margin-top:8px; }
+
+    /* ===== IB banner en hero (debajo del widget) ===== */
+    .ib-cta{ margin-top:12px; border:1px solid var(--glass-stroke); border-radius:16px; overflow:hidden; }
+    .ib-cta__link{ display:block; }
+    .ib-cta img{ width:100%; height:auto; display:block; }
   </style>
 </head>
 <body>
@@ -401,7 +405,7 @@
       </a>
       <nav class="nav-actions" aria-label="Acciones principales">
         <a class="btn ghost" href="#comunidad">Comunidad</a>
-        <a class="btn ghost" href="#ib">Programa IB</a>
+        <a class="btn ghost" href="https://wa.link/r7f0w5" target="_blank" rel="noopener">Programa IB</a>
         <a class="btn ghost" href="#copytrade">Copytrade</a>
         <a class="btn ghost" href="#senales">Señales</a>
         <a class="btn primary" href="#curso">Curso (coming soon)</a>
@@ -424,7 +428,7 @@
         <div class="value-cards">
           <article class="vcard card-glass micro elev stagger-1" data-reveal>
             <div class="vicon" aria-hidden="true">💼</div>
-            <div><h4>Programa IB</h4><p>Acceso a broker prime y materiales para crecer como socio.</p><div class="mini"><a class="btn sm" href="#ib">Ser IB</a></div></div>
+            <div><h4>Programa IB</h4><p>Acceso a broker prime y materiales para crecer como socio.</p><div class="mini"><a class="btn sm" href="https://wa.link/r7f0w5" target="_blank" rel="noopener">Ser IB</a></div></div>
           </article>
           <article class="vcard card-glass micro elev stagger-2" data-reveal>
             <div class="vicon" aria-hidden="true">🔁</div>
@@ -444,7 +448,7 @@
       <!-- Mercado en vivo -->
       <aside class="panel market-glass card-glass thin elev" aria-label="Mercado en vivo">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px"><strong>Mercado en vivo</strong><span class="pill">Market Overview</span></div>
-        <div class="tv-market" style="height:420px">
+        <div class="tv-market">
           <div class="tradingview-widget-container" style="height:100%">
             <div class="tradingview-widget-container__widget" style="height:100%"></div>
             <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
@@ -497,6 +501,13 @@
             }
             </script>
           </div>
+        </div>
+
+        <!-- CTA: Banner IB (WhatsApp) -->
+        <div class="ib-cta card-glass thin elev" data-reveal>
+          <a class="ib-cta__link" href="https://wa.link/r7f0w5" target="_blank" rel="noopener" aria-label="Quiero ser IB — WhatsApp">
+            <img src="https://en.fxgaininfo.com/wp-content/uploads/2023/04/Bonus-2-1200x600.jpg" alt="Conviértete en IB — Escríbeme por WhatsApp">
+          </a>
         </div>
       </aside>
     </div>
@@ -721,17 +732,15 @@
     <a class="btn" href="#curso">Curso</a>
   </div>
 
-  <!-- ======= POPUP STARTRADER (20s después del primer scroll, 1 vez por sesión) ======= -->
+  <!-- ======= POPUP STARTRADER ======= -->
   <div id="st-modal" class="modal" hidden>
     <div class="modal__card" role="dialog" aria-labelledby="st-modal-title" aria-modal="true">
-      <!-- Imagen superior clickable -->
       <div class="modal__media">
         <a href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">
           <img src="https://raw.githubusercontent.com/omargama20/MyTraderHub/refs/heads/main/STARTRADER%20BONO.webp"
                alt="STARTRADER: Bono 50% en tu primer depósito">
         </a>
       </div>
-
       <div class="modal__inner">
         <div class="modal__head">
           <div>
@@ -742,9 +751,8 @@
           </div>
           <button id="st-close" class="modal__close" aria-label="Cerrar">✕</button>
         </div>
-
         <div class="modal__body">
-          <p class="subtle" style="margin:0 0 6px">Además, con tu cuenta STARTRADER tienes:</p>
+          <p class="subtle" style="margin:0 0 6px; color:#222">Además, con tu cuenta STARTRADER tienes:</p>
           <ul>
             <li><strong>Depósito mínimo desde 50 USD</strong> para comenzar.</li>
             <li><strong>Cuentas Standard y ECN</strong> con spreads competitivos.</li>
@@ -753,16 +761,11 @@
             <li><strong>STAR Copy</strong> para copiar traders con mínimo de 50 (moneda base).</li>
             <li>Múltiples métodos de fondeo y retiro.</li>
           </ul>
-
           <div class="modal__actions">
             <a class="btn btn--grad" href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">Abrir cuenta ahora</a>
             <a class="btn" href="#lead" id="st-already">Ya tengo cuenta</a>
           </div>
-
-          <div class="modal__small">
-            Promoción sujeta a términos y condiciones y disponibilidad por país/jurisdicción.
-            Verifica requisitos en el sitio oficial antes de fondear.
-          </div>
+          <div class="modal__small">Promoción sujeta a términos y condiciones y disponibilidad por país/jurisdicción. Verifica requisitos en el sitio oficial antes de fondear.</div>
         </div>
       </div>
     </div>
@@ -778,7 +781,7 @@
     });
   </script>
   <script>
-    // Reveal-on-scroll con IntersectionObserver
+    // Reveal-on-scroll
     (function(){
       if('IntersectionObserver' in window){
         const io = new IntersectionObserver((entries)=>{
@@ -791,7 +794,7 @@
     })();
   </script>
   <script>
-    // ===== Popup: aparece ~20s después del primer scroll; 1 vez por sesión =====
+    // Popup: ~20s después del primer scroll; 1 vez por sesión
     (function(){
       if (sessionStorage.getItem('st_popup_shown')) return;
       let started = false;
@@ -806,7 +809,7 @@
       };
       const startTimer = () => {
         if (started) return; started = true;
-        setTimeout(open, 20000); // 20s
+        setTimeout(open, 20000);
       };
       window.addEventListener('scroll', startTimer, { passive:true, once:true });
       document.getElementById('st-close').addEventListener('click', close);
