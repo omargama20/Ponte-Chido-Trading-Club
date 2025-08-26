@@ -12,8 +12,8 @@
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="mask-icon" href="/favicon.svg" color="#3861fb">
-  <meta name="theme-color" content="#0d1117"/>
+  <link rel="mask-icon" href="/favicon.svg" color="#2A6FF2">
+  <meta name="theme-color" content="#0b0e13"/>
   <meta name="color-scheme" content="dark">
 
   <!-- Open Graph / Twitter -->
@@ -43,207 +43,181 @@
   <link rel="dns-prefetch" href="//s3.tradingview.com">
   <link rel="preconnect" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="//formsubmit.co">
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    /* ======== Paleta & base estilo LatamPay ======= */
     :root{
-      --bg:#0d1117; --panel:#111823; --panel-2:#0f1520; --stroke:#1b2433;
-      --txt:#e5e7eb; --muted:#9aa4b2; --accent:#3861fb; --accent-2:#17a2ff;
-      --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px;
-      --brand-1:#5b7cfa; --brand-2:#a073ff; --brand-3:#3fd0ff;
-      --glass: rgba(255,255,255,.04);
-      --glass-stroke: rgba(255,255,255,.08);
+      /* base */
+      --bg:#0b0e13;                 /* negro profundo */
+      --panel:#0e1218;              /* panel oscuro */
+      --panel-2:#0a0f16;
+      --stroke:#162233;             /* trazo oscuro azulado */
+      --txt:#e6e9ef;                /* texto principal */
+      --muted:#9fb1c7;              /* texto secundario */
+
+      /* azules brand */
+      --blue:#2a6ff2;               /* primario */
+      --blue-2:#1ac8ff;             /* cian acento */
+      --blue-3:#6aa8ff;             /* claro */
+      --blue-deep:#10233a;
+
+      /* efectos */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --glass: rgba(255,255,255,.03);
+      --glass-stroke: rgba(48,98,170,.45); /* borde azulado */
+      --glow: 0 0 0 1px rgba(42,111,242,.35), 0 0 24px rgba(42,111,242,.18);
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial;
-      background:
-        radial-gradient(1200px 800px at 20% -10%, rgba(56,97,251,.06), transparent 60%),
-        radial-gradient(1000px 600px at 120% -10%, rgba(23,162,255,.06), transparent 60%),
-        var(--bg);
+      margin:0;
+      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial;
       color:var(--txt);
+      background:
+        radial-gradient(900px 520px at 30% 18%, rgba(42,111,242,.22), transparent 60%),
+        radial-gradient(800px 520px at 80% 8%, rgba(26,200,255,.10), transparent 60%),
+        radial-gradient(1100px 700px at 50% 120%, rgba(15,35,65,.50), transparent 60%),
+        var(--bg);
     }
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
     .wrap{max-width:1180px; margin:0 auto; padding:0 20px}
 
-    /* ====== BANNER SUPERIOR (reemplaza Market Strip) ====== */
+    /* ======== Banner publicitario arriba (reemplaza Market strip) ======= */
     .promo-bar{
       position:sticky; top:0; z-index:80;
-      background:#0f1520; border-bottom:1px solid var(--stroke);
-      padding:8px 0;
+      background:#0b0e13; border-bottom:1px solid #0e1a2b; padding:8px 0;
       box-shadow:0 6px 18px rgba(0,0,0,.25);
     }
     .promo-banner{
-      display:block; max-width:1180px; margin:0 auto;
-      border-radius:14px; overflow:hidden; border:1px solid var(--glass-stroke);
-      transition:transform .18s ease, filter .18s ease;
-      background:rgba(255,255,255,.02);
+      display:block; max-width:1180px; margin:0 auto; border-radius:14px; overflow:hidden;
+      border:1px solid rgba(42,111,242,.35); background:var(--panel);
+      transition:transform .18s ease, filter .18s ease, box-shadow .18s ease;
+      box-shadow: var(--glow);
     }
-    .promo-banner:hover{ transform:translateY(-1px); filter:saturate(1.04); }
-    .promo-banner img{ width:100%; height:auto; display:block; }
+    .promo-banner:hover{ transform:translateY(-1px); filter:saturate(1.04); box-shadow:0 0 0 1px rgba(26,200,255,.35), 0 0 26px rgba(26,200,255,.20); }
 
-    /* ======= HEADER ======= */
-    .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(13,17,23,.6); border-bottom:1px solid var(--stroke)}
+    /* ======= Header minimalista ======= */
+    .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(11,14,19,.66); border-bottom:1px solid #0f1c2e}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; align-items:center; gap:12px}
-    .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--accent),var(--accent-2)); box-shadow:0 8px 24px rgba(56,97,251,.35)}
+    .logo{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg,var(--blue),var(--blue-2)); box-shadow:0 8px 24px rgba(42,111,242,.35)}
     .brand h1{font-size:16px; letter-spacing:.2px; margin:0}
     .brand span{display:block; font-size:12px; color:var(--muted)}
     .nav-actions{display:flex; gap:10px}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; border:1px solid var(--stroke); background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.10)); color:var(--txt); padding:10px 14px; border-radius:12px; font-weight:600; transition:.2s transform,.2s box-shadow,.2s border-color}
-    .btn:hover{transform:translateY(-1px); box-shadow:var(--shadow); border-color:#2a3750}
-    .btn.primary{background:linear-gradient(180deg,rgba(56,97,251,.18),rgba(56,97,251,.10)); border-color:rgba(56,97,251,.5)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      border:1px solid rgba(42,111,242,.35);
+      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(8,15,25,.12));
+      color:var(--txt); padding:10px 14px; border-radius:12px; font-weight:600;
+      transition:.2s transform,.2s box-shadow,.2s border-color,.2s background;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:var(--glow); border-color:rgba(26,200,255,.5)}
+    .btn.primary{
+      background:linear-gradient(90deg, var(--blue) 0%, #4d86ff 50%, var(--blue-2) 100%); color:#07111f; border:none;
+    }
     .btn.ghost{background:transparent}
     .btn.sm{padding:6px 10px; font-size:12px; border-radius:10px}
-    .pill{font-size:12px; color:#cbd5e1; border:1px solid var(--stroke); padding:4px 8px; border-radius:999px}
+    .pill{font-size:12px; color:#cbd5e1; border:1px solid rgba(42,111,242,.35); padding:4px 8px; border-radius:999px; background:rgba(42,111,242,.06) }
 
     .header + .hero{ margin-top:22px; }
 
-    .hero{padding:72px 0 52px; border-bottom:1px solid var(--stroke); position:relative; overflow:visible; background:var(--bg);}
-    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px}
-    /* evita que el panel de la derecha se estire y deje hueco abajo */
-    .hero-grid > aside{ align-self:start; }
-    .headline{ font-size:100px; line-height:1.06; letter-spacing:-.8px; margin:0 0 22px; }
-    .headline strong{
-      background:linear-gradient(90deg,#4f7dff 0%,#9b44ff 50%,#17a2ff 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
-      white-space:nowrap; display:block; line-height:1; 
-      margin-top:-0.18em;
-      padding-bottom:.34em;
-      filter:drop-shadow(0 6px 24px rgba(56,97,251,.15));
+    /* ======= Hero ======= */
+    .hero{
+      padding:72px 0 52px; border-bottom:1px solid #0e1a2b; position:relative; overflow:visible;
+      background:
+        radial-gradient(880px 520px at 28% 10%, rgba(42,111,242,.28), transparent 60%),
+        radial-gradient(640px 380px at 80% 0%, rgba(26,200,255,.12), transparent 60%),
+        var(--bg);
     }
-    @media (min-width:980px){ .headline strong{font-size:.86em; letter-spacing:-.6px} }
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px}
+    .hero-grid > aside{ align-self:start; }
+    .headline{ font-size:96px; line-height:1.06; letter-spacing:-.8px; margin:0 0 22px; }
+    .headline strong{
+      background:linear-gradient(90deg,#cfe1ff 0%,#6aa8ff 38%,#2a6ff2 70%,#19bfff 100%);
+      -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
+      white-space:nowrap; display:block; line-height:1; margin-top:-0.18em; padding-bottom:.34em;
+      filter:drop-shadow(0 6px 24px rgba(42,111,242,.18));
+    }
     .sub{color:var(--muted); font-size:16px; margin-top:6px}
     .cta{display:flex; gap:12px; margin:20px 0 10px; flex-wrap:wrap}
 
+    /* ======= Tarjetas de valor estilo LatamPay ======= */
     .value-cards{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px}
-    .vcard{display:flex; gap:12px; padding:14px; border:1px solid var(--stroke); border-radius:14px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10)); align-items:flex-start}
-    .vicon{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 6px 18px rgba(56,97,251,.25)}
+    .vcard{
+      display:flex; gap:12px; padding:14px;
+      border-radius:16px; background:var(--panel);
+      border:1px solid rgba(42,111,242,.28); box-shadow: var(--glow);
+      align-items:flex-start
+    }
+    .vicon{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--blue), var(--blue-2)); display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 6px 18px rgba(42,111,242,.25)}
     .vcard h4{margin:0 0 4px; font-size:16px}
     .vcard p{margin:0 0 10px; color:var(--muted)}
     .vcard .mini{display:flex; gap:8px}
     @media (max-width:680px){ .value-cards{grid-template-columns:1fr} }
 
-    .panel{background:linear-gradient(180deg, rgba(17,24,35,.95), rgba(17,24,35,.9)); border:1px solid var(--stroke); border-radius:var(--radius); padding:16px}
-    .badge{display:inline-block; font-weight:700; font-size:12px; padding:6px 10px; border-radius:999px; border:1px solid var(--stroke); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.1)); color:var(--muted)}
+    /* ======= Paneles / tarjetas global ======= */
+    .panel{
+      background:var(--panel); border:1px solid rgba(42,111,242,.28);
+      border-radius:var(--radius); padding:16px; box-shadow:var(--glow)
+    }
+
+    /* ======= TradingView ======= */
+    .tv-market{ height:520px }
+    .tv-market .tradingview-widget-container,
+    .tv-market .tradingview-widget-container__widget{ height:100% !important; }
+
+    /* ======= Secciones con “halo” azul ======= */
+    .halo{ position:relative; isolation:isolate; }
+    .halo::before{
+      content:""; position:absolute; inset:-2px; z-index:-1; pointer-events:none;
+      background:
+        radial-gradient(780px 420px at 14% 18%, rgba(42,111,242,.20), transparent 60%),
+        radial-gradient(680px 360px at 88% 14%, rgba(26,200,255,.10), transparent 65%),
+        radial-gradient(520px 300px at 54% 120%, rgba(15,35,65,.45), transparent 60%);
+      filter:saturate(1.1);
+    }
+
+    /* ===== IB banner en hero (debajo widget) ===== */
+    .ib-cta{ margin-top:12px; border:1px solid rgba(42,111,242,.35); border-radius:16px; overflow:hidden; background:#0b0e13; box-shadow:var(--glow) }
+    .ib-cta__link{ display:block; }
+    .ib-cta img{ width:100%; height:auto; display:block; }
+
+    /* ===== Pasos ===== */
     .steps{padding:36px 0}
     .steps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-    .step{border:1px solid var(--stroke); border-radius:var(--radius); padding:18px; background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10))}
+    .step{border:1px solid rgba(42,111,242,.28); border-radius:var(--radius); padding:18px; background:var(--panel); box-shadow:var(--glow)}
     .step h4{margin:8px 0 6px}
     .step p{margin:0; color:var(--muted)}
 
+    /* ===== Formularios ===== */
     .form{display:grid; grid-template-columns:1fr 1fr; gap:12px}
     .form .full{grid-column:1 / -1}
     .field{display:grid; gap:6px}
     label{font-size:12px; color:var(--muted)}
-    input, select, textarea{background:#0a1018; border:1px solid var(--stroke); color:var(--txt); padding:12px 12px; border-radius:12px; font-family:inherit; font-size:14px}
+    input, select, textarea{
+      background:#0a1018; border:1px solid rgba(42,111,242,.28); color:var(--txt);
+      padding:12px 12px; border-radius:12px; font-family:inherit; font-size:14px;
+      outline:none; transition:border-color .2s, box-shadow .2s;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color:rgba(42,111,242,.7);
+      box-shadow:0 0 0 3px rgba(42,111,242,.25);
+    }
     .notice{font-size:12px; color:var(--muted)}
 
     .split{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px}
 
-    .sticky-bar{position:fixed; bottom:12px; left:12px; right:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:8px; border-radius:14px; background:rgba(10,16,24,.8); border:1px solid var(--stroke); backdrop-filter: blur(8px); z-index:60}
+    .sticky-bar{position:fixed; bottom:12px; left:12px; right:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:8px; border-radius:14px; background:rgba(11,14,19,.86); border:1px solid rgba(42,111,242,.28); backdrop-filter: blur(8px); z-index:60; box-shadow:var(--glow)}
 
-    .footer{padding:32px 0 80px; border-top:1px solid var(--stroke); color:var(--muted)}
+    .footer{padding:32px 0 80px; border-top:1px solid #0e1a2b; color:var(--muted)}
     .risk{font-size:12px; line-height:1.6}
 
-    #copytrade > .wrap > h3{
-      font-size:28px; letter-spacing:-.2px; margin:10px 0 18px;
-      background:linear-gradient(90deg, #9bb5ff 0%, #b388ff 45%, #6ad2ff 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-    #senales > .panel:first-child h3{font-size:32px; letter-spacing:-.2px}
-    #curso h3{font-size:34px; letter-spacing:-.2px}
-
-    #copytrade{position:relative; overflow:hidden}
-    #copytrade .badge{font-size:14px; padding:8px 12px; border-radius:12px; font-weight:800; background:linear-gradient(90deg, rgba(56,97,251,.28), rgba(155,68,255,.28)); border-color:rgba(56,97,251,.55)}
-    #copytrade::before{
-      content:""; position:absolute; inset:-20%; pointer-events:none; z-index:0; filter:blur(30px) saturate(120%);
-      background:
-        radial-gradient(600px 320px at 20% 30%, rgba(56,97,251,.15), transparent 60%),
-        radial-gradient(700px 380px at 80% 70%, rgba(155,68,255,.12), transparent 60%),
-        radial-gradient(520px 300px at 50% 120%, rgba(23,162,255,.10), transparent 60%);
-      animation:aurora 14s ease-in-out infinite alternate
-    }
-    #copytrade > .wrap{position:relative; z-index:1}
-    @keyframes aurora{from{transform:translateY(0)} to{transform:translateY(-20px)}}
-
-    .panel.gradient-outline,
-    .steps-grid .step{
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.10));
-      border: 1px solid transparent; position: relative; overflow: hidden; z-index: 0;
-    }
-    .panel.gradient-outline::before,
-    .steps-grid .step::before{
-      content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px;
-      background: linear-gradient(120deg, #3861fb, #9b44ff 60%, #17a2ff);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; z-index: 0;
-    }
-
-    .card-glass{position: relative; background: var(--glass); border-radius: 20px; border:1px solid transparent; box-shadow: 0 10px 30px rgba(0,0,0,.25);}
-    .card-glass::before{
-      content:""; position:absolute; inset:-2px; border-radius:22px; padding:2px;
-      background: linear-gradient(120deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3));
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;
-    }
-    .card-glass.thin{ background:var(--glass); backdrop-filter: blur(8px); border:1px solid transparent; }
-    .card-glass.thin::before{ inset:-1.5px; padding:1.5px; opacity:.9; }
-    .card-glass.micro{ border-radius:16px; }
-    .card-glass.micro::before{ border-radius:18px; inset:-1.2px; padding:1.2px; }
-    .elev{ box-shadow:0 10px 30px rgba(0,0,0,.22); transition:transform .18s ease, box-shadow .18s ease; }
-    .elev:hover{ transform:translateY(-1px); box-shadow:0 14px 40px rgba(0,0,0,.28); }
-    .h-section{ font-size:28px; letter-spacing:-.2px; margin:8px 0 16px; background:linear-gradient(90deg,#cfe1ff,#fff 60%); -webkit-background-clip:text; color:transparent; }
-    .vcard{ border:1px solid var(--glass-stroke) !important; background:rgba(255,255,255,.03) !important; }
-    .vcard.card-glass.micro .vicon{ position:relative; overflow:hidden }
-    .vcard.card-glass.micro .vicon::after{ content:""; position:absolute; inset:-8px; border-radius:inherit; z-index:-1; background:radial-gradient(80px 80px at 30% 30%, rgba(91,124,250,.35), transparent 60%); }
-    .panel.market-glass{ background:rgba(255,255,255,.03); border:1px solid var(--glass-stroke); }
-    .btn--grad{ background: linear-gradient(90deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3)); border:none; color:#0b1220; font-weight:800;}
-    .btn--grad:hover{ filter:brightness(1.05) saturate(1.06); transform:translateY(-1px); }
-    .section-tight{ padding:30px 0; }
-    .steps-grid .step{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
-    .panel.fine{ border:1px solid var(--glass-stroke); background:rgba(255,255,255,.03) }
-
-    .section-aurora{
-      position: relative; isolation:isolate; overflow: clip;
-      background:
-        radial-gradient(700px 380px at 10% 20%, rgba(91,124,250,.14), transparent 60%),
-        radial-gradient(680px 360px at 80% 80%, rgba(160,115,255,.12), transparent 60%),
-        radial-gradient(520px 300px at 60% -10%, rgba(63,208,255,.10), transparent 60%),
-        var(--bg);
-    }
-    .contact-v2{ padding: 48px 0 36px; }
-    .contact-grid{ display:grid; grid-template-columns: 1.1fr .9fr; gap:22px; align-items:stretch; }
-    @media (max-width: 980px){ .contact-grid{ grid-template-columns:1fr; } }
-    .contact-info{ padding:22px; border-radius:20px; border:1px solid var(--glass-stroke); backdrop-filter: blur(8px); }
-    .contact-kpis{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px}
-    .contact-kpi{ background:rgba(255,255,255,.03); border:1px solid var(--glass-stroke); border-radius:14px; padding:12px; text-align:center; }
-    .contact-kpi strong{ display:block; font-size:18px }
-    .contact-kpi span{ color:var(--muted); font-size:12px }
-    .form-elegant{ padding:22px; }
-    .form-elegant .field label{ font-size:12px; color:var(--muted) }
-    .form-elegant input, .form-elegant textarea, .form-elegant select{
-      background:rgba(10,16,24,.9); border:1px solid var(--glass-stroke);
-      color:var(--txt); padding:12px 12px; border-radius:12px; font-size:14px;
-      outline:none; transition:border-color .2s, box-shadow .2s;
-    }
-    .form-elegant input:focus, .form-elegant textarea:focus, .form-elegant select:focus{
-      border-color:rgba(91,124,250,.6);
-      box-shadow:0 0 0 3px rgba(91,124,250,.18);
-    }
-    .badge-soft{
-      display:inline-block; font-weight:700; font-size:12px; padding:6px 10px; border-radius:999px;
-      background: linear-gradient(90deg, rgba(91,124,250,.18), rgba(160,115,255,.18));
-      border:1px solid rgba(91,124,250,.35); color:#cfe1ff;
-    }
-    .h-elegant{ margin:10px 0 6px; font-size:28px; letter-spacing:-.2px; background:linear-gradient(90deg, #cfe1ff, #ffffff 60%); -webkit-background-clip:text; color:transparent; }
-    .subtle{ color:var(--muted); margin:0 0 12px; }
-    .contact-list{ display:grid; gap:10px; margin-top:14px }
-    .contact-item{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; border:1px solid var(--glass-stroke); background: rgba(255,255,255,.02); }
-    .contact-ico{ width:32px; height:32px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg, var(--brand-1), var(--brand-3)); color:#07111f; font-weight:800; }
+    .h-section{ font-size:28px; letter-spacing:-.2px; margin:8px 0 16px; background:linear-gradient(90deg,#cfe1ff,#6aa8ff 60%, var(--blue)); -webkit-background-clip:text; color:transparent; }
+    .panel.fine{ border:1px solid rgba(42,111,242,.28); background:var(--panel); box-shadow:var(--glow) }
 
     /* ===== Mercado en movimiento (Investing + video) ===== */
     .market-mov{position:relative; padding:18px 0 26px;}
@@ -254,14 +228,13 @@
     }
     .market-mov .bg::after{
       content:""; position:absolute; inset:0;
-      background:linear-gradient(180deg, rgba(13,17,23,.35) 0%, rgba(13,17,23,.65) 55%, rgba(13,17,23,.85) 100%);
+      background:linear-gradient(180deg, rgba(11,14,19,.35) 0%, rgba(11,14,19,.65) 55%, rgba(11,14,19,.85) 100%);
     }
     .market-mov .inner{position:relative; z-index:1;}
 
-    /* Tarjeta Investing */
     .investing-card{
-      width:100%; margin:0 auto; border-radius:20px; border:1px solid var(--glass-stroke);
-      background:rgba(255,255,255,.03); box-shadow:0 10px 30px rgba(0,0,0,.25); padding:12px;
+      width:100%; margin:0 auto; border-radius:20px; border:1px solid rgba(42,111,242,.28);
+      background:var(--panel); box-shadow:var(--glow); padding:12px;
     }
     .investing-header{ display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px; }
     .investing-frame{ border-radius:16px; overflow:hidden; }
@@ -272,15 +245,10 @@
 
     /* === Animaciones reveal-on-scroll === */
     @media (prefers-reduced-motion:no-preference){
-      [data-reveal]{
-        opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
-        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease;
-      }
+      [data-reveal]{ opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
+        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease; }
       [data-reveal].in{opacity:1; transform:none; filter:none}
-      .stagger-1{transition-delay:.06s}
-      .stagger-2{transition-delay:.12s}
-      .stagger-3{transition-delay:.18s}
-      .stagger-4{transition-delay:.24s}
+      .stagger-1{transition-delay:.06s} .stagger-2{transition-delay:.12s} .stagger-3{transition-delay:.18s} .stagger-4{transition-delay:.24s}
     }
 
     /* ===== Calendario Económico responsive ===== */
@@ -298,23 +266,18 @@
       .sub{ font-size:15px; }
       .cta{ gap:10px; }
       .cta .btn{ flex:1 1 auto; min-width:46%; }
-
       .value-cards{ grid-template-columns:1fr; gap:10px; }
       .vcard{ padding:12px; }
       .vcard h4{ font-size:15px; }
       .vicon{ width:32px; height:32px; font-size:16px; }
-
-      .tv-market{ height:300px; }
-
+      .tv-market{ height:360px; }
       .steps{ padding:28px 0; }
       .steps-grid{ grid-template-columns:1fr; gap:12px; }
       .panel{ padding:14px; }
-
       .market-mov{ padding:14px 0 22px; }
       .investing-card{ padding:10px; }
       .investing-header{ justify-content:center; margin-bottom:10px; }
       .investing-frame iframe{ height:420px; }
-
       .calendar-desktop{ display:none !important; }
       .calendar-mobile{ display:block !important; }
     }
@@ -342,22 +305,11 @@
       body{ padding-bottom:88px; }
     }
 
-    /* ========== FIXES ========== */
-
-    /* TradingView ocupa todo el alto del contenedor */
-    .tv-market{ height:420px; }
-    .tv-market .tradingview-widget-container,
-    .tv-market .tradingview-widget-container__widget{ height:100% !important; }
-
-    /* Popup (fondo blanco + imagen con marco superior) */
+    /* ======= Popup ======= */
     .modal{ position:fixed; inset:0; padding:20px; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:999; }
     .modal[hidden]{ display:none; }
-    .modal__card{
-      width:min(760px, 96vw);
-      border-radius:18px; border:1px solid var(--glass-stroke);
-      background:#ffffff; color:#111; box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden;
-    }
-    .modal__media{ background:#ffffff; border-bottom:1px solid var(--glass-stroke); padding-top:12px; }
+    .modal__card{ width:min(760px, 96vw); border-radius:18px; border:1px solid rgba(42,111,242,.35); background:#ffffff; color:#111; box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden; }
+    .modal__media{ background:#ffffff; border-bottom:1px solid rgba(42,111,242,.2); padding-top:14px; }
     .modal__media a{ display:block; }
     .modal__media img{ width:100%; height:auto; display:block; }
     .modal__inner{ padding:18px; }
@@ -367,17 +319,9 @@
     .modal__close{ border:none; background:#eee; color:#111; font-size:18px; line-height:1; cursor:pointer; width:32px; height:32px; border-radius:8px; }
     .modal__body ul{ margin:8px 0 0 18px; color:#222; }
     .modal__body li{ margin:.34em 0; }
-    .bonus-badge{
-      display:inline-block; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.3px;
-      background:linear-gradient(90deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3)); color:#07111f;
-    }
+    .bonus-badge{ display:inline-block; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.3px; background:linear-gradient(90deg, var(--blue), #4d86ff 55%, var(--blue-2)); color:#07111f; }
     .modal__actions{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
     .modal__small{ font-size:11px; color:#666; margin-top:8px; }
-
-    /* ===== IB banner en hero (debajo del widget) ===== */
-    .ib-cta{ margin-top:12px; border:1px solid var(--glass-stroke); border-radius:16px; overflow:hidden; }
-    .ib-cta__link{ display:block; }
-    .ib-cta img{ width:100%; height:auto; display:block; }
   </style>
 </head>
 <body>
@@ -414,31 +358,31 @@
   </header>
 
   <!-- ======= HERO ======= -->
-  <section class="hero" id="top">
+  <section class="hero halo" id="top">
     <div class="wrap hero-grid">
       <div>
-        <div class="badge">Comunidad • Formación • Herramientas</div>
+        <div class="pill">Comunidad • Formación • Herramientas</div>
         <h2 class="headline">Bienvenido a <strong>My Trader Hub</strong></h2>
         <p class="sub">Accede a beneficios reales: <strong>Programa IB</strong> con broker prime, <strong>Copytrade</strong>, <strong>Canal de señales</strong> y <strong>Curso de Trading Algorítmico</strong> <span class="pill">Coming soon</span>. Todo con un ecosistema y soporte guiado por Omar Gama.</p>
         <div class="cta">
-          <a class="btn btn--grad" href="#lead">Unirme a la comunidad</a>
+          <a class="btn primary" href="#lead">Unirme a la comunidad</a>
           <a class="btn" href="#copytrade">Ver beneficios</a>
         </div>
 
         <div class="value-cards">
-          <article class="vcard card-glass micro elev stagger-1" data-reveal>
+          <article class="vcard stagger-1" data-reveal>
             <div class="vicon" aria-hidden="true">💼</div>
             <div><h4>Programa IB</h4><p>Acceso a broker prime y materiales para crecer como socio.</p><div class="mini"><a class="btn sm" href="https://wa.link/r7f0w5" target="_blank" rel="noopener">Ser IB</a></div></div>
           </article>
-          <article class="vcard card-glass micro elev stagger-2" data-reveal>
+          <article class="vcard stagger-2" data-reveal>
             <div class="vicon" aria-hidden="true">🔁</div>
             <div><h4>Copytrade</h4><p>Conecta tu cuenta y replica estrategias seleccionadas.</p><div class="mini"><a class="btn sm" href="#copytrade">Conectar</a></div></div>
           </article>
-          <article class="vcard card-glass micro elev stagger-3" data-reveal>
+          <article class="vcard stagger-3" data-reveal>
             <div class="vicon" aria-hidden="true">📈</div>
             <div><h4>Canal de señales</h4><p>Entradas, SL y gestión con contexto SMC.</p><div class="mini"><a class="btn sm" href="#senales">Unirme</a></div></div>
           </article>
-          <article class="vcard card-glass micro elev" data-reveal>
+          <article class="vcard stagger-4" data-reveal>
             <div class="vicon" aria-hidden="true">🤖</div>
             <div><h4>Curso algorítmico</h4><p>Lista prioritaria – del backtest al bot. <em>Coming soon</em>.</p><div class="mini"><a class="btn sm" href="#curso">Lista de espera</a></div></div>
           </article>
@@ -446,8 +390,10 @@
       </div>
 
       <!-- Mercado en vivo -->
-      <aside class="panel market-glass card-glass thin elev" aria-label="Mercado en vivo">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px"><strong>Mercado en vivo</strong><span class="pill">Market Overview</span></div>
+      <aside class="panel" aria-label="Mercado en vivo">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
+          <strong>Mercado en vivo</strong><span class="pill">Market Overview</span>
+        </div>
         <div class="tv-market">
           <div class="tradingview-widget-container" style="height:100%">
             <div class="tradingview-widget-container__widget" style="height:100%"></div>
@@ -504,7 +450,7 @@
         </div>
 
         <!-- CTA: Banner IB (WhatsApp) -->
-        <div class="ib-cta card-glass thin elev" data-reveal>
+        <div class="ib-cta" data-reveal>
           <a class="ib-cta__link" href="https://wa.link/r7f0w5" target="_blank" rel="noopener" aria-label="Quiero ser IB — WhatsApp">
             <img src="https://en.fxgaininfo.com/wp-content/uploads/2023/04/Bonus-2-1200x600.jpg" alt="Conviértete en IB — Escríbeme por WhatsApp">
           </a>
@@ -514,25 +460,25 @@
   </section>
 
   <!-- ======= COPYTRADE (PASOS + MYFXBOOK) ======= -->
-  <section class="steps section-tight" id="copytrade">
+  <section class="steps halo" id="copytrade">
     <div class="wrap">
-      <div class="badge">Copytrade</div>
+      <div class="pill">Copytrade</div>
       <h3 class="h-section">Conecta en 3 pasos sencillos</h3>
 
       <div class="steps-grid">
-        <div class="step card-glass micro elev stagger-1" data-reveal>
+        <div class="step stagger-1" data-reveal>
           <div class="pill">Paso 1</div><h4>Abre o usa tu cuenta en STARTRADER</h4><p>Crea o ingresa y completa verificación (KYC).</p>
         </div>
-        <div class="step card-glass micro elev stagger-2" data-reveal>
+        <div class="step stagger-2" data-reveal>
           <div class="pill">Paso 2</div><h4>Elige estrategia</h4><p>Alineada a tu perfil de riesgo y objetivos.</p>
         </div>
-        <div class="step card-glass micro elev" data-reveal>
+        <div class="step" data-reveal>
           <div class="pill">Paso 3</div><h4>Conecta y monitorea</h4><p>Sincroniza tu cuenta, define límites y revisa tu panel.</p>
         </div>
       </div>
 
       <!-- Myfxbook -->
-      <div class="panel card-glass thin elev" style="margin-top:18px" data-reveal>
+      <div class="panel" style="margin-top:18px" data-reveal>
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
           <h3 style="margin:0">Rendimiento auditado (Myfxbook)</h3>
           <span class="pill">Alpha ROMA – Real</span>
@@ -541,17 +487,17 @@
           <a href="https://www.myfxbook.com/members/T4AOficial/alpha-roma-real/11526200" target="_blank" rel="noopener">
             <img alt="widget Myfxbook - Alpha ROMA Real"
                  src="https://widgets.myfxbook.com/custom-widget?id=11526200&width=800&height=330&bart=0&linet=0&symbol=GOLDMI&magic=-1&title=Alpha-RomaReal&titles=14&bgColor=000000&gridColor=bdbdbd&lineColor=ae00ff&barColor=d16dff&bar1Color=d16dff&fontColor=ffffff&chartbgc=000000&equityColor=eff45a"
-                 loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid var(--glass-stroke)"/>
+                 loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid rgba(42,111,242,.28)"/>
           </a>
         </div>
         <p class="notice">Haz clic para ver el detalle en tiempo real dentro de Myfxbook.</p>
-        <div class="cta"><a class="btn btn--grad" href="#lead">Conectarme al Copytrade</a></div>
+        <div class="cta"><a class="btn primary" href="#lead">Conectarme al Copytrade</a></div>
       </div>
     </div>
   </section>
 
   <!-- ======= MERCADO EN MOVIMIENTO (Investing + video de fondo) ======= -->
-  <section class="market-mov" aria-label="Mercado en movimiento">
+  <section class="market-mov halo" aria-label="Mercado en movimiento">
     <div class="bg" aria-hidden="true">
       <video autoplay muted loop playsinline
         src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20(1).mp4">
@@ -559,14 +505,14 @@
     </div>
 
     <div class="wrap inner">
-      <div class="investing-card card-glass thin elev" data-reveal>
+      <div class="investing-card" data-reveal>
         <div class="investing-header">
-          <a class="btn btn--grad" href="#copytrade">Ver Copytrade</a>
+          <a class="btn primary" href="#copytrade">Ver Copytrade</a>
         </div>
 
         <div class="investing-frame">
           <iframe
-            src="https://sslecal2.investing.com?ecoDayBackground=%238149fa&defaultFont=%23383535&innerBorderColor=%238149fa&borderColor=%238149fa&ecoDayFontColor=%23f2efef&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
+            src="https://sslecal2.investing.com?ecoDayBackground=%230b0e13&defaultFont=%23e6e9ef&innerBorderColor=%232a6ff2&borderColor=%232a6ff2&ecoDayFontColor=%23cfe1ff&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
             width="100%" height="520" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
           </iframe>
         </div>
@@ -582,8 +528,8 @@
   </section>
 
   <!-- ======= SEÑALES + CURSO ======= -->
-  <section class="wrap split" id="senales">
-    <div class="panel fine card-glass thin elev" data-reveal>
+  <section class="wrap split halo" id="senales">
+    <div class="panel fine" data-reveal>
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
         <h3 class="h-section" style="margin:0">Canal de Señales</h3><span class="pill">Swing • Intradía</span>
       </div>
@@ -592,10 +538,10 @@
         <li>Alertas con precio de entrada, SL y gestión.</li>
         <li>Resumen semanal con lecciones y contexto.</li>
       </ul>
-      <div class="cta"><a class="btn btn--grad" href="#lead">Unirme al canal</a><a class="btn" href="#lead">Quiero más info</a></div>
+      <div class="cta"><a class="btn primary" href="#lead">Unirme al canal</a><a class="btn" href="#lead">Quiero más info</a></div>
     </div>
 
-    <div class="panel fine card-glass thin elev" id="curso">
+    <div class="panel fine" id="curso" data-reveal>
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
         <h3 class="h-section" style="margin:0">Curso de Trading Algorítmico</h3><span class="pill">Coming soon</span>
       </div>
@@ -608,48 +554,39 @@
         <div class="field"><label>Nombre</label><input name="nombre" required placeholder="Tu nombre" /></div>
         <div class="field"><label>Email</label><input type="email" name="email" required placeholder="tucorreo@dominio.com" /></div>
         <div class="field full"><label>WhatsApp (opcional)</label><input name="whatsapp" placeholder="+52 55 1234 5678" /></div>
-        <div class="field full"><button class="btn btn--grad" type="submit">Anotarme en la lista</button></div>
+        <div class="field full"><button class="btn primary" type="submit">Anotarme en la lista</button></div>
         <div class="notice">Usamos tu información solo para avisarte del lanzamiento.</div>
       </form>
     </div>
   </section>
 
   <!-- ======= CONTACTO ======= -->
-  <section id="lead" class="section-aurora contact-v2">
+  <section id="lead" class="halo" style="padding:48px 0 36px">
     <div class="wrap">
-      <div class="contact-grid">
+      <div class="split">
 
-        <aside class="card-glass contact-info elev" data-reveal>
-          <span class="badge-soft">Atención 1 a 1</span>
-          <h3 class="h-elegant">Hablemos de tu setup</h3>
-          <p class="subtle">Te ayudo a elegir entre Comunidad, Programa IB, Copytrade, Señales o el Curso Algorítmico (coming soon).</p>
+        <aside class="panel" data-reveal>
+          <span class="pill">Atención 1 a 1</span>
+          <h3 class="h-section" style="margin-top:10px">Hablemos de tu setup</h3>
+          <p class="sub">Te ayudo a elegir entre Comunidad, Programa IB, Copytrade, Señales o el Curso Algorítmico (coming soon).</p>
 
-          <div class="contact-kpis">
-            <div class="contact-kpi"><strong>120+</strong><span>Miembros</span></div>
-            <div class="contact-kpi"><strong>4+/mes</strong><span>Sesiones</span></div>
-            <div class="contact-kpi"><strong>LATAM</strong><span>Soporte</span></div>
+          <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px">
+            <div class="panel" style="padding:12px; text-align:center"><strong>120+</strong><div class="notice">Miembros</div></div>
+            <div class="panel" style="padding:12px; text-align:center"><strong>4+/mes</strong><div class="notice">Sesiones</div></div>
+            <div class="panel" style="padding:12px; text-align:center"><strong>LATAM</strong><div class="notice">Soporte</div></div>
           </div>
 
-          <div class="contact-list">
-            <div class="contact-item">
-              <div class="contact-ico">WA</div>
-              <div><strong>WhatsApp</strong><br/><span class="subtle">Respuesta en horario de mercado</span></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-ico">TG</div>
-              <div><strong>Telegram</strong><br/><span class="subtle">Canal de avisos y soporte</span></div>
-            </div>
-            <div class="contact-item">
-              <div class="contact-ico">✉</div>
-              <div><strong>Email</strong><br/><span class="subtle">Respuesta dentro de 24 h</span></div>
-            </div>
+          <div style="display:grid; gap:10px; margin-top:14px">
+            <div class="panel" style="display:flex; align-items:center; gap:10px; padding:10px 12px"><div class="pill">WA</div><div><strong>WhatsApp</strong><br/><span class="notice">Respuesta en horario de mercado</span></div></div>
+            <div class="panel" style="display:flex; align-items:center; gap:10px; padding:10px 12px"><div class="pill">TG</div><div><strong>Telegram</strong><br/><span class="notice">Canal de avisos y soporte</span></div></div>
+            <div class="panel" style="display:flex; align-items:center; gap:10px; padding:10px 12px"><div class="pill">✉</div><div><strong>Email</strong><br/><span class="notice">Respuesta dentro de 24 h</span></div></div>
           </div>
         </aside>
 
-        <div class="card-glass form-elegant elev" data-reveal>
-          <span class="badge-soft">Contacto</span>
-          <h3 class="h-elegant">Déjame tus datos</h3>
-          <p class="subtle">Te escribo por WhatsApp y vemos la mejor opción para tu perfil.</p>
+        <div class="panel" data-reveal>
+          <span class="pill">Contacto</span>
+          <h3 class="h-section" style="margin-top:10px">Déjame tus datos</h3>
+          <p class="sub">Te escribo por WhatsApp y vemos la mejor opción para tu perfil.</p>
 
           <form id="leadform" class="form" action="https://formsubmit.co/YOUR@EMAIL" method="POST">
             <input type="hidden" name="_subject" value="Nuevo lead My Trader Hub" />
@@ -685,7 +622,7 @@
             </div>
 
             <div class="field full">
-              <button class="btn btn--grad" type="submit">Quiero unirme</button>
+              <button class="btn primary" type="submit">Quiero unirme</button>
             </div>
 
             <div class="notice">Al enviar aceptas nuestro aviso de riesgos. Puedes darte de baja cuando quieras.</div>
@@ -697,7 +634,7 @@
   </section>
 
   <!-- ======= FOOTER ======= -->
-  <footer class="footer">
+  <footer class="footer halo">
     <div class="wrap">
       <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap">
         <div style="max-width:620px">
@@ -727,7 +664,7 @@
 
   <!-- Sticky CTA (móvil) -->
   <div class="sticky-bar" aria-label="Barra de acción rápida">
-    <a class="btn btn--grad" href="#lead">Unirme</a>
+    <a class="btn primary" href="#lead">Unirme</a>
     <a class="btn" href="#copytrade">Copytrade</a>
     <a class="btn" href="#curso">Curso</a>
   </div>
@@ -762,7 +699,7 @@
             <li>Múltiples métodos de fondeo y retiro.</li>
           </ul>
           <div class="modal__actions">
-            <a class="btn btn--grad" href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">Abrir cuenta ahora</a>
+            <a class="btn primary" href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">Abrir cuenta ahora</a>
             <a class="btn" href="#lead" id="st-already">Ya tengo cuenta</a>
           </div>
           <div class="modal__small">Promoción sujeta a términos y condiciones y disponibilidad por país/jurisdicción. Verifica requisitos en el sitio oficial antes de fondear.</div>
@@ -781,7 +718,7 @@
     });
   </script>
   <script>
-    // Reveal-on-scroll
+    // Reveal-on-scroll con IntersectionObserver
     (function(){
       if('IntersectionObserver' in window){
         const io = new IntersectionObserver((entries)=>{
@@ -814,9 +751,7 @@
       window.addEventListener('scroll', startTimer, { passive:true, once:true });
       document.getElementById('st-close').addEventListener('click', close);
       document.getElementById('st-already').addEventListener('click', close);
-      document.getElementById('st-modal').addEventListener('click', (e)=>{
-        if(e.target.id === 'st-modal') close();
-      });
+      document.getElementById('st-modal').addEventListener('click', (e)=>{ if(e.target.id === 'st-modal') close(); });
       window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
     })();
   </script>
