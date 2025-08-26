@@ -16,7 +16,7 @@
   <meta name="theme-color" content="#0b0e13"/>
   <meta name="color-scheme" content="dark">
 
-  <!-- Open Graph / Twitter -->
+  <!-- OG/Twitter -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="My Trader Hub">
   <meta property="og:title" content="My Trader Hub — Comunidad, IB, Copytrade, Señales y Curso Algorítmico">
@@ -24,58 +24,32 @@
   <meta property="og:url" content="https://mytraderhub.lat/">
   <meta property="og:locale" content="es_MX">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="My Trader Hub — Comunidad, IB, Copytrade, Señales y Curso Algorítmico">
-  <meta name="twitter:description" content="Únete a My Trader Hub y accede a: Programa IB, Copytrade, Canal de Señales y Curso Algorítmico (coming soon).">
-
-  <!-- App meta -->
-  <meta name="application-name" content="My Trader Hub" />
-  <meta name="apple-mobile-web-app-title" content="My Trader Hub" />
-
-  <!-- Robots + Sitemaps/Manifest -->
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  <link rel="manifest" href="/manifest.webmanifest">
 
   <!-- Perf: Fuentes + TradingView + FormSubmit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preconnect" href="https://s3.tradingview.com" crossorigin>
   <link rel="dns-prefetch" href="//s3.tradingview.com">
   <link rel="preconnect" href="https://formsubmit.co">
   <link rel="dns-prefetch" href="//formsubmit.co">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     /* ======== Paleta & base estilo LatamPay ======= */
     :root{
-      /* base */
-      --bg:#0b0e13;                 /* negro profundo */
-      --panel:#0e1218;              /* panel oscuro */
-      --panel-2:#0a0f16;
-      --stroke:#162233;             /* trazo oscuro azulado */
-      --txt:#e6e9ef;                /* texto principal */
-      --muted:#9fb1c7;              /* texto secundario */
-
-      /* azules brand */
-      --blue:#2a6ff2;               /* primario */
-      --blue-2:#1ac8ff;             /* cian acento */
-      --blue-3:#6aa8ff;             /* claro */
-      --blue-deep:#10233a;
-
-      /* efectos */
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
+      --bg:#0b0e13; --panel:#0e1218; --panel-2:#0a0f16;
+      --stroke:#162233; --txt:#e6e9ef; --muted:#9fb1c7;
+      --blue:#2a6ff2; --blue-2:#1ac8ff; --blue-3:#6aa8ff; --blue-deep:#10233a;
+      --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px;
       --glass: rgba(255,255,255,.03);
-      --glass-stroke: rgba(48,98,170,.45); /* borde azulado */
+      --glass-stroke: rgba(48,98,170,.45);
       --glow: 0 0 0 1px rgba(42,111,242,.35), 0 0 24px rgba(42,111,242,.18);
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;
-      font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial;
-      color:var(--txt);
+      margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial; color:var(--txt);
       background:
         radial-gradient(900px 520px at 30% 18%, rgba(42,111,242,.22), transparent 60%),
         radial-gradient(800px 520px at 80% 8%, rgba(26,200,255,.10), transparent 60%),
@@ -86,21 +60,12 @@
     img{max-width:100%; display:block}
     .wrap{max-width:1180px; margin:0 auto; padding:0 20px}
 
-    /* ======== Banner publicitario arriba (reemplaza Market strip) ======= */
-    .promo-bar{
-      position:sticky; top:0; z-index:80;
-      background:#0b0e13; border-bottom:1px solid #0e1a2b; padding:8px 0;
-      box-shadow:0 6px 18px rgba(0,0,0,.25);
-    }
-    .promo-banner{
-      display:block; max-width:1180px; margin:0 auto; border-radius:14px; overflow:hidden;
-      border:1px solid rgba(42,111,242,.35); background:var(--panel);
-      transition:transform .18s ease, filter .18s ease, box-shadow .18s ease;
-      box-shadow: var(--glow);
-    }
-    .promo-banner:hover{ transform:translateY(-1px); filter:saturate(1.04); box-shadow:0 0 0 1px rgba(26,200,255,.35), 0 0 26px rgba(26,200,255,.20); }
+    /* ===== Banner publicitario arriba ===== */
+    .promo-bar{position:sticky; top:0; z-index:80; background:#0b0e13; border-bottom:1px solid #0e1a2b; padding:8px 0; box-shadow:0 6px 18px rgba(0,0,0,.25)}
+    .promo-banner{display:block; max-width:1180px; margin:0 auto; border-radius:14px; overflow:hidden; border:1px solid rgba(42,111,242,.35); background:var(--panel); transition:.18s; box-shadow:var(--glow)}
+    .promo-banner:hover{transform:translateY(-1px); filter:saturate(1.04); box-shadow:0 0 0 1px rgba(26,200,255,.35), 0 0 26px rgba(26,200,255,.20)}
 
-    /* ======= Header minimalista ======= */
+    /* ===== Header ===== */
     .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(11,14,19,.66); border-bottom:1px solid #0f1c2e}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; align-items:center; gap:12px}
@@ -108,244 +73,156 @@
     .brand h1{font-size:16px; letter-spacing:.2px; margin:0}
     .brand span{display:block; font-size:12px; color:var(--muted)}
     .nav-actions{display:flex; gap:10px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      border:1px solid rgba(42,111,242,.35);
-      background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(8,15,25,.12));
-      color:var(--txt); padding:10px 14px; border-radius:12px; font-weight:600;
-      transition:.2s transform,.2s box-shadow,.2s border-color,.2s background;
-    }
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; border:1px solid rgba(42,111,242,.35); background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(8,15,25,.12)); color:var(--txt); padding:10px 14px; border-radius:12px; font-weight:600; transition:.2s transform,.2s box-shadow,.2s border-color,.2s background}
     .btn:hover{transform:translateY(-1px); box-shadow:var(--glow); border-color:rgba(26,200,255,.5)}
-    .btn.primary{
-      background:linear-gradient(90deg, var(--blue) 0%, #4d86ff 50%, var(--blue-2) 100%); color:#07111f; border:none;
-    }
+    .btn.primary{background:linear-gradient(90deg, var(--blue) 0%, #4d86ff 50%, var(--blue-2) 100%); color:#07111f; border:none}
     .btn.ghost{background:transparent}
     .btn.sm{padding:6px 10px; font-size:12px; border-radius:10px}
-    .pill{font-size:12px; color:#cbd5e1; border:1px solid rgba(42,111,242,.35); padding:4px 8px; border-radius:999px; background:rgba(42,111,242,.06) }
+    .pill{font-size:12px; color:#cbd5e1; border:1px solid rgba(42,111,242,.35); padding:4px 8px; border-radius:999px; background:rgba(42,111,242,.06)}
 
     .header + .hero{ margin-top:22px; }
 
-    /* ======= Hero ======= */
-    .hero{
-      padding:72px 0 52px; border-bottom:1px solid #0e1a2b; position:relative; overflow:visible;
-      background:
-        radial-gradient(880px 520px at 28% 10%, rgba(42,111,242,.28), transparent 60%),
-        radial-gradient(640px 380px at 80% 0%, rgba(26,200,255,.12), transparent 60%),
-        var(--bg);
-    }
+    /* ===== Hero ===== */
+    .hero{padding:72px 0 52px; border-bottom:1px solid #0e1a2b; position:relative; overflow:visible; background:
+      radial-gradient(880px 520px at 28% 10%, rgba(42,111,242,.28), transparent 60%),
+      radial-gradient(640px 380px at 80% 0%, rgba(26,200,255,.12), transparent 60%),
+      var(--bg);}
     .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px}
-    .hero-grid > aside{ align-self:start; }
-    .headline{ font-size:96px; line-height:1.06; letter-spacing:-.8px; margin:0 0 22px; }
-    .headline strong{
-      background:linear-gradient(90deg,#cfe1ff 0%,#6aa8ff 38%,#2a6ff2 70%,#19bfff 100%);
-      -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent;
-      white-space:nowrap; display:block; line-height:1; margin-top:-0.18em; padding-bottom:.34em;
-      filter:drop-shadow(0 6px 24px rgba(42,111,242,.18));
-    }
+    .hero-grid > aside{align-self:start}
+    .headline{font-size:96px; line-height:1.06; letter-spacing:-.8px; margin:0 0 22px}
+    .headline strong{background:linear-gradient(90deg,#cfe1ff 0%,#6aa8ff 38%,#2a6ff2 70%,#19bfff 100%); -webkit-background-clip:text; background-clip:text; color:transparent; -webkit-text-fill-color:transparent; white-space:nowrap; display:block; line-height:1; margin-top:-.18em; padding-bottom:.34em; filter:drop-shadow(0 6px 24px rgba(42,111,242,.18))}
     .sub{color:var(--muted); font-size:16px; margin-top:6px}
     .cta{display:flex; gap:12px; margin:20px 0 10px; flex-wrap:wrap}
 
-    /* ======= Tarjetas de valor estilo LatamPay ======= */
+    /* ===== Tarjetas valor ===== */
     .value-cards{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:14px}
-    .vcard{
-      display:flex; gap:12px; padding:14px;
-      border-radius:16px; background:var(--panel);
-      border:1px solid rgba(42,111,242,.28); box-shadow: var(--glow);
-      align-items:flex-start
-    }
+    .vcard{display:flex; gap:12px; padding:14px; border-radius:16px; background:var(--panel); border:1px solid rgba(42,111,242,.28); box-shadow:var(--glow); align-items:flex-start}
     .vicon{width:36px; height:36px; border-radius:10px; background:linear-gradient(135deg, var(--blue), var(--blue-2)); display:flex; align-items:center; justify-content:center; font-size:18px; box-shadow:0 6px 18px rgba(42,111,242,.25)}
     .vcard h4{margin:0 0 4px; font-size:16px}
     .vcard p{margin:0 0 10px; color:var(--muted)}
     .vcard .mini{display:flex; gap:8px}
     @media (max-width:680px){ .value-cards{grid-template-columns:1fr} }
 
-    /* ======= Paneles / tarjetas global ======= */
-    .panel{
-      background:var(--panel); border:1px solid rgba(42,111,242,.28);
-      border-radius:var(--radius); padding:16px; box-shadow:var(--glow)
-    }
+    /* ===== Paneles ===== */
+    .panel{background:var(--panel); border:1px solid rgba(42,111,242,.28); border-radius:var(--radius); padding:16px; box-shadow:var(--glow)}
+    .halo{position:relative; isolation:isolate}
+    .halo::before{content:""; position:absolute; inset:-2px; z-index:-1; pointer-events:none; background:
+      radial-gradient(780px 420px at 14% 18%, rgba(42,111,242,.20), transparent 60%),
+      radial-gradient(680px 360px at 88% 14%, rgba(26,200,255,.10), transparent 65%),
+      radial-gradient(520px 300px at 54% 120%, rgba(15,35,65,.45), transparent 60%); filter:saturate(1.1)}
 
-    /* ======= TradingView ======= */
-    .tv-market{ height:520px }
-    .tv-market .tradingview-widget-container,
-    .tv-market .tradingview-widget-container__widget{ height:100% !important; }
+    /* ===== TradingView ===== */
+    .tv-market{height:520px}
+    .tv-market .tradingview-widget-container,.tv-market .tradingview-widget-container__widget{height:100% !important}
 
-    /* ======= Secciones con “halo” azul ======= */
-    .halo{ position:relative; isolation:isolate; }
-    .halo::before{
-      content:""; position:absolute; inset:-2px; z-index:-1; pointer-events:none;
-      background:
-        radial-gradient(780px 420px at 14% 18%, rgba(42,111,242,.20), transparent 60%),
-        radial-gradient(680px 360px at 88% 14%, rgba(26,200,255,.10), transparent 65%),
-        radial-gradient(520px 300px at 54% 120%, rgba(15,35,65,.45), transparent 60%);
-      filter:saturate(1.1);
-    }
+    /* ====== NUEVA SECCIÓN: KPIs / CONTADORES ====== */
+    .stats{padding:28px 0; border-top:1px solid #0e1a2b; border-bottom:1px solid #0e1a2b; background:linear-gradient(180deg, rgba(15,24,37,.4), rgba(11,14,19,.2))}
+    .stats-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:stretch}
+    .stat{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:26px 16px; text-align:center; border-radius:16px; background:var(--panel); border:1px solid rgba(42,111,242,.28); box-shadow:var(--glow)}
+    .stat .num{font-weight:800; font-size:56px; letter-spacing:-1px; line-height:1}
+    .stat .num .accent{background:linear-gradient(90deg,#6aa8ff,#2a6ff2 60%,#1ac8ff); -webkit-background-clip:text; color:transparent}
+    .stat .label{color:var(--muted); font-size:14px}
+    .stat small{font-size:12px; color:var(--muted)}
+    @media (max-width:980px){ .stats-grid{grid-template-columns:1fr; gap:12px} .stat{padding:20px} .stat .num{font-size:44px} }
 
-    /* ===== IB banner en hero (debajo widget) ===== */
-    .ib-cta{ margin-top:12px; border:1px solid rgba(42,111,242,.35); border-radius:16px; overflow:hidden; background:#0b0e13; box-shadow:var(--glow) }
-    .ib-cta__link{ display:block; }
-    .ib-cta img{ width:100%; height:auto; display:block; }
-
-    /* ===== Pasos ===== */
+    /* ===== Pasos / Forms / Otras ===== */
     .steps{padding:36px 0}
     .steps-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
     .step{border:1px solid rgba(42,111,242,.28); border-radius:var(--radius); padding:18px; background:var(--panel); box-shadow:var(--glow)}
     .step h4{margin:8px 0 6px}
     .step p{margin:0; color:var(--muted)}
-
-    /* ===== Formularios ===== */
     .form{display:grid; grid-template-columns:1fr 1fr; gap:12px}
     .form .full{grid-column:1 / -1}
     .field{display:grid; gap:6px}
     label{font-size:12px; color:var(--muted)}
-    input, select, textarea{
-      background:#0a1018; border:1px solid rgba(42,111,242,.28); color:var(--txt);
-      padding:12px 12px; border-radius:12px; font-family:inherit; font-size:14px;
-      outline:none; transition:border-color .2s, box-shadow .2s;
-    }
-    input:focus, select:focus, textarea:focus{
-      border-color:rgba(42,111,242,.7);
-      box-shadow:0 0 0 3px rgba(42,111,242,.25);
-    }
+    input, select, textarea{background:#0a1018; border:1px solid rgba(42,111,242,.28); color:var(--txt); padding:12px 12px; border-radius:12px; font-family:inherit; font-size:14px; outline:none; transition:border-color .2s, box-shadow .2s}
+    input:focus, select:focus, textarea:focus{border-color:rgba(42,111,242,.7); box-shadow:0 0 0 3px rgba(42,111,242,.25)}
     .notice{font-size:12px; color:var(--muted)}
-
     .split{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:18px}
-
     .sticky-bar{position:fixed; bottom:12px; left:12px; right:12px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:8px; border-radius:14px; background:rgba(11,14,19,.86); border:1px solid rgba(42,111,242,.28); backdrop-filter: blur(8px); z-index:60; box-shadow:var(--glow)}
-
     .footer{padding:32px 0 80px; border-top:1px solid #0e1a2b; color:var(--muted)}
     .risk{font-size:12px; line-height:1.6}
+    .h-section{font-size:28px; letter-spacing:-.2px; margin:8px 0 16px; background:linear-gradient(90deg,#cfe1ff,#6aa8ff 60%, var(--blue)); -webkit-background-clip:text; color:transparent}
+    .panel.fine{border:1px solid rgba(42,111,242,.28); background:var(--panel); box-shadow:var(--glow)}
 
-    .h-section{ font-size:28px; letter-spacing:-.2px; margin:8px 0 16px; background:linear-gradient(90deg,#cfe1ff,#6aa8ff 60%, var(--blue)); -webkit-background-clip:text; color:transparent; }
-    .panel.fine{ border:1px solid rgba(42,111,242,.28); background:var(--panel); box-shadow:var(--glow) }
+    /* Mercado en movimiento (Investing) */
+    .market-mov{position:relative; padding:18px 0 26px}
+    .market-mov .bg{position:absolute; inset:0; z-index:0; overflow:hidden}
+    .market-mov .bg video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.12; filter:saturate(1.15) contrast(1.05)}
+    .market-mov .bg::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,14,19,.35) 0%, rgba(11,14,19,.65) 55%, rgba(11,14,19,.85) 100%)}
+    .market-mov .inner{position:relative; z-index:1}
+    .investing-card{width:100%; margin:0 auto; border-radius:20px; border:1px solid rgba(42,111,242,.28); background:var(--panel); box-shadow:var(--glow); padding:12px}
+    .investing-header{display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px}
+    .investing-frame{border-radius:16px; overflow:hidden}
+    .investing-frame iframe{display:block; width:100%; border:0; background:#0a1018; box-shadow:0 6px 18px rgba(0,0,0,.18)}
+    .investing-credit{text-align:center; font-size:12px; color:var(--muted); margin-top:6px}
 
-    /* ===== Mercado en movimiento (Investing + video) ===== */
-    .market-mov{position:relative; padding:18px 0 26px;}
-    .market-mov .bg{position:absolute; inset:0; z-index:0; overflow:hidden;}
-    .market-mov .bg video{
-      position:absolute; inset:0; width:100%; height:100%;
-      object-fit:cover; opacity:.12; filter:saturate(1.15) contrast(1.05);
-    }
-    .market-mov .bg::after{
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(180deg, rgba(11,14,19,.35) 0%, rgba(11,14,19,.65) 55%, rgba(11,14,19,.85) 100%);
-    }
-    .market-mov .inner{position:relative; z-index:1;}
-
-    .investing-card{
-      width:100%; margin:0 auto; border-radius:20px; border:1px solid rgba(42,111,242,.28);
-      background:var(--panel); box-shadow:var(--glow); padding:12px;
-    }
-    .investing-header{ display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px; }
-    .investing-frame{ border-radius:16px; overflow:hidden; }
-    .investing-frame iframe{
-      display:block; width:100%; border:0; background:#0a1018; box-shadow:0 6px 18px rgba(0,0,0,.18);
-    }
-    .investing-credit{ text-align:center; font-size:12px; color:var(--muted); margin-top:6px; }
-
-    /* === Animaciones reveal-on-scroll === */
+    /* Reveal */
     @media (prefers-reduced-motion:no-preference){
-      [data-reveal]{ opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
-        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease; }
+      [data-reveal]{opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9); will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease}
       [data-reveal].in{opacity:1; transform:none; filter:none}
       .stagger-1{transition-delay:.06s} .stagger-2{transition-delay:.12s} .stagger-3{transition-delay:.18s} .stagger-4{transition-delay:.24s}
     }
 
-    /* ===== Calendario Económico responsive ===== */
-    .calendar-desktop{ display:block; margin:0 auto; max-width:1000px; }
-    .calendar-mobile{ display:none;  margin:0 auto; max-width:100%; }
-
-    /* ====== Ajustes MOVIL (≤ 980px) ====== */
-    @media (max-width: 980px){
-      .wrap{ padding:0 16px; }
-      .hero{ padding:56px 0 32px; }
-      .hero-grid{ grid-template-columns:1fr; gap:18px; }
-      .hero-grid > div{ order:1; }
-      .hero-grid > aside{ order:2; }
-      .headline{ font-size:56px; line-height:1.08; }
-      .sub{ font-size:15px; }
-      .cta{ gap:10px; }
-      .cta .btn{ flex:1 1 auto; min-width:46%; }
-      .value-cards{ grid-template-columns:1fr; gap:10px; }
-      .vcard{ padding:12px; }
-      .vcard h4{ font-size:15px; }
-      .vicon{ width:32px; height:32px; font-size:16px; }
-      .tv-market{ height:360px; }
-      .steps{ padding:28px 0; }
-      .steps-grid{ grid-template-columns:1fr; gap:12px; }
-      .panel{ padding:14px; }
-      .market-mov{ padding:14px 0 22px; }
-      .investing-card{ padding:10px; }
-      .investing-header{ justify-content:center; margin-bottom:10px; }
-      .investing-frame iframe{ height:420px; }
-      .calendar-desktop{ display:none !important; }
-      .calendar-mobile{ display:block !important; }
+    /* Responsive */
+    @media (max-width:980px){
+      .wrap{padding:0 16px}
+      .hero{padding:56px 0 32px}
+      .hero-grid{grid-template-columns:1fr; gap:18px}
+      .hero-grid>div{order:1} .hero-grid>aside{order:2}
+      .headline{font-size:56px; line-height:1.08}
+      .sub{font-size:15px}
+      .cta{gap:10px}
+      .vcard{padding:12px}
+      .vcard h4{font-size:15px}
+      .vicon{width:32px; height:32px; font-size:16px}
+      .tv-market{height:360px}
+      .steps{padding:28px 0}
+      .steps-grid{grid-template-columns:1fr; gap:12px}
+      .panel{padding:14px}
+      .market-mov{padding:14px 0 22px}
+      .investing-card{padding:10px}
+      .investing-header{justify-content:center; margin-bottom:10px}
+      .investing-frame iframe{height:420px}
     }
+    @media (max-width:480px){ .headline{font-size:44px} .cta .btn{min-width:100%} .investing-frame iframe{height:360px} }
+    @media (max-width:640px){ .nav-actions{overflow-x:auto; -webkit-overflow-scrolling:touch; gap:8px; scrollbar-width:none} .nav-actions::-webkit-scrollbar{display:none} }
+    @media (max-width:900px){ .split{grid-template-columns:1fr; gap:14px} }
+    @media (max-width:768px){ body{padding-bottom:88px} }
 
-    /* ====== Ajustes móviles compactos (≤ 480px) ====== */
-    @media (max-width: 480px){
-      .headline{ font-size:44px; }
-      .cta .btn{ min-width:100%; }
-      .investing-frame iframe{ height:360px; }
-    }
-
-    /* ====== Navegación móvil scrollable ====== */
-    @media (max-width: 640px){
-      .nav-actions{ overflow-x:auto; -webkit-overflow-scrolling:touch; gap:8px; scrollbar-width:none; }
-      .nav-actions::-webkit-scrollbar{ display:none; }
-    }
-
-    /* ====== Split a 1 columna en móvil ====== */
-    @media (max-width: 900px){
-      .split{ grid-template-columns:1fr; gap:14px; }
-    }
-
-    /* ====== Evita que la barra fija tape contenido ====== */
-    @media (max-width: 768px){
-      body{ padding-bottom:88px; }
-    }
-
-    /* ======= Popup ======= */
-    .modal{ position:fixed; inset:0; padding:20px; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:999; }
-    .modal[hidden]{ display:none; }
-    .modal__card{ width:min(760px, 96vw); border-radius:18px; border:1px solid rgba(42,111,242,.35); background:#ffffff; color:#111; box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden; }
-    .modal__media{ background:#ffffff; border-bottom:1px solid rgba(42,111,242,.2); padding-top:14px; }
-    .modal__media a{ display:block; }
-    .modal__media img{ width:100%; height:auto; display:block; }
-    .modal__inner{ padding:18px; }
-    .modal__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; }
-    .modal__kicker{ font-size:12px; color:#666; font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
-    .modal__title{ margin:6px 0 8px; font-size:26px; line-height:1.2; letter-spacing:-.2px; font-weight:800; color:#111; }
-    .modal__close{ border:none; background:#eee; color:#111; font-size:18px; line-height:1; cursor:pointer; width:32px; height:32px; border-radius:8px; }
-    .modal__body ul{ margin:8px 0 0 18px; color:#222; }
-    .modal__body li{ margin:.34em 0; }
-    .bonus-badge{ display:inline-block; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.3px; background:linear-gradient(90deg, var(--blue), #4d86ff 55%, var(--blue-2)); color:#07111f; }
-    .modal__actions{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
-    .modal__small{ font-size:11px; color:#666; margin-top:8px; }
+    /* ===== Popup ===== */
+    .modal{position:fixed; inset:0; padding:20px; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:999}
+    .modal[hidden]{display:none}
+    .modal__card{width:min(760px, 96vw); border-radius:18px; border:1px solid rgba(42,111,242,.35); background:#fff; color:#111; box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden}
+    .modal__media{background:#fff; border-bottom:1px solid rgba(42,111,242,.2); padding-top:14px}
+    .modal__media a{display:block}
+    .modal__media img{width:100%; height:auto; display:block}
+    .modal__inner{padding:18px}
+    .modal__head{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px}
+    .modal__kicker{font-size:12px; color:#666; font-weight:700; letter-spacing:.12em; text-transform:uppercase}
+    .modal__title{margin:6px 0 8px; font-size:26px; line-height:1.2; letter-spacing:-.2px; font-weight:800; color:#111}
+    .modal__close{border:none; background:#eee; color:#111; font-size:18px; line-height:1; cursor:pointer; width:32px; height:32px; border-radius:8px}
+    .modal__body ul{margin:8px 0 0 18px; color:#222} .modal__body li{margin:.34em 0}
+    .bonus-badge{display:inline-block; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.3px; background:linear-gradient(90deg, var(--blue), #4d86ff 55%, var(--blue-2)); color:#07111f}
+    .modal__actions{display:flex; gap:8px; margin-top:14px; flex-wrap:wrap}
+    .modal__small{font-size:11px; color:#666; margin-top:8px}
   </style>
 </head>
 <body>
 
-  <!-- ======= BANNER STARTRADER (pegado al menú y sticky breve) ======= -->
+  <!-- ===== BANNER SUPERIOR ===== -->
   <div class="promo-bar">
-    <a class="promo-banner"
-       href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ=="
-       target="_blank" rel="noopener">
-      <img
-        src="https://raw.githubusercontent.com/omargama20/MyTraderHub/8d270540a6adfa262e54d2be21b753ca43675c45/BANNER%20STARTRADER.jpg"
-        alt="Abre tu cuenta en STARTRADER — Promoción">
+    <a class="promo-banner" href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">
+      <img src="https://raw.githubusercontent.com/omargama20/MyTraderHub/8d270540a6adfa262e54d2be21b753ca43675c45/BANNER%20STARTRADER.jpg" alt="Abre tu cuenta en STARTRADER — Promoción">
     </a>
   </div>
 
-  <!-- ======= HEADER ======= -->
+  <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="wrap nav">
       <a class="brand" href="#top" aria-label="Inicio">
         <div class="logo" aria-hidden="true"></div>
-        <div>
-          <h1>My Trader Hub</h1>
-          <span>by Omar Gama</span>
-        </div>
+        <div><h1>My Trader Hub</h1><span>by Omar Gama</span></div>
       </a>
       <nav class="nav-actions" aria-label="Acciones principales">
         <a class="btn ghost" href="#comunidad">Comunidad</a>
@@ -357,7 +234,7 @@
     </div>
   </header>
 
-  <!-- ======= HERO ======= -->
+  <!-- ===== HERO ===== -->
   <section class="hero halo" id="top">
     <div class="wrap hero-grid">
       <div>
@@ -371,19 +248,19 @@
 
         <div class="value-cards">
           <article class="vcard stagger-1" data-reveal>
-            <div class="vicon" aria-hidden="true">💼</div>
+            <div class="vicon">💼</div>
             <div><h4>Programa IB</h4><p>Acceso a broker prime y materiales para crecer como socio.</p><div class="mini"><a class="btn sm" href="https://wa.link/r7f0w5" target="_blank" rel="noopener">Ser IB</a></div></div>
           </article>
           <article class="vcard stagger-2" data-reveal>
-            <div class="vicon" aria-hidden="true">🔁</div>
+            <div class="vicon">🔁</div>
             <div><h4>Copytrade</h4><p>Conecta tu cuenta y replica estrategias seleccionadas.</p><div class="mini"><a class="btn sm" href="#copytrade">Conectar</a></div></div>
           </article>
           <article class="vcard stagger-3" data-reveal>
-            <div class="vicon" aria-hidden="true">📈</div>
+            <div class="vicon">📈</div>
             <div><h4>Canal de señales</h4><p>Entradas, SL y gestión con contexto SMC.</p><div class="mini"><a class="btn sm" href="#senales">Unirme</a></div></div>
           </article>
           <article class="vcard stagger-4" data-reveal>
-            <div class="vicon" aria-hidden="true">🤖</div>
+            <div class="vicon">🤖</div>
             <div><h4>Curso algorítmico</h4><p>Lista prioritaria – del backtest al bot. <em>Coming soon</em>.</p><div class="mini"><a class="btn sm" href="#curso">Lista de espera</a></div></div>
           </article>
         </div>
@@ -391,65 +268,18 @@
 
       <!-- Mercado en vivo -->
       <aside class="panel" aria-label="Mercado en vivo">
-        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
-          <strong>Mercado en vivo</strong><span class="pill">Market Overview</span>
-        </div>
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px"><strong>Mercado en vivo</strong><span class="pill">Market Overview</span></div>
         <div class="tv-market">
           <div class="tradingview-widget-container" style="height:100%">
             <div class="tradingview-widget-container__widget" style="height:100%"></div>
             <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-            {
-              "title": "Currencies",
-              "tabs": [
-                {"title":"Major","title_raw":"Major","symbols":[
-                  {"s":"FX_IDC:EURUSD","d":"EUR to USD"},
-                  {"s":"FX_IDC:USDJPY","d":"USD to JPY"},
-                  {"s":"FX_IDC:GBPUSD","d":"GBP to USD"},
-                  {"s":"FX_IDC:AUDUSD","d":"AUD to USD"},
-                  {"s":"FX_IDC:USDCAD","d":"USD to CAD"},
-                  {"s":"FX_IDC:USDCHF","d":"USD to CHF"}],
-                 "quick_link":{"title":"More majors","href":"/markets/currencies/rates-major/"}},
-                {"title":"Minor","title_raw":"Minor","symbols":[
-                  {"s":"FX_IDC:EURGBP","d":"EUR to GBP"},
-                  {"s":"FX_IDC:EURJPY","d":"EUR to JPY"},
-                  {"s":"FX_IDC:GBPJPY","d":"GBP to JPY"},
-                  {"s":"FX_IDC:CADJPY","d":"CAD to JPY"},
-                  {"s":"FX_IDC:GBPCAD","d":"GBP to CAD"},
-                  {"s":"FX_IDC:EURCAD","d":"EUR to CAD"}],
-                 "quick_link":{"title":"More minors","href":"/markets/currencies/rates-minor/"}},
-                {"title":"Exotic","title_raw":"Exotic","symbols":[
-                  {"s":"FX_IDC:USDSEK","d":"USD to SEK"},
-                  {"s":"FX_IDC:USDMXN","d":"USD to MXN"},
-                  {"s":"FX_IDC:USDZAR","d":"USD to ZAR"},
-                  {"s":"FX_IDC:EURTRY","d":"EUR to TRY"},
-                  {"s":"FX_IDC:EURNOK","d":"EUR to NOK"},
-                  {"s":"FX_IDC:GBPPLN","d":"GBP to PLN"}],
-                 "quick_link":{"title":"More exotics","href":"/markets/currencies/rates-exotic/"}}
-              ],
-              "title_link": "/markets/currencies/rates-major/",
-              "width": "100%",
-              "height": "100%",
-              "showChart": true,
-              "showFloatingTooltip": false,
-              "locale": "en",
-              "plotLineColorGrowing": "#2962FF",
-              "plotLineColorFalling": "#2962FF",
-              "belowLineFillColorGrowing": "rgba(41, 98, 255, 0.12)",
-              "belowLineFillColorFalling": "rgba(41, 98, 255, 0.12)",
-              "belowLineFillColorGrowingBottom": "rgba(41, 98, 255, 0)",
-              "belowLineFillColorFallingBottom": "rgba(41, 98, 255, 0)",
-              "gridLineColor": "rgba(240, 243, 250, 0)",
-              "scaleFontColor": "rgba(120, 123, 134, 1)",
-              "showSymbolLogo": true,
-              "symbolActiveColor": "rgba(41, 98, 255, 0.12)",
-              "colorTheme": "dark"
-            }
+            {"title":"Currencies","tabs":[{"title":"Major","title_raw":"Major","symbols":[{"s":"FX_IDC:EURUSD","d":"EUR to USD"},{"s":"FX_IDC:USDJPY","d":"USD to JPY"},{"s":"FX_IDC:GBPUSD","d":"GBP to USD"},{"s":"FX_IDC:AUDUSD","d":"AUD to USD"},{"s":"FX_IDC:USDCAD","d":"USD to CAD"},{"s":"FX_IDC:USDCHF","d":"USD to CHF"}],"quick_link":{"title":"More majors","href":"/markets/currencies/rates-major/"}},{"title":"Minor","title_raw":"Minor","symbols":[{"s":"FX_IDC:EURGBP","d":"EUR to GBP"},{"s":"FX_IDC:EURJPY","d":"EUR to JPY"},{"s":"FX_IDC:GBPJPY","d":"GBP to JPY"},{"s":"FX_IDC:CADJPY","d":"CAD to JPY"},{"s":"FX_IDC:GBPCAD","d":"GBP to CAD"},{"s":"FX_IDC:EURCAD","d":"EUR to CAD"}],"quick_link":{"title":"More minors","href":"/markets/currencies/rates-minor/"}},{"title":"Exotic","title_raw":"Exotic","symbols":[{"s":"FX_IDC:USDSEK","d":"USD to SEK"},{"s":"FX_IDC:USDMXN","d":"USD to MXN"},{"s":"FX_IDC:USDZAR","d":"USD to ZAR"},{"s":"FX_IDC:EURTRY","d":"EUR to TRY"},{"s":"FX_IDC:EURNOK","d":"EUR to NOK"},{"s":"FX_IDC:GBPPLN","d":"GBP to PLN"}],"quick_link":{"title":"More exotics","href":"/markets/currencies/rates-exotic/"}}],"title_link":"/markets/currencies/rates-major/","width":"100%","height":"100%","showChart":true,"showFloatingTooltip":false,"locale":"en","plotLineColorGrowing":"#2962FF","plotLineColorFalling":"#2962FF","belowLineFillColorGrowing":"rgba(41, 98, 255, 0.12)","belowLineFillColorFalling":"rgba(41, 98, 255, 0.12)","belowLineFillColorGrowingBottom":"rgba(41, 98, 255, 0)","belowLineFillColorFallingBottom":"rgba(41, 98, 255, 0)","gridLineColor":"rgba(240, 243, 250, 0)","scaleFontColor":"rgba(120, 123, 134, 1)","showSymbolLogo":true,"symbolActiveColor":"rgba(41, 98, 255, 0.12)","colorTheme":"dark"}
             </script>
           </div>
         </div>
 
-        <!-- CTA: Banner IB (WhatsApp) -->
+        <!-- CTA IB -->
         <div class="ib-cta" data-reveal>
           <a class="ib-cta__link" href="https://wa.link/r7f0w5" target="_blank" rel="noopener" aria-label="Quiero ser IB — WhatsApp">
             <img src="https://en.fxgaininfo.com/wp-content/uploads/2023/04/Bonus-2-1200x600.jpg" alt="Conviértete en IB — Escríbeme por WhatsApp">
@@ -459,7 +289,30 @@
     </div>
   </section>
 
-  <!-- ======= COPYTRADE (PASOS + MYFXBOOK) ======= -->
+  <!-- ===== NUEVA SECCIÓN: KPIs ===== -->
+  <section id="stats" class="stats halo">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat" data-reveal>
+          <div class="num" aria-live="polite"><span id="clients" class="accent">0</span><span class="accent">+</span></div>
+          <div class="label">Clientes activos</div>
+          <small>Actualiza cada 30 s</small>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="num" aria-live="polite"><span id="ibs" class="accent">0</span><span class="accent">+</span></div>
+          <div class="label">IB / Affiliates</div>
+          <small>Actualiza cada 30 s</small>
+        </div>
+        <div class="stat" data-reveal>
+          <div class="num" aria-live="polite">$<span id="paid" class="accent">0</span></div>
+          <div class="label">Comisiones pagadas (últimos 12 meses)</div>
+          <small>Actualiza cada segundo</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COPYTRADE ===== -->
   <section class="steps halo" id="copytrade">
     <div class="wrap">
       <div class="pill">Copytrade</div>
@@ -477,7 +330,6 @@
         </div>
       </div>
 
-      <!-- Myfxbook -->
       <div class="panel" style="margin-top:18px" data-reveal>
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
           <h3 style="margin:0">Rendimiento auditado (Myfxbook)</h3>
@@ -485,9 +337,7 @@
         </div>
         <div style="display:flex; justify-content:center; align-items:center">
           <a href="https://www.myfxbook.com/members/T4AOficial/alpha-roma-real/11526200" target="_blank" rel="noopener">
-            <img alt="widget Myfxbook - Alpha ROMA Real"
-                 src="https://widgets.myfxbook.com/custom-widget?id=11526200&width=800&height=330&bart=0&linet=0&symbol=GOLDMI&magic=-1&title=Alpha-RomaReal&titles=14&bgColor=000000&gridColor=bdbdbd&lineColor=ae00ff&barColor=d16dff&bar1Color=d16dff&fontColor=ffffff&chartbgc=000000&equityColor=eff45a"
-                 loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid rgba(42,111,242,.28)"/>
+            <img alt="widget Myfxbook - Alpha ROMA Real" src="https://widgets.myfxbook.com/custom-widget?id=11526200&width=800&height=330&bart=0&linet=0&symbol=GOLDMI&magic=-1&title=Alpha-RomaReal&titles=14&bgColor=000000&gridColor=bdbdbd&lineColor=ae00ff&barColor=d16dff&bar1Color=d16dff&fontColor=ffffff&chartbgc=000000&equityColor=eff45a" loading="lazy" decoding="async" style="width:100%; max-width:980px; border-radius:12px; border:1px solid rgba(42,111,242,.28)"/>
           </a>
         </div>
         <p class="notice">Haz clic para ver el detalle en tiempo real dentro de Myfxbook.</p>
@@ -496,38 +346,23 @@
     </div>
   </section>
 
-  <!-- ======= MERCADO EN MOVIMIENTO (Investing + video de fondo) ======= -->
+  <!-- ===== MERCADO EN MOVIMIENTO ===== -->
   <section class="market-mov halo" aria-label="Mercado en movimiento">
     <div class="bg" aria-hidden="true">
-      <video autoplay muted loop playsinline
-        src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20(1).mp4">
-      </video>
+      <video autoplay muted loop playsinline src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20(1).mp4"></video>
     </div>
-
     <div class="wrap inner">
       <div class="investing-card" data-reveal>
-        <div class="investing-header">
-          <a class="btn primary" href="#copytrade">Ver Copytrade</a>
-        </div>
-
+        <div class="investing-header"><a class="btn primary" href="#copytrade">Ver Copytrade</a></div>
         <div class="investing-frame">
-          <iframe
-            src="https://sslecal2.investing.com?ecoDayBackground=%230b0e13&defaultFont=%23e6e9ef&innerBorderColor=%232a6ff2&borderColor=%232a6ff2&ecoDayFontColor=%23cfe1ff&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
-            width="100%" height="520" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
-          </iframe>
+          <iframe src="https://sslecal2.investing.com?ecoDayBackground=%230b0e13&defaultFont=%23e6e9ef&innerBorderColor=%232a6ff2&borderColor=%232a6ff2&ecoDayFontColor=%23cfe1ff&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49" width="100%" height="520" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe>
         </div>
-
-        <div class="investing-credit">
-          Calendario económico en vivo cortesía de
-          <a href="https://mx.investing.com/" rel="nofollow noopener" target="_blank" class="underline_link">
-            Investing.com México
-          </a>
-        </div>
+        <div class="investing-credit">Calendario económico en vivo cortesía de <a href="https://mx.investing.com/" rel="nofollow noopener" target="_blank">Investing.com México</a></div>
       </div>
     </div>
   </section>
 
-  <!-- ======= SEÑALES + CURSO ======= -->
+  <!-- ===== SEÑALES + CURSO ===== -->
   <section class="wrap split halo" id="senales">
     <div class="panel fine" data-reveal>
       <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
@@ -560,22 +395,19 @@
     </div>
   </section>
 
-  <!-- ======= CONTACTO ======= -->
+  <!-- ===== CONTACTO ===== -->
   <section id="lead" class="halo" style="padding:48px 0 36px">
     <div class="wrap">
       <div class="split">
-
         <aside class="panel" data-reveal>
           <span class="pill">Atención 1 a 1</span>
           <h3 class="h-section" style="margin-top:10px">Hablemos de tu setup</h3>
           <p class="sub">Te ayudo a elegir entre Comunidad, Programa IB, Copytrade, Señales o el Curso Algorítmico (coming soon).</p>
-
           <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:12px">
             <div class="panel" style="padding:12px; text-align:center"><strong>120+</strong><div class="notice">Miembros</div></div>
             <div class="panel" style="padding:12px; text-align:center"><strong>4+/mes</strong><div class="notice">Sesiones</div></div>
             <div class="panel" style="padding:12px; text-align:center"><strong>LATAM</strong><div class="notice">Soporte</div></div>
           </div>
-
           <div style="display:grid; gap:10px; margin-top:14px">
             <div class="panel" style="display:flex; align-items:center; gap:10px; padding:10px 12px"><div class="pill">WA</div><div><strong>WhatsApp</strong><br/><span class="notice">Respuesta en horario de mercado</span></div></div>
             <div class="panel" style="display:flex; align-items:center; gap:10px; padding:10px 12px"><div class="pill">TG</div><div><strong>Telegram</strong><br/><span class="notice">Canal de avisos y soporte</span></div></div>
@@ -587,76 +419,40 @@
           <span class="pill">Contacto</span>
           <h3 class="h-section" style="margin-top:10px">Déjame tus datos</h3>
           <p class="sub">Te escribo por WhatsApp y vemos la mejor opción para tu perfil.</p>
-
           <form id="leadform" class="form" action="https://formsubmit.co/YOUR@EMAIL" method="POST">
             <input type="hidden" name="_subject" value="Nuevo lead My Trader Hub" />
             <input type="hidden" name="origen" value="Landing MTH" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-
-            <div class="field"><label>Nombre</label>
-              <input name="nombre" required placeholder="Nombre y Apellido" autocomplete="name" />
-            </div>
-
-            <div class="field"><label>Email</label>
-              <input type="email" name="email" required placeholder="tucorreo@dominio.com" autocomplete="email" />
-            </div>
-
-            <div class="field"><label>WhatsApp</label>
-              <input name="whatsapp" required placeholder="+52 55 1234 5678" inputmode="tel" />
-            </div>
-
+            <div class="field"><label>Nombre</label><input name="nombre" required placeholder="Nombre y Apellido" autocomplete="name" /></div>
+            <div class="field"><label>Email</label><input type="email" name="email" required placeholder="tucorreo@dominio.com" autocomplete="email" /></div>
+            <div class="field"><label>WhatsApp</label><input name="whatsapp" required placeholder="+52 55 1234 5678" inputmode="tel" /></div>
             <div class="field"><label>Interés</label>
               <select name="interes" required>
                 <option value="" selected disabled>Selecciona una opción</option>
-                <option>Comunidad</option>
-                <option>Programa IB</option>
-                <option>Copytrade</option>
-                <option>Señales</option>
-                <option>Curso Algorítmico</option>
+                <option>Comunidad</option><option>Programa IB</option><option>Copytrade</option><option>Señales</option><option>Curso Algorítmico</option>
               </select>
             </div>
-
-            <div class="field full"><label>Mensaje</label>
-              <textarea name="mensaje" rows="3" placeholder="Cuéntame tu experiencia y objetivo"></textarea>
-            </div>
-
-            <div class="field full">
-              <button class="btn primary" type="submit">Quiero unirme</button>
-            </div>
-
+            <div class="field full"><label>Mensaje</label><textarea name="mensaje" rows="3" placeholder="Cuéntame tu experiencia y objetivo"></textarea></div>
+            <div class="field full"><button class="btn primary" type="submit">Quiero unirme</button></div>
             <div class="notice">Al enviar aceptas nuestro aviso de riesgos. Puedes darte de baja cuando quieras.</div>
           </form>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- ======= FOOTER ======= -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer halo">
     <div class="wrap">
       <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap">
         <div style="max-width:620px">
           <strong>Aviso de Riesgo</strong>
-          <p class="risk">
-            El trading de instrumentos financieros como Forex, CFDs, índices, materias primas y criptomonedas implica un alto nivel de riesgo y puede no ser adecuado para todos los inversionistas. La volatilidad de los mercados financieros puede generar tanto ganancias como pérdidas significativas en poco tiempo.
-            <br><br>
-            MyTraderHub.lat no es una entidad financiera ni un bróker. La información compartida en esta página, incluyendo señales, servicios de copytrade y material educativo, tiene únicamente fines informativos y educativos. No constituye asesoría financiera, recomendación de inversión, ni garantía de resultados.
-            <br><br>
-            Los resultados pasados de estrategias, traders o algoritmos no garantizan rendimientos futuros. Cada usuario es responsable de la gestión de su capital y de las decisiones de inversión que tome.
-            <br><br>
-            Antes de operar en los mercados, asegúrese de comprender los riesgos involucrados y, si es necesario, busque asesoría financiera independiente.
-            <br><br>
-            Al utilizar los servicios e información de esta página, usted reconoce y acepta que opera bajo su propia responsabilidad, y que ni MyTraderHub.lat, sus colaboradores o socios, serán responsables por pérdidas directas o indirectas derivadas de sus decisiones de inversión.
-          </p>
+          <p class="risk">El trading de instrumentos financieros como Forex, CFDs, índices, materias primas y criptomonedas implica un alto nivel de riesgo y puede no ser adecuado para todos los inversionistas. La volatilidad de los mercados financieros puede generar tanto ganancias como pérdidas significativas en poco tiempo.<br><br>MyTraderHub.lat no es una entidad financiera ni un bróker. La información compartida en esta página, incluyendo señales, servicios de copytrade y material educativo, tiene únicamente fines informativos y educativos. No constituye asesoría financiera, recomendación de inversión, ni garantía de resultados.<br><br>Los resultados pasados de estrategias, traders o algoritmos no garantizan rendimientos futuros. Cada usuario es responsable de la gestión de su capital y de las decisiones de inversión que tome.<br><br>Antes de operar en los mercados, asegúrese de comprender los riesgos involucrados y, si es necesario, busque asesoría financiera independiente.<br><br>Al utilizar los servicios e información de esta página, usted reconoce y acepta que opera bajo su propia responsabilidad, y que ni MyTraderHub.lat, sus colaboradores o socios, serán responsables por pérdidas directas o indirectas derivadas de sus decisiones de inversión.</p>
         </div>
         <div>
           <p style="margin:0 0 8px">© <span id="year"></span> My Trader Hub</p>
-          <div style="display:flex; gap:10px">
-            <a class="btn" href="#top">Inicio</a>
-            <a class="btn ghost" href="#lead">Contacto</a>
-          </div>
+          <div style="display:flex; gap:10px"><a class="btn" href="#top">Inicio</a><a class="btn ghost" href="#lead">Contacto</a></div>
         </div>
       </div>
     </div>
@@ -669,22 +465,15 @@
     <a class="btn" href="#curso">Curso</a>
   </div>
 
-  <!-- ======= POPUP STARTRADER ======= -->
+  <!-- ===== POPUP STARTRADER ===== -->
   <div id="st-modal" class="modal" hidden>
     <div class="modal__card" role="dialog" aria-labelledby="st-modal-title" aria-modal="true">
-      <div class="modal__media">
-        <a href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">
-          <img src="https://raw.githubusercontent.com/omargama20/MyTraderHub/refs/heads/main/STARTRADER%20BONO.webp"
-               alt="STARTRADER: Bono 50% en tu primer depósito">
-        </a>
-      </div>
+      <div class="modal__media"><a href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">
+        <img src="https://raw.githubusercontent.com/omargama20/MyTraderHub/refs/heads/main/STARTRADER%20BONO.webp" alt="STARTRADER: Bono 50% en tu primer depósito"></a></div>
       <div class="modal__inner">
         <div class="modal__head">
-          <div>
-            <div class="modal__kicker">Promoción</div>
-            <h4 id="st-modal-title" class="modal__title">
-              Deposita y obtén <span class="bonus-badge">50% de bono</span> en tu primer depósito
-            </h4>
+          <div><div class="modal__kicker">Promoción</div>
+            <h4 id="st-modal-title" class="modal__title">Deposita y obtén <span class="bonus-badge">50% de bono</span> en tu primer depósito</h4>
           </div>
           <button id="st-close" class="modal__close" aria-label="Cerrar">✕</button>
         </div>
@@ -709,50 +498,80 @@
   </div>
 
   <script>
-    // Año dinámico + máscara simple de WhatsApp
+    // Año dinámico + máscara WhatsApp
     document.getElementById('year').textContent = new Date().getFullYear();
-    const wmask = (val)=> val.replace(/[^+\d\s-]/g,'').replace(/\s{2,}/g,' ').trim();
+    const wmask = (v)=> v.replace(/[^+\d\s-]/g,'').replace(/\s{2,}/g,' ').trim();
     ['leadform','waitlist'].forEach(id=>{
-      const form = document.getElementById(id); if(!form) return;
-      form.addEventListener('input', e=>{ if(e.target.name==='whatsapp'){ e.target.value = wmask(e.target.value);} });
+      const f=document.getElementById(id); if(!f) return;
+      f.addEventListener('input',e=>{ if(e.target.name==='whatsapp'){ e.target.value=wmask(e.target.value)}});
     });
-  </script>
-  <script>
-    // Reveal-on-scroll con IntersectionObserver
+
+    // Reveal-on-scroll
     (function(){
       if('IntersectionObserver' in window){
-        const io = new IntersectionObserver((entries)=>{
-          entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-        },{threshold:0.18, rootMargin:'0px 0px -10% 0px'});
+        const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target)}})},{threshold:.18, rootMargin:'0px 0px -10% 0px'});
         document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
-      }else{
-        document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('in'));
-      }
+      }else{ document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('in')); }
     })();
-  </script>
-  <script>
-    // Popup: ~20s después del primer scroll; 1 vez por sesión
+
+    // Popup ~20s tras primer scroll (1 vez por sesión)
     (function(){
-      if (sessionStorage.getItem('st_popup_shown')) return;
-      let started = false;
-      const open = () => {
-        const m = document.getElementById('st-modal'); if(!m) return;
-        m.hidden = false; document.body.style.overflow = 'hidden';
-        sessionStorage.setItem('st_popup_shown','1');
-      };
-      const close = () => {
-        const m = document.getElementById('st-modal'); if(!m) return;
-        m.hidden = true; document.body.style.overflow = '';
-      };
-      const startTimer = () => {
-        if (started) return; started = true;
-        setTimeout(open, 20000);
-      };
-      window.addEventListener('scroll', startTimer, { passive:true, once:true });
-      document.getElementById('st-close').addEventListener('click', close);
-      document.getElementById('st-already').addEventListener('click', close);
-      document.getElementById('st-modal').addEventListener('click', (e)=>{ if(e.target.id === 'st-modal') close(); });
-      window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+      if(sessionStorage.getItem('st_popup_shown')) return;
+      let started=false;
+      const open=()=>{const m=document.getElementById('st-modal'); if(!m) return; m.hidden=false; document.body.style.overflow='hidden'; sessionStorage.setItem('st_popup_shown','1');};
+      const close=()=>{const m=document.getElementById('st-modal'); if(!m) return; m.hidden=true; document.body.style.overflow='';};
+      const start=()=>{if(started) return; started=true; setTimeout(open,20000);};
+      window.addEventListener('scroll',start,{passive:true, once:true});
+      document.getElementById('st-close').addEventListener('click',close);
+      document.getElementById('st-already').addEventListener('click',close);
+      document.getElementById('st-modal').addEventListener('click',e=>{ if(e.target.id==='st-modal') close(); });
+      window.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
+    })();
+
+    // ===== KPI Counters =====
+    (function(){
+      const clientsEl = document.getElementById('clients');
+      const ibsEl     = document.getElementById('ibs');
+      const paidEl    = document.getElementById('paid');
+
+      // Targets iniciales
+      let clients = 2503;   // “más de 2500”
+      let ibs     = 116;    // “más de 115”
+      let paid    = 107391; // USD en 12 meses
+
+      const fmtInt = n => n.toLocaleString('en-US');
+      const fmtUsd = n => n.toLocaleString('en-US');
+
+      // Animación rápida 0 -> target (≈1.2s)
+      function ramp(el, target, duration=1200, fmt=fmtInt){
+        const start = performance.now(); const from = 0;
+        function tick(now){
+          const p = Math.min(1,(now-start)/duration);
+          const val = Math.floor(from + (target-from) * (1 - Math.pow(1-p, 3))); // easeOutCubic
+          el.textContent = fmt(val);
+          if(p<1) requestAnimationFrame(tick); else el.textContent = fmt(target);
+        }
+        requestAnimationFrame(tick);
+      }
+      ramp(clientsEl, clients);
+      ramp(ibsEl, ibs);
+      ramp(paidEl, paid, 1000, fmtUsd);
+
+      // Incrementos periódicos
+      setInterval(()=>{ // clientes: cada 30s +1..4
+        const inc = Math.floor(Math.random()*4)+1;
+        clients += inc; clientsEl.textContent = fmtInt(clients);
+      }, 30000);
+
+      setInterval(()=>{ // IBs: cada 30s +0..1 (70% prob +1)
+        const inc = Math.random()<0.7 ? 1 : 0;
+        ibs += inc; ibsEl.textContent = fmtInt(ibs);
+      }, 30000);
+
+      setInterval(()=>{ // Comisiones: cada segundo +5..25 USD
+        const inc = 5 + Math.floor(Math.random()*21);
+        paid += inc; paidEl.textContent = fmtUsd(paid);
+      }, 1000);
     })();
   </script>
 </body>
