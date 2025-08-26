@@ -71,9 +71,9 @@
 
     /* ====== BANNER SUPERIOR (reemplaza Market Strip) ====== */
     .promo-bar{
-      position:sticky; top:0; z-index:80;    /* se queda un momento y luego se va */
+      position:sticky; top:0; z-index:80;           /* se queda pegado al top y se va al pasar */
       background:#0f1520; border-bottom:1px solid var(--stroke);
-      padding:8px 0;                         /* sin altura extra => queda pegado al menú */
+      padding:8px 0;                                 /* sin huecos encima del menú */
       box-shadow:0 6px 18px rgba(0,0,0,.25);
     }
     .promo-banner{
@@ -85,7 +85,7 @@
     .promo-banner:hover{ transform:translateY(-1px); filter:saturate(1.04); }
     .promo-banner img{ width:100%; height:auto; display:block; }
 
-    /* ====== Header / resto igual ====== */
+    /* ======= HEADER ======= */
     .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(13,17,23,.6); border-bottom:1px solid var(--stroke)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; align-items:center; gap:12px}
@@ -271,16 +271,35 @@
     /* ===== Modal (popup) ===== */
     .modal{ position:fixed; inset:0; padding:20px; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:999; }
     .modal[hidden]{ display:none; }
+
     .modal__card{
-      width:min(680px, 96vw); border-radius:18px; border:1px solid var(--glass-stroke);
+      width:min(760px, 96vw);
+      border-radius:18px; border:1px solid var(--glass-stroke);
       background:linear-gradient(180deg, rgba(17,24,35,.96), rgba(17,24,35,.92));
-      box-shadow:0 20px 60px rgba(0,0,0,.45); padding:18px;
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+      padding:0; overflow:hidden;
     }
-    .modal__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
-    .modal__title{ margin:0; font-size:20px; letter-spacing:-.2px; }
-    .modal__close{ border:none; background:transparent; color:var(--muted); font-size:22px; line-height:1; cursor:pointer; }
+    .modal__media{ position:relative; background:#0a1018; overflow:hidden; border-bottom:1px solid var(--glass-stroke); }
+    .modal__media a{ display:block; }
+    .modal__media img{ width:100%; height:auto; display:block; }
+
+    .modal__inner{ padding:18px; }
+    .modal__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; }
+    .modal__kicker{ font-size:12px; color:var(--muted); font-weight:700; letter-spacing:.12em; text-transform:uppercase; }
+    .modal__title{
+      margin:6px 0 8px; font-size:26px; line-height:1.2; letter-spacing:-.2px; font-weight:800;
+      background:linear-gradient(90deg,#cfe1ff,#ffffff 60%); -webkit-background-clip:text; color:transparent;
+    }
+    .modal__close{ border:none; background:rgba(255,255,255,.06); color:#cfe1ff; font-size:18px; line-height:1; cursor:pointer; width:32px; height:32px; border-radius:8px; }
     .modal__body ul{ margin:8px 0 0 18px; color:var(--muted); }
-    .modal__body li{ margin:.3em 0; }
+    .modal__body li{ margin:.34em 0; }
+
+    .bonus-badge{
+      display:inline-block; padding:8px 12px; border-radius:999px; font-weight:900; letter-spacing:.3px;
+      background:linear-gradient(90deg, var(--brand-1), var(--brand-2) 55%, var(--brand-3));
+      color:#07111f; box-shadow:0 8px 24px rgba(0,0,0,.25);
+    }
+
     .modal__actions{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
     .modal__small{ font-size:11px; color:var(--muted); margin-top:8px; }
 
@@ -336,6 +355,8 @@
       .headline{ font-size:44px; }
       .cta .btn{ min-width:100%; }
       .investing-frame iframe{ height:360px; }
+      .modal__title{ font-size:22px; }
+      .modal__inner{ padding:14px; }
     }
 
     /* ====== Navegación móvil scrollable ====== */
@@ -420,7 +441,7 @@
         </div>
       </div>
 
-      <!-- Mercado en vivo (todo igual) -->
+      <!-- Mercado en vivo -->
       <aside class="panel market-glass card-glass thin elev" aria-label="Mercado en vivo">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px"><strong>Mercado en vivo</strong><span class="pill">Market Overview</span></div>
         <div class="tv-market" style="height:420px">
@@ -703,25 +724,46 @@
   <!-- ======= POPUP STARTRADER (20s después del primer scroll, 1 vez por sesión) ======= -->
   <div id="st-modal" class="modal" hidden>
     <div class="modal__card" role="dialog" aria-labelledby="st-modal-title" aria-modal="true">
-      <div class="modal__head">
-        <h4 id="st-modal-title" class="modal__title">¿Ya abriste tu cuenta en STARTRADER?</h4>
-        <button id="st-close" class="modal__close" aria-label="Cerrar">✕</button>
+      <!-- Imagen superior clickable -->
+      <div class="modal__media">
+        <a href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">
+          <img src="https://raw.githubusercontent.com/omargama20/MyTraderHub/refs/heads/main/STARTRADER%20BONO.webp"
+               alt="STARTRADER: Bono 50% en tu primer depósito">
+        </a>
       </div>
-      <div class="modal__body">
-        <p class="subtle" style="margin:0 0 6px">Beneficios destacados:</p>
-        <ul>
-          <li><strong>Depósito mínimo desde 50 USD</strong> para comenzar.</li>
-          <li><strong>Cuentas Standard y ECN</strong> con spreads competitivos.</li>
-          <li><strong>MT4 / MT5</strong> disponibles y apalancamiento alto (según jurisdicción).</li>
-          <li><strong>+1000 instrumentos</strong>: forex, índices, metales, materias primas y acciones.</li>
-          <li><strong>STAR Copy</strong> para copiar traders con mínimo de 50 (moneda base).</li>
-          <li>Múltiples métodos de fondeo y retiro.</li>
-        </ul>
-        <div class="modal__actions">
-          <a class="btn btn--grad" href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">Abrir cuenta ahora</a>
-          <a class="btn" href="#lead" id="st-already">Ya tengo cuenta</a>
+
+      <div class="modal__inner">
+        <div class="modal__head">
+          <div>
+            <div class="modal__kicker">Promoción</div>
+            <h4 id="st-modal-title" class="modal__title">
+              Deposita y obtén <span class="bonus-badge">50% de bono</span> en tu primer depósito
+            </h4>
+          </div>
+          <button id="st-close" class="modal__close" aria-label="Cerrar">✕</button>
         </div>
-        <div class="modal__small">Las condiciones pueden variar por país/jurisdicción. Verifica términos actualizados en el sitio oficial.</div>
+
+        <div class="modal__body">
+          <p class="subtle" style="margin:0 0 6px">Además, con tu cuenta STARTRADER tienes:</p>
+          <ul>
+            <li><strong>Depósito mínimo desde 50 USD</strong> para comenzar.</li>
+            <li><strong>Cuentas Standard y ECN</strong> con spreads competitivos.</li>
+            <li><strong>MT4 / MT5</strong> disponibles y apalancamiento alto (según jurisdicción).</li>
+            <li><strong>+1000 instrumentos</strong>: forex, índices, metales, materias primas y acciones.</li>
+            <li><strong>STAR Copy</strong> para copiar traders con mínimo de 50 (moneda base).</li>
+            <li>Múltiples métodos de fondeo y retiro.</li>
+          </ul>
+
+          <div class="modal__actions">
+            <a class="btn btn--grad" href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">Abrir cuenta ahora</a>
+            <a class="btn" href="#lead" id="st-already">Ya tengo cuenta</a>
+          </div>
+
+          <div class="modal__small">
+            Promoción sujeta a términos y condiciones y disponibilidad por país/jurisdicción.
+            Verifica requisitos en el sitio oficial antes de fondear.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -736,7 +778,7 @@
     });
   </script>
   <script>
-    // Reveal-on-scroll con IntersectionObserver (original)
+    // Reveal-on-scroll con IntersectionObserver
     (function(){
       if('IntersectionObserver' in window){
         const io = new IntersectionObserver((entries)=>{
@@ -752,7 +794,7 @@
     // ===== Popup: aparece ~20s después del primer scroll; 1 vez por sesión =====
     (function(){
       if (sessionStorage.getItem('st_popup_shown')) return;
-      let started = false, timer;
+      let started = false;
       const open = () => {
         const m = document.getElementById('st-modal'); if(!m) return;
         m.hidden = false; document.body.style.overflow = 'hidden';
@@ -764,7 +806,7 @@
       };
       const startTimer = () => {
         if (started) return; started = true;
-        timer = setTimeout(open, 20000); // 20s
+        setTimeout(open, 20000); // 20s
       };
       window.addEventListener('scroll', startTimer, { passive:true, once:true });
       document.getElementById('st-close').addEventListener('click', close);
