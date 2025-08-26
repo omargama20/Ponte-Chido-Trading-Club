@@ -69,9 +69,23 @@
     img{max-width:100%; display:block}
     .wrap{max-width:1180px; margin:0 auto; padding:0 20px}
 
-    .market-strip{background:#0f1520; border-bottom:1px solid var(--stroke); position:sticky; top:0; z-index:70; box-shadow:0 6px 18px rgba(0,0,0,.25)}
-    .market-strip .tradingview-widget-container{max-width:1180px; margin:0 auto; padding:6px 20px}
+    /* ====== BANNER SUPERIOR (reemplaza Market Strip) ====== */
+    .promo-bar{
+      position:sticky; top:0; z-index:80;    /* se queda un momento y luego se va */
+      background:#0f1520; border-bottom:1px solid var(--stroke);
+      padding:8px 0;                         /* sin altura extra => queda pegado al menú */
+      box-shadow:0 6px 18px rgba(0,0,0,.25);
+    }
+    .promo-banner{
+      display:block; max-width:1180px; margin:0 auto;
+      border-radius:14px; overflow:hidden; border:1px solid var(--glass-stroke);
+      transition:transform .18s ease, filter .18s ease;
+      background:rgba(255,255,255,.02);
+    }
+    .promo-banner:hover{ transform:translateY(-1px); filter:saturate(1.04); }
+    .promo-banner img{ width:100%; height:auto; display:block; }
 
+    /* ====== Header / resto igual ====== */
     .header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(8px); background:rgba(13,17,23,.6); border-bottom:1px solid var(--stroke)}
     .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
     .brand{display:flex; align-items:center; gap:12px}
@@ -242,40 +256,38 @@
     }
     .market-mov .inner{position:relative; z-index:1;}
 
-    /* ⬇️ Ajuste de tamaño del cuadro + iframe a lo pedido */
+    /* Tarjeta Investing */
     .investing-card{
-      width:100%;
-      margin:0 auto;
-      border-radius:20px; border:1px solid var(--glass-stroke);
-      background:rgba(255,255,255,.03);
-      box-shadow:0 10px 30px rgba(0,0,0,.25);
-      padding:12px;
+      width:100%; margin:0 auto; border-radius:20px; border:1px solid var(--glass-stroke);
+      background:rgba(255,255,255,.03); box-shadow:0 10px 30px rgba(0,0,0,.25); padding:12px;
     }
-    .investing-header{
-      display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px;
-    }
-    .investing-frame{
-      border-radius:16px;
-      overflow:hidden;
-    }
+    .investing-header{ display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px; }
+    .investing-frame{ border-radius:16px; overflow:hidden; }
     .investing-frame iframe{
-      display:block;
-      width:100%;
-      border:0;
-      background:#0a1018;
-      box-shadow:0 6px 18px rgba(0,0,0,.18);
-    }
-    @media (max-width:740px){
-      .investing-frame iframe{ }
+      display:block; width:100%; border:0; background:#0a1018; box-shadow:0 6px 18px rgba(0,0,0,.18);
     }
     .investing-credit{ text-align:center; font-size:12px; color:var(--muted); margin-top:6px; }
 
+    /* ===== Modal (popup) ===== */
+    .modal{ position:fixed; inset:0; padding:20px; background:rgba(0,0,0,.6); display:flex; align-items:center; justify-content:center; z-index:999; }
+    .modal[hidden]{ display:none; }
+    .modal__card{
+      width:min(680px, 96vw); border-radius:18px; border:1px solid var(--glass-stroke);
+      background:linear-gradient(180deg, rgba(17,24,35,.96), rgba(17,24,35,.92));
+      box-shadow:0 20px 60px rgba(0,0,0,.45); padding:18px;
+    }
+    .modal__head{ display:flex; align-items:center; justify-content:space-between; gap:10px; }
+    .modal__title{ margin:0; font-size:20px; letter-spacing:-.2px; }
+    .modal__close{ border:none; background:transparent; color:var(--muted); font-size:22px; line-height:1; cursor:pointer; }
+    .modal__body ul{ margin:8px 0 0 18px; color:var(--muted); }
+    .modal__body li{ margin:.3em 0; }
+    .modal__actions{ display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+    .modal__small{ font-size:11px; color:var(--muted); margin-top:8px; }
+
     /* === Animaciones reveal-on-scroll === */
     @media (prefers-reduced-motion:no-preference){
-      [data-reveal]{
-        opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
-        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease;
-      }
+      [data-reveal]{ opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9);
+        will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease; }
       [data-reveal].in{opacity:1; transform:none; filter:none}
       .stagger-1{transition-delay:.06s}
       .stagger-2{transition-delay:.12s}
@@ -283,47 +295,78 @@
       .stagger-4{transition-delay:.24s}
     }
 
-    /* ===== Calendario Económico responsive (ajuste nuevo) ===== */
+    /* ===== Calendario Económico responsive ===== */
     .calendar-desktop{ display:block; margin:0 auto; max-width:1000px; }
     .calendar-mobile{ display:none;  margin:0 auto; max-width:100%; }
-    @media (max-width: 768px){
+
+    /* ====== Ajustes MOVIL (≤ 980px) ====== */
+    @media (max-width: 980px){
+      .wrap{ padding:0 16px; }
+      .hero{ padding:56px 0 32px; }
+      .hero-grid{ grid-template-columns:1fr; gap:18px; }
+      .hero-grid > div{ order:1; }
+      .hero-grid > aside{ order:2; }
+      .headline{ font-size:56px; line-height:1.08; }
+      .sub{ font-size:15px; }
+      .cta{ gap:10px; }
+      .cta .btn{ flex:1 1 auto; min-width:46%; }
+
+      .value-cards{ grid-template-columns:1fr; gap:10px; }
+      .vcard{ padding:12px; }
+      .vcard h4{ font-size:15px; }
+      .vicon{ width:32px; height:32px; font-size:16px; }
+
+      .tv-market{ height:300px; }
+
+      .steps{ padding:28px 0; }
+      .steps-grid{ grid-template-columns:1fr; gap:12px; }
+      .panel{ padding:14px; }
+
+      .market-mov{ padding:14px 0 22px; }
+      .investing-card{ padding:10px; }
+      .investing-header{ justify-content:center; margin-bottom:10px; }
+      .investing-frame iframe{ height:420px; }
+
       .calendar-desktop{ display:none !important; }
       .calendar-mobile{ display:block !important; }
+    }
+
+    /* ====== Ajustes móviles compactos (≤ 480px) ====== */
+    @media (max-width: 480px){
+      .headline{ font-size:44px; }
+      .cta .btn{ min-width:100%; }
+      .investing-frame iframe{ height:360px; }
+    }
+
+    /* ====== Navegación móvil scrollable ====== */
+    @media (max-width: 640px){
+      .nav-actions{ overflow-x:auto; -webkit-overflow-scrolling:touch; gap:8px; scrollbar-width:none; }
+      .nav-actions::-webkit-scrollbar{ display:none; }
+    }
+
+    /* ====== Split a 1 columna en móvil ====== */
+    @media (max-width: 900px){
+      .split{ grid-template-columns:1fr; gap:14px; }
+    }
+
+    /* ====== Evita que la barra fija tape contenido ====== */
+    @media (max-width: 768px){
+      body{ padding-bottom:88px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ========== MARKET STRIP ========== -->
-  <section class="market-strip">
-    <div class="tradingview-widget-container">
-      <div class="tradingview-widget-container__widget"></div>
-      <div class="tradingview-widget-copyright">
-        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
-          <span class="blue-text">Quotes by TradingView</span></a>
-      </div>
-      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
-      {
-        "symbols": [
-          {"proName":"FOREXCOM:SPXUSD","title":"S&P 500 Index"},
-          {"proName":"FX_IDC:EURUSD","title":"EUR to USD"},
-          {"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},
-          {"proName":"BITSTAMP:ETHUSD","title":"Ethereum"},
-          {"proName":"OANDA:XAUUSD","title":"XAUUSD"},
-          {"proName":"OANDA:GBPUSD","title":"GBPUSD"},
-          {"proName":"OANDA:USDJPY","title":"USDJPY"},
-          {"proName":"OANDA:AUDUSD","title":"AUDUSD"},
-          {"proName":"OANDA:CHFJPY","title":"CHFJPY"}
-        ],
-        "colorTheme":"dark",
-        "locale":"en",
-        "largeChartUrl":"",
-        "isTransparent":false,
-        "showSymbolLogo":true
-      }
-      </script>
-    </div>
-  </section>
+  <!-- ======= BANNER STARTRADER (pegado al menú y sticky breve) ======= -->
+  <div class="promo-bar">
+    <a class="promo-banner"
+       href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ=="
+       target="_blank" rel="noopener">
+      <img
+        src="https://raw.githubusercontent.com/omargama20/MyTraderHub/8d270540a6adfa262e54d2be21b753ca43675c45/BANNER%20STARTRADER.jpg"
+        alt="Abre tu cuenta en STARTRADER — Promoción">
+    </a>
+  </div>
 
   <!-- ======= HEADER ======= -->
   <header class="header">
@@ -377,7 +420,7 @@
         </div>
       </div>
 
-      <!-- Mercado en vivo -->
+      <!-- Mercado en vivo (todo igual) -->
       <aside class="panel market-glass card-glass thin elev" aria-label="Mercado en vivo">
         <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px"><strong>Mercado en vivo</strong><span class="pill">Market Overview</span></div>
         <div class="tv-market" style="height:420px">
@@ -485,28 +528,15 @@
 
     <div class="wrap inner">
       <div class="investing-card card-glass thin elev" data-reveal>
-        <!-- Solo botón (sin título) como pediste -->
         <div class="investing-header">
           <a class="btn btn--grad" href="#copytrade">Ver Copytrade</a>
         </div>
 
-        <!-- ✅ Calendario centrado + responsive (ajuste nuevo) -->
         <div class="investing-frame">
-          <!-- Desktop -->
-          <div class="calendar-desktop">
-            <iframe
-              src="https://sslecal2.investing.com?ecoDayBackground=%238149fa&defaultFont=%23383535&innerBorderColor=%238149fa&borderColor=%238149fa&ecoDayFontColor=%23f2efef&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
-              width="100%" height="520" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
-            </iframe>
-          </div>
-
-          <!-- Mobile -->
-          <div class="calendar-mobile">
-            <iframe
-              src="https://sslecal2.investing.com?ecoDayBackground=%238149fa&defaultFont=%23383535&innerBorderColor=%238149fa&borderColor=%238149fa&ecoDayFontColor=%23f2efef&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
-              width="100%" height="450" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
-            </iframe>
-          </div>
+          <iframe
+            src="https://sslecal2.investing.com?ecoDayBackground=%238149fa&defaultFont=%23383535&innerBorderColor=%238149fa&borderColor=%238149fa&ecoDayFontColor=%23f2efef&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49"
+            width="100%" height="520" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0">
+          </iframe>
         </div>
 
         <div class="investing-credit">
@@ -670,6 +700,32 @@
     <a class="btn" href="#curso">Curso</a>
   </div>
 
+  <!-- ======= POPUP STARTRADER (20s después del primer scroll, 1 vez por sesión) ======= -->
+  <div id="st-modal" class="modal" hidden>
+    <div class="modal__card" role="dialog" aria-labelledby="st-modal-title" aria-modal="true">
+      <div class="modal__head">
+        <h4 id="st-modal-title" class="modal__title">¿Ya abriste tu cuenta en STARTRADER?</h4>
+        <button id="st-close" class="modal__close" aria-label="Cerrar">✕</button>
+      </div>
+      <div class="modal__body">
+        <p class="subtle" style="margin:0 0 6px">Beneficios destacados:</p>
+        <ul>
+          <li><strong>Depósito mínimo desde 50 USD</strong> para comenzar.</li>
+          <li><strong>Cuentas Standard y ECN</strong> con spreads competitivos.</li>
+          <li><strong>MT4 / MT5</strong> disponibles y apalancamiento alto (según jurisdicción).</li>
+          <li><strong>+1000 instrumentos</strong>: forex, índices, metales, materias primas y acciones.</li>
+          <li><strong>STAR Copy</strong> para copiar traders con mínimo de 50 (moneda base).</li>
+          <li>Múltiples métodos de fondeo y retiro.</li>
+        </ul>
+        <div class="modal__actions">
+          <a class="btn btn--grad" href="http://www.startrader.com/live-account/?affid=NBMjgzOTcxMQ==" target="_blank" rel="noopener">Abrir cuenta ahora</a>
+          <a class="btn" href="#lead" id="st-already">Ya tengo cuenta</a>
+        </div>
+        <div class="modal__small">Las condiciones pueden variar por país/jurisdicción. Verifica términos actualizados en el sitio oficial.</div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Año dinámico + máscara simple de WhatsApp
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -680,7 +736,7 @@
     });
   </script>
   <script>
-    // Reveal-on-scroll con IntersectionObserver
+    // Reveal-on-scroll con IntersectionObserver (original)
     (function(){
       if('IntersectionObserver' in window){
         const io = new IntersectionObserver((entries)=>{
@@ -690,6 +746,33 @@
       }else{
         document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('in'));
       }
+    })();
+  </script>
+  <script>
+    // ===== Popup: aparece ~20s después del primer scroll; 1 vez por sesión =====
+    (function(){
+      if (sessionStorage.getItem('st_popup_shown')) return;
+      let started = false, timer;
+      const open = () => {
+        const m = document.getElementById('st-modal'); if(!m) return;
+        m.hidden = false; document.body.style.overflow = 'hidden';
+        sessionStorage.setItem('st_popup_shown','1');
+      };
+      const close = () => {
+        const m = document.getElementById('st-modal'); if(!m) return;
+        m.hidden = true; document.body.style.overflow = '';
+      };
+      const startTimer = () => {
+        if (started) return; started = true;
+        timer = setTimeout(open, 20000); // 20s
+      };
+      window.addEventListener('scroll', startTimer, { passive:true, once:true });
+      document.getElementById('st-close').addEventListener('click', close);
+      document.getElementById('st-already').addEventListener('click', close);
+      document.getElementById('st-modal').addEventListener('click', (e)=>{
+        if(e.target.id === 'st-modal') close();
+      });
+      window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
     })();
   </script>
 </body>
