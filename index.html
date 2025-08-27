@@ -1,4 +1,4 @@
-​<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="utf-8" />
@@ -35,7 +35,7 @@
   <link rel="dns-prefetch" href="//formsubmit.co">
 
   <style>
-    /* ======== Paleta & base estilo LatamPay ======= */
+    /* ======== Paleta & base ======= */
     :root{
       --bg:#0b0e13; --panel:#0e1218; --panel-2:#0a0f16;
       --stroke:#162233; --txt:#e6e9ef; --muted:#9fb1c7;
@@ -115,17 +115,16 @@
     .tv-market{height:520px}
     .tv-market .tradingview-widget-container,.tv-market .tradingview-widget-container__widget{height:100% !important}
 
-    /* ====== NUEVA SECCIÓN: KPIs / CONTADORES ====== */
-    
-  
+    /* ====== KPIs / CONTADORES ====== */
     .stats{padding:28px 0; border-top:1px solid #0e1a2b; border-bottom:1px solid #0e1a2b; background:linear-gradient(180deg, rgba(15,24,37,.4), rgba(11,14,19,.2))}
     .stats-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; align-items:stretch}
     .stat{display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; padding:26px 16px; text-align:center; border-radius:16px; background:var(--panel); border:1px solid rgba(42,111,242,.28); box-shadow:var(--glow)}
     .stat .num{font-weight:800; font-size:56px; letter-spacing:-1px; line-height:1}
     .stat .num .accent{background:linear-gradient(90deg,#6aa8ff,#2a6ff2 60%,#1ac8ff); -webkit-background-clip:text; color:transparent}
     .stat .label{color:var(--muted); font-size:14px}
+    .stat .label.big{font-size:20px; font-weight:700; color:var(--txt); margin-top:4px}
     .stat small{font-size:12px; color:var(--muted)}
-    @media (max-width:980px){ .stats-grid{grid-template-columns:1fr; gap:12px} .stat{padding:20px} .stat .num{font-size:44px} }
+    @media (max-width:980px){ .stats-grid{grid-template-columns:1fr; gap:12px} .stat{padding:20px} .stat .num{font-size:44px} .stat .label.big{font-size:18px} }
 
     /* ===== Pasos / Forms / Otras ===== */
     .steps{padding:36px 0}
@@ -147,18 +146,6 @@
     .h-section{font-size:28px; letter-spacing:-.2px; margin:8px 0 16px; background:linear-gradient(90deg,#cfe1ff,#6aa8ff 60%, var(--blue)); -webkit-background-clip:text; color:transparent}
     .panel.fine{border:1px solid rgba(42,111,242,.28); background:var(--panel); box-shadow:var(--glow)}
 
-    /* Mercado en movimiento (Investing) */
-    .market-mov{position:relative; padding:18px 0 26px}
-    .market-mov .bg{position:absolute; inset:0; z-index:0; overflow:hidden}
-    .market-mov .bg video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.12; filter:saturate(1.15) contrast(1.05)}
-    .market-mov .bg::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(11,14,19,.35) 0%, rgba(11,14,19,.65) 55%, rgba(11,14,19,.85) 100%)}
-    .market-mov .inner{position:relative; z-index:1}
-    .investing-card{width:100%; margin:0 auto; border-radius:20px; border:1px solid rgba(42,111,242,.28); background:var(--panel); box-shadow:var(--glow); padding:12px}
-    .investing-header{display:flex; align-items:center; justify-content:flex-end; margin-bottom:8px}
-    .investing-frame{border-radius:16px; overflow:hidden}
-    .investing-frame iframe{display:block; width:100%; border:0; background:#0a1018; box-shadow:0 6px 18px rgba(0,0,0,.18)}
-    .investing-credit{text-align:center; font-size:12px; color:var(--muted); margin-top:6px}
-
     /* Reveal */
     @media (prefers-reduced-motion:no-preference){
       [data-reveal]{opacity:.001; transform:translateY(16px) scale(.98); filter:saturate(.9); will-change:transform,opacity; transition:opacity .6s ease, transform .6s ease, filter .6s ease}
@@ -176,18 +163,13 @@
       .sub{font-size:15px}
       .cta{gap:10px}
       .vcard{padding:12px}
-      .vcard h4{font-size:15px}
       .vicon{width:32px; height:32px; font-size:16px}
       .tv-market{height:360px}
       .steps{padding:28px 0}
       .steps-grid{grid-template-columns:1fr; gap:12px}
       .panel{padding:14px}
-      .market-mov{padding:14px 0 22px}
-      .investing-card{padding:10px}
-      .investing-header{justify-content:center; margin-bottom:10px}
-      .investing-frame iframe{height:420px}
     }
-    @media (max-width:480px){ .headline{font-size:44px} .cta .btn{min-width:100%} .investing-frame iframe{height:360px} }
+    @media (max-width:480px){ .headline{font-size:44px} .cta .btn{min-width:100%} }
     @media (max-width:640px){ .nav-actions{overflow-x:auto; -webkit-overflow-scrolling:touch; gap:8px; scrollbar-width:none} .nav-actions::-webkit-scrollbar{display:none} }
     @media (max-width:900px){ .split{grid-template-columns:1fr; gap:14px} }
     @media (max-width:768px){ body{padding-bottom:88px} }
@@ -291,21 +273,21 @@
     </div>
   </section>
 
-  <!-- ===== NUEVA SECCIÓN: KPIs ===== -->
+  <!-- ===== KPIs ===== -->
   <section id="stats" class="stats halo">
     <div class="wrap">
       <div class="stats-grid">
         <div class="stat" data-reveal>
           <div class="num" aria-live="polite"><span id="clients" class="accent">0</span><span class="accent">+</span></div>
-          <div class="label">Clientes activos</div>
+          <div class="label big">Clientes activos</div>
         </div>
         <div class="stat" data-reveal>
           <div class="num" aria-live="polite"><span id="ibs" class="accent">0</span><span class="accent">+</span></div>
-          <div class="label">IB / Affiliates</div>
+          <div class="label big">IB / Affiliates</div>
         </div>
         <div class="stat" data-reveal>
-          <div class="num" aria-live="polite">$<span id="paid" class="accent">0</span></div>
-          <div class="label">Comisiones pagadas </div>
+          <div class="num" aria-live="polite"><span class="accent">$</span><span id="paid" class="accent">0</span></div>
+          <div class="label big">Comisiones pagadas</div>
           <small>(últimos 12 meses)</small>
         </div>
       </div>
@@ -342,22 +324,6 @@
         </div>
         <p class="notice">Haz clic para ver el detalle en tiempo real dentro de Myfxbook.</p>
         <div class="cta"><a class="btn primary" href="#lead">Conectarme al Copytrade</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== MERCADO EN MOVIMIENTO ===== -->
-  <section class="market-mov halo" aria-label="Mercado en movimiento">
-    <div class="bg" aria-hidden="true">
-      <video autoplay muted loop playsinline src="https://raw.githubusercontent.com/omargama20/MyTraderHub/444d2f6dec1d076992537585a07df2069afa0243/vecteezy_digital-animation-of-business-stock-market-price-chart_2273297%20(1).mp4"></video>
-    </div>
-    <div class="wrap inner">
-      <div class="investing-card" data-reveal>
-        <div class="investing-header"><a class="btn primary" href="#copytrade">Ver Copytrade</a></div>
-        <div class="investing-frame">
-          <iframe src="https://sslecal2.investing.com?ecoDayBackground=%230b0e13&defaultFont=%23e6e9ef&innerBorderColor=%232a6ff2&borderColor=%232a6ff2&ecoDayFontColor=%23cfe1ff&columns=exc_flags,exc_currency,exc_importance,exc_actual,exc_forecast,exc_previous&category=_employment,_economicActivity,_inflation,_credit,_centralBanks,_confidenceIndex,_balance,_Bonds&importance=2&features=datepicker,timezone,timeselector&countries=17,25,6,37,5,72,22,10,35,7,4,12&calType=day&timeZone=40&lang=49" width="100%" height="520" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0"></iframe>
-        </div>
-        <div class="investing-credit">Calendario económico en vivo cortesía de <a href="https://mx.investing.com/" rel="nofollow noopener" target="_blank">Investing.com México</a></div>
       </div>
     </div>
   </section>
@@ -528,36 +494,29 @@
       window.addEventListener('keydown',e=>{ if(e.key==='Escape') close(); });
     })();
 
-    // ===== KPI Counters =====
+    // ===== KPI Counters (ramp clientes/IB) =====
     (function(){
       const clientsEl = document.getElementById('clients');
       const ibsEl     = document.getElementById('ibs');
-      const paidEl    = document.getElementById('paid');
 
-      // Targets iniciales
       let clients = 2503;   // “más de 2500”
       let ibs     = 116;    // “más de 115”
-      let paid    = 107391; // USD en 12 meses
 
       const fmtInt = n => n.toLocaleString('en-US');
-      const fmtUsd = n => n.toLocaleString('en-US');
 
-      // Animación rápida 0 -> target (≈1.2s)
-      function ramp(el, target, duration=1200, fmt=fmtInt){
+      function ramp(el, target, duration=1200){
         const start = performance.now(); const from = 0;
         function tick(now){
           const p = Math.min(1,(now-start)/duration);
-          const val = Math.floor(from + (target-from) * (1 - Math.pow(1-p, 3))); // easeOutCubic
-          el.textContent = fmt(val);
-          if(p<1) requestAnimationFrame(tick); else el.textContent = fmt(target);
+          const val = Math.floor(from + (target-from) * (1 - Math.pow(1-p, 3)));
+          el.textContent = fmtInt(val);
+          if(p<1) requestAnimationFrame(tick); else el.textContent = fmtInt(target);
         }
         requestAnimationFrame(tick);
       }
       ramp(clientsEl, clients);
       ramp(ibsEl, ibs);
-      ramp(paidEl, paid, 1000, fmtUsd);
 
-      // Incrementos periódicos
       setInterval(()=>{ // clientes: cada 30s +1..4
         const inc = Math.floor(Math.random()*4)+1;
         clients += inc; clientsEl.textContent = fmtInt(clients);
@@ -567,13 +526,67 @@
         const inc = Math.random()<0.7 ? 1 : 0;
         ibs += inc; ibsEl.textContent = fmtInt(ibs);
       }, 30000);
+    })();
 
-      setInterval(()=>{ // Comisiones: cada segundo +5..25 USD
-        const inc = 5 + Math.floor(Math.random()*21);
-        paid += inc; paidEl.textContent = fmtUsd(paid);
-      }, 1000);
+    // ===== KPI Comisiones (persistente en localStorage) =====
+    (function(){
+      const paidEl = document.getElementById('paid');
+
+      // Velocidad de crecimiento (no se muestra en UI)
+      const paidRate = 7; // USD por segundo
+
+      // Claves de almacenamiento
+      const PAID_KEY   = 'mth_paid_base';
+      const TS_KEY     = 'mth_paid_ts';
+      const RATE_KEY   = 'mth_paid_rate';
+
+      const fmtUsd = n => Math.floor(n).toLocaleString('en-US');
+
+      // Base inicial visible
+      const initialPaid = 107391;
+
+      // Carga estado
+      let basePaid   = Number(localStorage.getItem(PAID_KEY));
+      let baseTs     = Number(localStorage.getItem(TS_KEY));
+      let storedRate = Number(localStorage.getItem(RATE_KEY));
+
+      const now = Date.now();
+      if(!basePaid || !baseTs || !storedRate || storedRate !== paidRate){
+        basePaid = initialPaid;
+        baseTs   = now;
+        localStorage.setItem(PAID_KEY, String(basePaid));
+        localStorage.setItem(TS_KEY, String(baseTs));
+        localStorage.setItem(RATE_KEY, String(paidRate));
+      }
+
+      function render(){
+        const t = Date.now();
+        const elapsedSec = (t - baseTs)/1000;
+        const current = basePaid + elapsedSec * paidRate;
+        paidEl.textContent = fmtUsd(current);
+      }
+
+      render();
+      setInterval(render, 1000);
+
+      // Consolidación periódica
+      setInterval(()=>{
+        const t = Date.now();
+        const elapsedSec = (t - baseTs)/1000;
+        basePaid = basePaid + elapsedSec * paidRate;
+        baseTs   = t;
+        localStorage.setItem(PAID_KEY, String(basePaid));
+        localStorage.setItem(TS_KEY, String(baseTs));
+      }, 10000);
+
+      window.addEventListener('beforeunload', ()=>{
+        const t = Date.now();
+        const elapsedSec = (t - baseTs)/1000;
+        const consolidated = basePaid + elapsedSec * paidRate;
+        localStorage.setItem(PAID_KEY, String(consolidated));
+        localStorage.setItem(TS_KEY, String(t));
+      });
     })();
   </script>
 </body>
 </html>
-
