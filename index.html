@@ -222,6 +222,31 @@ input:focus,select:focus,textarea:focus{border-color:rgba(42,111,242,.7); box-sh
 @media (max-width:480px){ .headline{font-size:44px} .cta .btn{min-width:100%} }
 @media (max-width:640px){ .nav-actions{overflow-x:auto; -webkit-overflow-scrolling:touch; gap:8px; scrollbar-width:none} .nav-actions::-webkit-scrollbar{display:none} }
 @media (max-width:768px){ body{padding-bottom:88px} }
+  
+  /* ===== EA LAB (Coming soon, simple) ===== */
+.ea{padding:56px 0}
+.ea-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:26px; align-items:center}
+.ea-coming{
+  font-size:56px; font-weight:900; margin:6px 0 4px;
+  background:linear-gradient(90deg,#cfe1ff,#6aa8ff 60%, var(--blue));
+  -webkit-background-clip:text; color:transparent;
+  text-shadow:0 0 22px rgba(42,111,242,.28);
+}
+.ea-sub{color:var(--muted); margin:8px 0 16px; font-size:15px; line-height:1.65}
+.ea-card{
+  border:1px solid rgba(42,111,242,.32); border-radius:16px; background:var(--panel);
+  box-shadow:var(--glow); padding:18px;
+}
+.ea-robot{display:flex; justify-content:center}
+.ea-robot img{max-width:92%; height:auto; filter:drop-shadow(0 12px 36px rgba(0,0,0,.55))}
+.ea-cta{display:flex; gap:12px; flex-wrap:wrap}
+.ea-cta .btn.xl{padding:14px 22px; font-size:16px; border-radius:14px; font-weight:800}
+
+@media (max-width:980px){
+  .ea-grid{grid-template-columns:1fr}
+  .ea-coming{font-size:40px}
+}
+
 </style>
 </head>
 <body>
@@ -410,6 +435,40 @@ input:focus,select:focus,textarea:focus{border-color:rgba(42,111,242,.7); box-sh
     </div>
   </div>
 </section>
+  
+<!-- ===== EA LAB ===== -->
+<section class="ea halo" id="ea-lab" aria-label="EA-Lab con IA">
+  <div class="wrap ea-grid">
+
+    <!-- Texto -->
+    <div>
+      <div class="ea-card" data-reveal>
+        <span class="pill">IA • Trading • Automatización</span>
+        <h2 class="ea-coming">🚀 COMING SOON</h2>
+        <h3 class="h-section" style="margin-top:6px">EA-Lab con Inteligencia Artificial</h3>
+        <p class="ea-sub">
+          Un espacio para que <strong>construyas tus propios Expert Advisors</strong> asistido por IA.
+          Desde tu idea y reglas, te ayudamos a convertirlo en un EA a tu medida, con enfoque en
+          claridad, documentación y soporte. Muy pronto abriremos acceso al laboratorio para que
+          puedas gestionar tus proyectos y licencias de forma centralizada.
+        </p>
+        <div class="ea-cta">
+          <a class="btn xl primary" href="https://ea.mytraderhub.lat" target="_blank" rel="noopener">IR A EA LAB</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Imagen -->
+    <div class="ea-robot" data-reveal>
+      <img loading="lazy"
+           src="https://png.pngtree.com/png-vector/20250307/ourmid/pngtree-stunning-ai-powered-robot-interacting-with-transparent-touchscreen-png-image_15731498.png"
+           alt="EA-Lab con IA — Robot">
+    </div>
+
+  </div>
+</section>
+
+
 
 <!-- ===== SEÑALES + CURSO ===== -->
 <section class="wrap split halo" id="senales">
@@ -723,3 +782,4 @@ const wmask = v => v.replace(/[^+\d\s-]/g,'').replace(/\s{2,}/g,' ').trim();
 </script>
 </body>
 </html>
+
